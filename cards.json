@@ -1,0 +1,58 @@
+{
+  "cards": [
+    {
+      "name": "Admin Reload",
+      "type": "offense",
+      "affinity": "fortune",
+      "stats": [],
+      "secondaryEffects": [
+        {
+          "effect": "When you stow your weapon, it reloads.",
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Adrenaline Fueled",
+      "type": "offense",
+      "affinity": "reflex",
+      "stats": [],
+      "secondaryEffects": [
+        {
+          "effect": "When you kill an enemy, gain 5 stamina and an additional 7 stamina over 7 seconds, stacking up to 5 times.",
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "AI Assistant Module",
+      "type": "ability",
+      "affinity": "fortune",
+      "stats": [],
+      "secondaryEffects": [
+        {
+          "effect": "5% item reuse chance that increases by 10% after every item used. Resets on reuse. Gadget cost: 20 sniper rifle ammo. REPLACES: quick slot. FRAGILE.",
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Ammo Belt",
+      "type": "offense",
+      "affinity": "discipline",
+      "stats": [
+        {
+          "effect": "ammo capacity",
+          "amount": 50,
+          "team": false
+        },
+        {
+          "effect": "reload speed",
+          "amount": 15,
+          "team": false
+        }
+      ],
+      "secondaryEffects": []
+    }
+  ]
+}
