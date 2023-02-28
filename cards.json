@@ -2,9 +2,8 @@
   "cards": [
     {
       "name": "Admin Reload",
-      "type": "offense",
-      "affinity": "fortune",
-      "stats": [],
+      "type": "Offense",
+      "affinity": "Fortune",
       "secondaryEffects": [
         {
           "effect": "When you stow your weapon, it reloads.",
@@ -14,32 +13,42 @@
     },
     {
       "name": "Adrenaline Fueled",
-      "type": "offense",
-      "affinity": "reflex",
-      "stats": [],
+      "type": "Offense",
+      "affinity": "Reflex",
       "secondaryEffects": [
         {
-          "effect": "When you kill an enemy, gain 5 stamina and an additional 7 stamina over 7 seconds, stacking up to 5 times.",
+          "effect": "When you kill an enemy, gain 5 stamina instantly and an additional 7 stamina over 7 seconds, stacking up to 5 times.",
           "team": false
         }
       ]
     },
     {
       "name": "AI Assistant Module",
-      "type": "ability",
-      "affinity": "fortune",
-      "stats": [],
-      "secondaryEffects": [
+      "type": "Ability",
+      "affinity": "Fortune",
+      "ability": "5% Item Reuse Chance that increases by 10% after every item used. Resets on Reuse. Gadget Cost: 20 Sniper Rifle Ammo. REPLACES: Quick Slot, FRAGILE (Effects removed after recieving damage)"
+    },
+    {
+      "name": "Ammo",
+      "type": "Offense",
+      "affinity": "Discipline",
+      "stats": [
         {
-          "effect": "5% item reuse chance that increases by 10% after every item used. Resets on reuse. Gadget cost: 20 sniper rifle ammo. REPLACES: quick slot. FRAGILE.",
+          "effect": "ammo capacity",
+          "amount": 5,
+          "team": false
+        },
+        {
+          "effect": "damage",
+          "amount": 1,
           "team": false
         }
       ]
     },
     {
       "name": "Ammo Belt",
-      "type": "offense",
-      "affinity": "discipline",
+      "type": "Offense",
+      "affinity": "Discipline",
       "stats": [
         {
           "effect": "ammo capacity",
@@ -51,13 +60,12 @@
           "amount": 15,
           "team": false
         }
-      ],
-      "secondaryEffects": []
+      ]
     },
     {
-      "name": "Ammo for All",
-      "type": "offense",
-      "affinity": "discipline",
+      "name": "Ammo For All",
+      "type": "Offense",
+      "affinity": "Discipline",
       "stats": [
         {
           "effect": "ammo capacity",
@@ -69,11 +77,1114 @@
           "amount": 3.5,
           "team": true
         }
-      ],
-      "secondaryEffects": []
+      ]
     },
     {
-      "name": "Ammo Mule"
+      "name": "Ammo Mule",
+      "type": "Offense",
+      "affinity": "Discipline",
+      "stats": [
+        {
+          "effect": "ammo capacity",
+          "amount": 75,
+          "team": false
+        },
+        {
+          "effect": "move speed",
+          "amount": -5,
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Ammo Pouch",
+      "type": "Offense",
+      "affinity": "Discipline",
+      "stats": [
+        {
+          "effect": "ammo capacity",
+          "amount": 25,
+          "team": false
+        },
+        {
+          "effect": "bullet damage",
+          "amount": 2.5,
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Ammo Scavenger",
+      "type": "Utility",
+      "affinity": "Discipline",
+      "secondaryEffects": [
+        {
+          "effect": "You can sense nearby ammo, 1 additional ammo crate spawn.",
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Ammo Stash",
+      "type": "Offense",
+      "affinity": "Fortune",
+      "secondaryEffects": [
+        {
+          "effect": "Your secondary weapons have unlimited ammo.",
+          "team": false
+        },
+        {
+          "effect": "Your secondary weapons reload 20% slower.",
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Amped Up",
+      "type": "Defense",
+      "affinity": "Discipline",
+      "secondaryEffects": [
+        {
+          "effect": "When a hoard is triggered, your team recovers 20 health.",
+          "team": true
+        }
+      ]
+    },
+    {
+      "name": "Antibiotic Ointment",
+      "type": "Defense",
+      "affinity": "Discipline",
+      "stats": [
+        {
+          "effect": "healing efficiency",
+          "amount": 25,
+          "team": false
+        }
+      ],
+      "secondaryEffects": [
+        {
+          "effect": "When you use a medical accessory, the target heals 20 temporary health.",
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Avenge the Fallen",
+      "type": "Offense",
+      "affinity": "Discipline",
+      "secondaryEffects": [
+        {
+          "effect": "When you or a team becomes incapacitated, all teammates gain 30% damange, 20% reload speed, and unlimited ammo for 10 seconds.",
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Battle Lust",
+      "type": "Defense",
+      "affinity": "Brawn",
+      "secondaryEffects": [
+        {
+          "effect": "Melee kills heal 1 health and 0.125 trauma.",
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Belligerent",
+      "type": "Talent",
+      "affinity": "Fortune",
+      "secondaryEffects": [
+        {
+          "effect": "Gain stacking 4% increase to damage each time a horde is called up to 6 stacks (30 second cooldown between hordes).",
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Belt Clip",
+      "type": "Utility",
+      "affinity": "Fortune",
+      "stats": [
+        {
+          "effect": "quick item inventory",
+          "amount": 1,
+          "team": false
+        },
+        {
+          "effect": "use speed",
+          "amount": 10,
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Berserker",
+      "type": "Offense",
+      "affinity": "Brawn",
+      "secondaryEffects": [
+        {
+          "effect": "Each melee kill grants 5% melee damage, 5% melee speed, and 5% move speed for 4 seconds.",
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Body Armor",
+      "type": "Defense",
+      "affinity": "Brawn",
+      "stats": [
+        {
+          "effect": "trauma resistance",
+          "amount": 20,
+          "team": false
+        }
+      ]
+    },
+    {
+      "name": "Bodyguard",
+      "type": "Talent",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Bomb Squad",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Bounty Hunter",
+      "type": "Utility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Box O' Bags",
+      "type": "Defense",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Bravado",
+      "type": "Talent",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Brazen",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Breakout",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Broadside",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Buckshot Bruiser",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Canned Goods",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Charitable Soul",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Chemical Courage",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Cleansing Fire",
+      "type": "Utility",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Cocky",
+      "type": "Utility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Cold Brew Coffee",
+      "type": "Mobility",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Combat Knife",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Combat Medic",
+      "type": "Defense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Combat Training",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Compound Interest",
+      "type": "Utility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Confident Killer",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Controlled Movement",
+      "type": "Mobility",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Copper Scavenger",
+      "type": "Utility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Crippling Frequency",
+      "type": "Ability",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Cross Trainers",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Dash",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Defensive Maneuver",
+      "type": "Mobility",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Demolitions Expert",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Double Grenade Pouch",
+      "type": "Offense",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Down in Front!",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Drone Spotter",
+      "type": "Utility",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Durable",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Emergency Transfusion",
+      "type": "Talent",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Empowered Assault",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "EMT Bag",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Energy Bar",
+      "type": "Mobility",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Energy Drink",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Ether Bomb",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Experienced EMT",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Experimental Stimulants",
+      "type": "Talent",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Experimental Stun gun",
+      "type": "Utility",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Expired T5",
+      "type": "Ability",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Explosive Boils",
+      "type": "Talent",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Face Your Fears",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Fanny Pack",
+      "type": "Defense",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Field Surgeon",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Fill 'em Full of Lead",
+      "type": "Talent",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Fire in the Hole!",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Fleet of Foot",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Food Scavenger",
+      "type": "Talent",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Fortune",
+      "type": "Utility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Fresh Bandage",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Front Sight Focus",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Glass Cannon",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Grenade Pouch",
+      "type": "Offense",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Grenade Training",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Group Therapy",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Guns Out",
+      "type": "Utility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Hazard Pay",
+      "type": "Utility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Hazmat Specialist",
+      "type": "Utility",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Headband Magnifier",
+      "type": "Utility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Heads, You Lose",
+      "type": "Talent",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Health",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Heavy Attack",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Heavy Hitter",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Hellfire",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Hi Vis Sights",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Highwayman",
+      "type": "Utility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Hunker Down",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Hydration Pack",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Hyper-Focused",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Ignore the Pain",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Improvised Explosives",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "In the Zone",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Inspiring Sacrifice",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Killer's Instinct",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Knowledge is Power",
+      "type": "Utility",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Large Caliber Rounds",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Life Insurance",
+      "type": "Defense",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Line 'em Up",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Lucky Pennies",
+      "type": "Utility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Mad Dash",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Mag Carrier",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Mag Coupler",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Magician's Apprentice",
+      "type": "Talent",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Mandatory PT",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Marathon Runner",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Marked for Death",
+      "type": "Utility",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Mean Drunk",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Meatgrinder",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Medical Expert",
+      "type": "Defense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Medical Professional",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Meth Head",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Miraculous Recovery",
+      "type": "Defense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Money Grubbers",
+      "type": "Utility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Motorcycle Helmet",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Motorcycle Jacket",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Mugger",
+      "type": "Utility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Multitool",
+      "type": "Utility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Natural Sprinter",
+      "type": "Mobility",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Needs of the Many",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Numb",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Offensive Scavenger",
+      "type": "Utility",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Olympic Sprinter",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "On your Mark...",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Optics Enthusiast",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Out with a Bang",
+      "type": "Talent",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Over-Protective",
+      "type": "Talent",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Overwatch",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Padded Suit",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Patient Hunter",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Pep in your Step",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Pep Talk",
+      "type": "Utility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Phosphorous Tipped",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Pinata",
+      "type": "Talent",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Poultice",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Power Reload",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Power Strike",
+      "type": "Talent",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Power Swap",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Pyro",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Quick Kill",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Reckless",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Reckless Strategy",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Reload Drills",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Rhythmic Breathing",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Ridden Slayer",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Rolling Thunder",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Rousing Speech",
+      "type": "Utility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Run and Gun",
+      "type": "Mobility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Run like Hell",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Sadist",
+      "type": "Talent",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Sadistic",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Saferoom Recovery",
+      "type": "Defense",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Scar Tissue",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Scattergun Skills",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Screwdriver",
+      "type": "Utility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Second Chance",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Share the Wealth",
+      "type": "Utility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Shell Carrier",
+      "type": "Offense",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Shooting Gloves",
+      "type": "Utility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Shoulder Bag",
+      "type": "Defense",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Shredder",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Silver Bullets",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Slugger",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Smelling Salts",
+      "type": "Utility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Smells Like Victory",
+      "type": "Talent",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Soften Up",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Sonic Disruptor",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Speed Demon",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Spiky Bits",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Stamina",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Steady Aim",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Stealthy Passage",
+      "type": "Talent",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Stimulants",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Stock Pouch",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Sunder",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Superior Cardio",
+      "type": "Mobility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Support Scavenger",
+      "type": "Utility",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Suppressing Fire",
+      "type": "Talent",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Surplus Pouches",
+      "type": "Offense",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Tactical Vest",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Team Ammo",
+      "type": "Offense",
+      "affinity": "Upgrade"
+    },
+    {
+      "name": "Team Health",
+      "type": "Defense",
+      "affinity": "Upgrade"
+    },
+    {
+      "name": "Team Offensive Item Upgrade",
+      "type": "Loot",
+      "affinity": "Upgrade"
+    },
+    {
+      "name": "Team Offensive Slot",
+      "type": "Loot",
+      "affinity": "Upgrade"
+    },
+    {
+      "name": "Team Quick Item Upgrade",
+      "type": "Loot",
+      "affinity": "Upgrade"
+    },
+    {
+      "name": "Team Quick Slot",
+      "type": "Utility",
+      "affinity": "Upgrade"
+    },
+    {
+      "name": "Team Stamina",
+      "type": "Mobility",
+      "affinity": "Upgrade"
+    },
+    {
+      "name": "Team Support Item Upgrade",
+      "type": "Loot",
+      "affinity": "Upgrade"
+    },
+    {
+      "name": "Team Support Slot",
+      "type": "Loot",
+      "affinity": "Upgrade"
+    },
+    {
+      "name": "Tool Belts",
+      "type": "Utility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Trigger Control",
+      "type": "Offense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "True Grit",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Tunnel Vision",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Two is One and One is None",
+      "type": "Offense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Ugly Chachkies",
+      "type": "Scavenger",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Ultrasonic Wound Therapy",
+      "type": "Ability",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Unnatural Healing",
+      "type": "Ability",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Utility Belt",
+      "type": "Utility",
+      "affinity": "Fortune"
+    },
+    {
+      "name": "Utility Scavenger",
+      "type": "Utility",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Vanguard",
+      "type": "Defense",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Vitamins",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Wasteland Chef",
+      "type": "Utility",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Weapon Scavenger",
+      "type": "Utility",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Weaponsmith",
+      "type": "Ability",
+      "affinity": "Discipline"
+    },
+    {
+      "name": "Well Fed",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Well Rested",
+      "type": "Talent",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Widemouth Magwell",
+      "type": "Offense",
+      "affinity": "Reflex"
+    },
+    {
+      "name": "Wooden Armor",
+      "type": "Defense",
+      "affinity": "Brawn"
+    },
+    {
+      "name": "Wounded Animal",
+      "type": "Defense",
+      "affinity": "Fortune"
     }
   ]
 }
