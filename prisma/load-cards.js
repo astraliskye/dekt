@@ -17,7 +17,8 @@ async function main() {
           name: cards[i].name,
           type: cards[i].type,
           affinity: cards[i].affinity,
-          stats: {
+          ability: cards[i].ability,
+          stats: cards[i].stats ? {
             createMany: {
               data: cards[i].stats.map((stat) => ({
                 effect: stat.effect,
@@ -25,15 +26,15 @@ async function main() {
                 team: stat.team,
               })),
             },
-          },
-          secondaryEffects: {
+          } : undefined,
+          secondaryEffects: cards[i].secondaryEffects ? {
             createMany: {
               data: cards[i].secondaryEffects.map((se) => ({
                 effect: se.effect,
                 team: se.team,
               })),
             },
-          },
+          } : undefined,
         },
       });
 
