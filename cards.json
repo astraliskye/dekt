@@ -53,6 +53,27 @@
         }
       ],
       "secondaryEffects": []
+    },
+    {
+      "name": "Ammo for All",
+      "type": "offense",
+      "affinity": "discipline",
+      "stats": [
+        {
+          "effect": "ammo capacity",
+          "amount": 10,
+          "team": true
+        },
+        {
+          "effect": "damage",
+          "amount": 3.5,
+          "team": true
+        }
+      ],
+      "secondaryEffects": []
+    },
+    {
+      "name": "Ammo Mule"
     }
   ]
 }
