@@ -11,7 +11,7 @@ function statListFromCardList(cards: CardWithEffects[]): [string, number][] {
 
   for (const card of cards) {
     for (const stat of card.stats) {
-      statMap.set(stat.effect, statMap.get(stat.effect) || 0 + stat.amount);
+      statMap.set(stat.effect, (statMap.get(stat.effect) || 0) + stat.amount);
     }
   }
 
@@ -22,37 +22,64 @@ const CardList = ({ cardList, handleCardClick }: Props) => {
   return (
     <>
       <div className="flex flex-col gap-1">
-        <h2 className="text-center text-3xl">Cards</h2>
-        {cardList.map((card) => (
-          <div
-            key={card.id}
-            className="flex h-8 w-48 cursor-pointer select-none items-center rounded-lg bg-red-600 px-2 font-semibold text-white"
-            onClick={() => handleCardClick(card.id)}
-          >
-            <p>{card.name}</p>
-          </div>
-        ))}
+        <h2 className="py-4 text-center text-3xl">Cards</h2>
+        {cardList.length > 0 ? (
+          cardList.map((card) => (
+            <div
+              key={card.id}
+              className="flex h-8 w-full cursor-pointer select-none items-center rounded-lg bg-red-600 px-2 font-semibold text-white"
+              onClick={() => handleCardClick(card.id)}
+            >
+              <p>{card.name}</p>
+            </div>
+          ))
+        ) : (
+          <p className="text-gray-400">None</p>
+        )}
       </div>
+
       <div>
-        <h2 className="text-center text-3xl">Stats</h2>
-        <ul className="list-disc">
-          {statListFromCardList(cardList).map((statPair) => (
-            <li key={statPair[0]}>{`${statPair[0]}: ${statPair[1]}`}</li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h2 className="text-center text-3xl">Secondary Effects</h2>
-        <ul>
-          {cardList
-            .map((card) => card.secondaryEffects)
-            .flat()
-            .map((effect) => (
-              <li key={effect.id} className="list-disc">
-                {effect.effect}
-              </li>
+        <h2 className="py-4 text-center text-3xl">Stats</h2>
+        {statListFromCardList(cardList).length > 0 ? (
+          <ul>
+            {statListFromCardList(cardList).map((statPair) => (
+              <li key={statPair[0]}>{`${statPair[0]}: ${statPair[1]}%`}</li>
             ))}
-        </ul>
+          </ul>
+        ) : (
+          <p className="text-gray-400">None</p>
+        )}
+      </div>
+
+      <div>
+        <h2 className="py-4 text-center text-3xl">Abilities</h2>
+        {cardList.filter((card) => card.ability).length > 0 ? (
+          <ul>
+            {cardList
+              .filter((card) => card.ability)
+              .map((card) => (
+                <li key={card.id}>{card.ability}</li>
+              ))}
+          </ul>
+        ) : (
+          <p className="text-gray-400">None</p>
+        )}
+      </div>
+
+      <div>
+        <h2 className="py-4 text-center text-3xl">Secondary Effects</h2>
+        {cardList.map((card) => card.secondaryEffects).flat().length > 0 ? (
+          <ul>
+            {cardList
+              .map((card) => card.secondaryEffects)
+              .flat()
+              .map((effect) => (
+                <li key={effect.id}>{effect.effect}</li>
+              ))}
+          </ul>
+        ) : (
+          <p className="text-gray-400">None</p>
+        )}
       </div>
     </>
   );

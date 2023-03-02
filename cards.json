@@ -29,23 +29,6 @@
       "ability": "5% Item Reuse Chance that increases by 10% after every item used. Resets on Reuse. Gadget Cost: 20 Sniper Rifle Ammo. REPLACES: Quick Slot, FRAGILE (Effects removed after recieving damage)"
     },
     {
-      "name": "Ammo",
-      "type": "Offense",
-      "affinity": "Discipline",
-      "stats": [
-        {
-          "effect": "ammo capacity",
-          "amount": 5,
-          "team": false
-        },
-        {
-          "effect": "damage",
-          "amount": 1,
-          "team": false
-        }
-      ]
-    },
-    {
       "name": "Ammo Belt",
       "type": "Offense",
       "affinity": "Discipline",
@@ -244,147 +227,433 @@
     {
       "name": "Bodyguard",
       "type": "Talent",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "secondaryEffects": [
+        {
+          "effect": "When a teammate within 5 meters is attacked, you instead receive 75% of that damage. Can trigger once every 5 seconds.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Bomb Squad",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "secondaryEffects": [
+        {
+          "effect": "1 additional frag grenade spawns in each map.",
+          "team": false
+        }
+      ],
+      "stats": [
+        {
+          "effect": "explosive damage",
+          "amount": 25,
+          "team": true
+        },
+        {
+          "effect": "explosive resistance",
+          "amount": 20,
+          "team": true
+        }
+      ]
     },
     {
       "name": "Bounty Hunter",
       "type": "Utility",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "secondaryEffects": [
+        {
+          "effect": "When you or your team kills a mutation, gain 10 copper (up to 300 per level).",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Box O' Bags",
       "type": "Defense",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "stats": [
+        {
+          "effect": "health",
+          "amount": -10,
+          "team": false
+        },
+        {
+          "effect": "team support inventory",
+          "amount": 1,
+          "team": true
+        }
+      ]
     },
     {
       "name": "Bravado",
       "type": "Talent",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "secondaryEffects": [
+        {
+          "effect": "When a teammate within 15 meters receives trauma damage, gain 15% of that amount as trauma health.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Brazen",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "stats": [
+        {
+          "effect": "melee stamina efficiency",
+          "amount": 15,
+          "team": false
+        },
+        {
+          "effect": "melee attack speed",
+          "amount": 20,
+          "team": false
+        },
+        {
+          "effect": "bow stamina efficiency",
+          "amount": 15,
+          "team": false
+        },
+        {
+          "effect": "bow attack speed",
+          "amount": 20,
+          "team": false
+        }
+      ]
     },
     {
       "name": "Breakout",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "secondaryEffects": [
+        {
+          "effect": "Breakout: Hold [E/SQUARE/X] to free yourself from Grabs. +50% Breakout Cooldown Reduction (Base 60 seconds). 1 Second to release.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Broadside",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "secondaryEffects": [
+        {
+          "effect": "Precision Kills have a 20% chance to cause Ridden to explode, dealing 15 damage to other Ridden with 4 meters.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Buckshot Bruiser",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "secondaryEffects": [
+        {
+          "effect": "When using Shotguns, gain 0.25 Temporary Health for each pellet that hits.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Canned Goods",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "stats": [
+        {
+          "effect": "health",
+          "amount": 45,
+          "team": false
+        },
+        {
+          "effect": "stamina",
+          "amount": -25,
+          "team": false
+        }
+      ]
     },
     {
       "name": "Charitable Soul",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "secondaryEffects": [
+        {
+          "effect": "Healing a teammate also applies 50% of the effect to you.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Chemical Courage",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "secondaryEffects": [
+        {
+          "effect": "Pain meds you apply also grant +25% Damage for 60 Seconds.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Cleansing Fire",
       "type": "Utility",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "secondaryEffects": [
+        {
+          "effect": "Gain a stacking +5% Damage Resistance every second you're on fire, for a maximum 5 stacks lasting for 15 seconds. Fire removes most negative status effects.",
+          "team": false
+        }
+      ],
+      "stats": [
+        {
+          "effect": "fire resistance",
+          "amount": 40,
+          "team": false
+        }
+      ]
     },
     {
       "name": "Cocky",
       "type": "Utility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "stats": [
+        {
+          "effect": "weapon swap speed",
+          "amount": 75,
+          "team": false
+        }
+      ],
+      "secondaryEffects": [
+        {
+          "effect": "Whenever you take damage your accuracy is reduced for 3 seconds.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Cold Brew Coffee",
       "type": "Mobility",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "stats": [
+        {
+          "effect": "reload speed",
+          "amount": 15,
+          "team": false
+        },
+        {
+          "effect": "aim speed",
+          "amount": 25,
+          "team": false
+        },
+        {
+          "effect": "weapon swap speed",
+          "amount": 25,
+          "team": false
+        },
+        {
+          "effect": "use speed",
+          "amount": 25,
+          "team": false
+        }
+      ]
     },
     {
       "name": "Combat Knife",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "secondaryEffects": [
+        {
+          "effect": "Turns your bash into a knife that counts as a melee weapon.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Combat Medic",
       "type": "Defense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "stats": [
+        {
+          "effect": "use speed",
+          "amount": 50,
+          "team": false
+        }
+      ],
+      "secondaryEffects": [
+        {
+          "effect": "Teammates recover an additional 20 health when you revive them.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Combat Training",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "stats": [
+        {
+          "effect": "bullet damage",
+          "amount": 5,
+          "team": false
+        },
+        {
+          "effect": "bullet stumble damage",
+          "amount": 1.5,
+          "team": false
+        },
+        {
+          "effect": "melee stumble damage",
+          "amount": 7.5,
+          "team": false
+        }
+      ]
     },
     {
       "name": "Compound Interest",
       "type": "Utility",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "secondaryEffects": [
+        {
+          "effect": "Each cleaner gains 5% of their total copper in each saferoom.",
+          "team": true
+        }
+      ]
     },
     {
       "name": "Confident Killer",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "secondaryEffects": [
+        {
+          "effect": "When you or your team kills a mutation gain 1% damage (up to 15%) until the end of the level.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Controlled Movement",
       "type": "Mobility",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "secondaryEffects": [
+        {
+          "effect": "+40% movement speed while aiming down sights with sniper rifles.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Copper Scavenger",
       "type": "Utility",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "secondaryEffects": [
+        {
+          "effect": "You can sense nearby copper, more copper piles spawn.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Crippling Frequency",
       "type": "Ability",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "ability": "Reduce incoming damage by 1 for nearby teammates for 7 seconds. Gadget Cost: 30 SMG/pistol ammo. REPLACES: Offensive Slot"
     },
     {
       "name": "Cross Trainers",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "stats": [
+        {
+          "effect": "stamina",
+          "amount": 20,
+          "team": false
+        },
+        {
+          "effect": "stamina regen",
+          "amount": 20,
+          "team": false
+        },
+        {
+          "effect": "move speed",
+          "amount": 3,
+          "team": false
+        },
+        {
+          "effect": "health",
+          "amount": 5,
+          "team": false
+        }
+      ]
     },
     {
       "name": "Dash",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "stats": [
+        {
+          "effect": "move speed",
+          "amount": 5,
+          "team": false
+        },
+        {
+          "effect": "sprint speed",
+          "amount": 5,
+          "team": false
+        }
+      ]
     },
     {
       "name": "Defensive Maneuver",
       "type": "Mobility",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "secondaryEffects": [
+        {
+          "effect": "When you take a hit for 15 or more damage. Gain 25% damage resistance for 3 seconds.",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Demolitions Expert",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "stats": [
+        {
+          "effect": "accessory damage",
+          "amount": 50,
+          "team": false
+        },
+        {
+          "effect": "ammo capacity",
+          "amount": -15,
+          "team": false
+        }
+      ]
     },
     {
       "name": "Double Grenade Pouch",
       "type": "Offense",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "stats": [
+        {
+          "effect": "offensive inventory",
+          "amount": 2,
+          "team": false
+        }
+      ]
     },
     {
       "name": "Down in Front!",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "stats": [
+        {
+          "effect": "health",
+          "amount": 10
+        }
+      ]
     },
     {
       "name": "Drone Spotter",
@@ -395,11 +664,6 @@
       "name": "Durable",
       "type": "Defense",
       "affinity": "Brawn"
-    },
-    {
-      "name": "Emergency Transfusion",
-      "type": "Talent",
-      "affinity": "Discipline"
     },
     {
       "name": "Empowered Assault",
@@ -447,11 +711,6 @@
       "affinity": "Discipline"
     },
     {
-      "name": "Explosive Boils",
-      "type": "Talent",
-      "affinity": "Brawn"
-    },
-    {
       "name": "Face Your Fears",
       "type": "Defense",
       "affinity": "Brawn"
@@ -484,11 +743,6 @@
     {
       "name": "Food Scavenger",
       "type": "Talent",
-      "affinity": "Fortune"
-    },
-    {
-      "name": "Fortune",
-      "type": "Utility",
       "affinity": "Fortune"
     },
     {
@@ -540,16 +794,6 @@
       "name": "Headband Magnifier",
       "type": "Utility",
       "affinity": "Reflex"
-    },
-    {
-      "name": "Heads, You Lose",
-      "type": "Talent",
-      "affinity": "Brawn"
-    },
-    {
-      "name": "Health",
-      "type": "Defense",
-      "affinity": "Brawn"
     },
     {
       "name": "Heavy Attack",
@@ -962,11 +1206,6 @@
       "affinity": "Reflex"
     },
     {
-      "name": "Smells Like Victory",
-      "type": "Talent",
-      "affinity": "Discipline"
-    },
-    {
       "name": "Soften Up",
       "type": "Offense",
       "affinity": "Brawn"
@@ -985,11 +1224,6 @@
       "name": "Spiky Bits",
       "type": "Offense",
       "affinity": "Brawn"
-    },
-    {
-      "name": "Stamina",
-      "type": "Mobility",
-      "affinity": "Reflex"
     },
     {
       "name": "Steady Aim",
@@ -1042,51 +1276,6 @@
       "affinity": "Discipline"
     },
     {
-      "name": "Team Ammo",
-      "type": "Offense",
-      "affinity": "Upgrade"
-    },
-    {
-      "name": "Team Health",
-      "type": "Defense",
-      "affinity": "Upgrade"
-    },
-    {
-      "name": "Team Offensive Item Upgrade",
-      "type": "Loot",
-      "affinity": "Upgrade"
-    },
-    {
-      "name": "Team Offensive Slot",
-      "type": "Loot",
-      "affinity": "Upgrade"
-    },
-    {
-      "name": "Team Quick Item Upgrade",
-      "type": "Loot",
-      "affinity": "Upgrade"
-    },
-    {
-      "name": "Team Quick Slot",
-      "type": "Utility",
-      "affinity": "Upgrade"
-    },
-    {
-      "name": "Team Stamina",
-      "type": "Mobility",
-      "affinity": "Upgrade"
-    },
-    {
-      "name": "Team Support Item Upgrade",
-      "type": "Loot",
-      "affinity": "Upgrade"
-    },
-    {
-      "name": "Team Support Slot",
-      "type": "Loot",
-      "affinity": "Upgrade"
-    },
-    {
       "name": "Tool Belts",
       "type": "Utility",
       "affinity": "Fortune"
@@ -1118,11 +1307,6 @@
     },
     {
       "name": "Ultrasonic Wound Therapy",
-      "type": "Ability",
-      "affinity": "Brawn"
-    },
-    {
-      "name": "Unnatural Healing",
       "type": "Ability",
       "affinity": "Brawn"
     },
