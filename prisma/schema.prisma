@@ -55,7 +55,7 @@ model Card {
     name String
     type String
     affinity String
-    image String?
+    image String
     ability String?
     stats CardStat[]
     secondaryEffects SecondaryEffect[]
@@ -65,7 +65,7 @@ model Card {
 model CardStat {
     id String @id @default(cuid())
     effect String
-    amount Float
+    amount String
     team Boolean
     cardId String
     card Card @relation(fields: [cardId], references: [id])

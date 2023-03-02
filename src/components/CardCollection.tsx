@@ -7,67 +7,6 @@ type Props = {
   cardList: CardWithEffects[];
 };
 
-function cardImageFileName(cardName: string): string {
-  switch (cardName) {
-    case "AI Assistant Module":
-      return "AIAssistModule";
-    case "Experimental Stimulants":
-      return "ExperimentalStims";
-    case "Large Caliber Rounds":
-      return "LargeCaliberAmmo";
-    case "Magician's Apprentice":
-      return "Magician";
-    case "Suppressing Fire":
-      return "SuppressiveFire";
-    case "Wasteland Chef":
-      return "ChefsKnife";
-    case "Ugly Chachkies":
-      return "QuickLearner";
-    case "Stealthy Passage":
-      return "Infiltrator";
-    case "Soften Up":
-      return "BatterUp";
-    case "Ether Bomb":
-      return "ShockAndAwe";
-    case "Phosphorous Tipped":
-      return "Overheat";
-    case "Food Scavenger":
-      return "LunchTime";
-    case "Empowered Assault":
-      return "ChainReaction";
-    case "Sonic Disruptor":
-      return "ConcussiveBlast";
-    case "Defensive Maneuver":
-      return "EvasiveAction";
-    case "Belligerent":
-      return "Flawless";
-    case "Cleansing Fire":
-      return "HotStuff";
-    case "Drone Spotter":
-      return "MotionSensor";
-    default:
-      return cardName
-        .split(" ")
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .map((word) => {
-          const result: string[] = [];
-
-          for (const c of word) {
-            if (
-              (c >= "a" && c <= "z") ||
-              (c >= "A" && c <= "Z") ||
-              (c >= "0" && c <= "9")
-            ) {
-              result.push(c);
-            }
-          }
-
-          return result.join("");
-        })
-        .join("");
-  }
-}
-
 const CardCollection: React.FC<Props> = ({
   cards,
   handleCardClick,
@@ -97,19 +36,13 @@ const CardCollection: React.FC<Props> = ({
           cards.filter(cardContainsTerm.bind(this, searchTerm)).map((card) => (
             <div
               key={card.id}
-              className="box-content h-[calc(35px*4)] w-[calc(25px*4)] cursor-pointer rounded-lg bg-red-600 bg-cover p-2 text-center font-semibold text-white transition-all hover:bg-red-700"
+              className="h-[calc(35px*4)] w-[calc(25px*4)] cursor-pointer rounded-lg bg-red-600 bg-cover p-2 text-center font-semibold text-white transition-all hover:bg-red-700"
               style={{
-                backgroundImage: `url(/images/cards/${cardImageFileName(
-                  card.name
-                )}.png)`,
+                backgroundImage: `url(/images/cards/${card.image})`,
                 border:
                   cardList.filter((c) => c.id === card.id).length !== 0
                     ? "3px solid red"
-                    : "",
-                scale:
-                  cardList.filter((c) => c.id === card.id).length !== 0
-                    ? "1.1"
-                    : "1",
+                    : "3px solid transparent",
               }}
               onClick={() => handleCardClick(card)}
             >

@@ -47,6 +47,6 @@
     "initVersion": "7.5.0"
   },
   "prisma": {
-    "seed": "node prisma/load-cards.js"
+    "seed": "node prisma/load-cards.mjs"
   }
 }

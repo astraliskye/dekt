@@ -4,43 +4,37 @@
       "name": "Admin Reload",
       "type": "Offense",
       "affinity": "Fortune",
-      "secondaryEffects": [
-        {
-          "effect": "When you stow your weapon, it reloads.",
-          "team": false
-        }
-      ]
+      "image": "AdminReload.png",
+      "stats": []
     },
     {
       "name": "Adrenaline Fueled",
       "type": "Offense",
       "affinity": "Reflex",
-      "secondaryEffects": [
-        {
-          "effect": "When you kill an enemy, gain 5 stamina instantly and an additional 7 stamina over 7 seconds, stacking up to 5 times.",
-          "team": false
-        }
-      ]
+      "image": "AdrenalineFueled.png",
+      "stats": []
     },
     {
       "name": "AI Assistant Module",
       "type": "Ability",
       "affinity": "Fortune",
-      "ability": "5% Item Reuse Chance that increases by 10% after every item used. Resets on Reuse. Gadget Cost: 20 Sniper Rifle Ammo. REPLACES: Quick Slot, FRAGILE (Effects removed after recieving damage)"
+      "image": "AIAssistModule.png",
+      "stats": []
     },
     {
       "name": "Ammo Belt",
       "type": "Offense",
       "affinity": "Discipline",
+      "image": "AmmoBelt.png",
       "stats": [
         {
           "effect": "ammo capacity",
-          "amount": 50,
+          "amount": "+50%",
           "team": false
         },
         {
           "effect": "reload speed",
-          "amount": 15,
+          "amount": "+15%",
           "team": false
         }
       ]
@@ -49,15 +43,16 @@
       "name": "Ammo For All",
       "type": "Offense",
       "affinity": "Discipline",
+      "image": "AmmoForAll.png",
       "stats": [
         {
-          "effect": "ammo capacity",
-          "amount": 10,
+          "effect": "team ammo capacity",
+          "amount": "+10%",
           "team": true
         },
         {
-          "effect": "damage",
-          "amount": 3.5,
+          "effect": "team damage",
+          "amount": "+3.5%",
           "team": true
         }
       ]
@@ -66,15 +61,16 @@
       "name": "Ammo Mule",
       "type": "Offense",
       "affinity": "Discipline",
+      "image": "AmmoMule.png",
       "stats": [
         {
           "effect": "ammo capacity",
-          "amount": 75,
+          "amount": "+75%",
           "team": false
         },
         {
           "effect": "move speed",
-          "amount": -5,
+          "amount": "-5%",
           "team": false
         }
       ]
@@ -83,15 +79,16 @@
       "name": "Ammo Pouch",
       "type": "Offense",
       "affinity": "Discipline",
+      "image": "AmmoPouch.png",
       "stats": [
         {
           "effect": "ammo capacity",
-          "amount": 25,
+          "amount": "+25%",
           "team": false
         },
         {
           "effect": "bullet damage",
-          "amount": 2.5,
+          "amount": "+2.5%",
           "team": false
         }
       ]
@@ -100,53 +97,32 @@
       "name": "Ammo Scavenger",
       "type": "Utility",
       "affinity": "Discipline",
-      "secondaryEffects": [
-        {
-          "effect": "You can sense nearby ammo, 1 additional ammo crate spawn.",
-          "team": false
-        }
-      ]
+      "image": "AmmoScavenger.png",
+      "stats": []
     },
     {
       "name": "Ammo Stash",
       "type": "Offense",
       "affinity": "Fortune",
-      "secondaryEffects": [
-        {
-          "effect": "Your secondary weapons have unlimited ammo.",
-          "team": false
-        },
-        {
-          "effect": "Your secondary weapons reload 20% slower.",
-          "team": false
-        }
-      ]
+      "image": "AmmoStash.png",
+      "stats": []
     },
     {
       "name": "Amped Up",
       "type": "Defense",
       "affinity": "Discipline",
-      "secondaryEffects": [
-        {
-          "effect": "When a hoard is triggered, your team recovers 20 health.",
-          "team": true
-        }
-      ]
+      "image": "AmpedUp.png",
+      "stats": []
     },
     {
       "name": "Antibiotic Ointment",
       "type": "Defense",
       "affinity": "Discipline",
+      "image": "AntibioticOintment.png",
       "stats": [
         {
           "effect": "healing efficiency",
-          "amount": 25,
-          "team": false
-        }
-      ],
-      "secondaryEffects": [
-        {
-          "effect": "When you use a medical accessory, the target heals 20 temporary health.",
+          "amount": "+25%",
           "team": false
         }
       ]
@@ -155,48 +131,37 @@
       "name": "Avenge the Fallen",
       "type": "Offense",
       "affinity": "Discipline",
-      "secondaryEffects": [
-        {
-          "effect": "When you or a team becomes incapacitated, all teammates gain 30% damange, 20% reload speed, and unlimited ammo for 10 seconds.",
-          "team": false
-        }
-      ]
+      "image": "AvengeTheFallen.png",
+      "stats": []
     },
     {
       "name": "Battle Lust",
       "type": "Defense",
       "affinity": "Brawn",
-      "secondaryEffects": [
-        {
-          "effect": "Melee kills heal 1 health and 0.125 trauma.",
-          "team": false
-        }
-      ]
+      "image": "BattleLust.png",
+      "stats": []
     },
     {
       "name": "Belligerent",
       "type": "Talent",
       "affinity": "Fortune",
-      "secondaryEffects": [
-        {
-          "effect": "Gain stacking 4% increase to damage each time a horde is called up to 6 stacks (30 second cooldown between hordes).",
-          "team": false
-        }
-      ]
+      "image": "Flawless.png",
+      "stats": []
     },
     {
       "name": "Belt Clip",
       "type": "Utility",
       "affinity": "Fortune",
+      "image": "BeltClip.png",
       "stats": [
         {
           "effect": "quick item inventory",
-          "amount": 1,
+          "amount": "+1",
           "team": false
         },
         {
           "effect": "use speed",
-          "amount": 10,
+          "amount": "+10%",
           "team": false
         }
       ]
@@ -205,21 +170,18 @@
       "name": "Berserker",
       "type": "Offense",
       "affinity": "Brawn",
-      "secondaryEffects": [
-        {
-          "effect": "Each melee kill grants 5% melee damage, 5% melee speed, and 5% move speed for 4 seconds.",
-          "team": false
-        }
-      ]
+      "image": "Berserker.png",
+      "stats": []
     },
     {
       "name": "Body Armor",
       "type": "Defense",
       "affinity": "Brawn",
+      "image": "BodyArmor.png",
       "stats": [
         {
           "effect": "trauma resistance",
-          "amount": 20,
+          "amount": "+20%",
           "team": false
         }
       ]
@@ -228,32 +190,23 @@
       "name": "Bodyguard",
       "type": "Talent",
       "affinity": "Brawn",
-      "secondaryEffects": [
-        {
-          "effect": "When a teammate within 5 meters is attacked, you instead receive 75% of that damage. Can trigger once every 5 seconds.",
-          "team": false
-        }
-      ]
+      "image": "Bodyguard.png",
+      "stats": []
     },
     {
       "name": "Bomb Squad",
       "type": "Offense",
       "affinity": "Brawn",
-      "secondaryEffects": [
-        {
-          "effect": "1 additional frag grenade spawns in each map.",
-          "team": false
-        }
-      ],
+      "image": "BombSquad.png",
       "stats": [
         {
           "effect": "explosive damage",
-          "amount": 25,
+          "amount": "+25%",
           "team": true
         },
         {
           "effect": "explosive resistance",
-          "amount": 20,
+          "amount": "+20%",
           "team": true
         }
       ]
@@ -262,26 +215,23 @@
       "name": "Bounty Hunter",
       "type": "Utility",
       "affinity": "Fortune",
-      "secondaryEffects": [
-        {
-          "effect": "When you or your team kills a mutation, gain 10 copper (up to 300 per level).",
-          "team": false
-        }
-      ]
+      "image": "BountyHunter.png",
+      "stats": []
     },
     {
       "name": "Box O' Bags",
       "type": "Defense",
       "affinity": "Fortune",
+      "image": "BoxOBags.png",
       "stats": [
         {
           "effect": "health",
-          "amount": -10,
+          "amount": "-10%",
           "team": false
         },
         {
           "effect": "team support inventory",
-          "amount": 1,
+          "amount": "+1",
           "team": true
         }
       ]
@@ -290,36 +240,33 @@
       "name": "Bravado",
       "type": "Talent",
       "affinity": "Brawn",
-      "secondaryEffects": [
-        {
-          "effect": "When a teammate within 15 meters receives trauma damage, gain 15% of that amount as trauma health.",
-          "team": false
-        }
-      ]
+      "image": "Bravado.png",
+      "stats": []
     },
     {
       "name": "Brazen",
       "type": "Offense",
       "affinity": "Reflex",
+      "image": "Brazen.png",
       "stats": [
         {
           "effect": "melee stamina efficiency",
-          "amount": 15,
+          "amount": "+15%",
           "team": false
         },
         {
           "effect": "melee attack speed",
-          "amount": 20,
+          "amount": "+20%",
           "team": false
         },
         {
           "effect": "bow stamina efficiency",
-          "amount": 15,
+          "amount": "+15%",
           "team": false
         },
         {
           "effect": "bow attack speed",
-          "amount": 20,
+          "amount": "+20%",
           "team": false
         }
       ]
@@ -328,9 +275,11 @@
       "name": "Breakout",
       "type": "Mobility",
       "affinity": "Reflex",
-      "secondaryEffects": [
+      "image": "Breakout.png",
+      "stats": [
         {
-          "effect": "Breakout: Hold [E/SQUARE/X] to free yourself from Grabs. +50% Breakout Cooldown Reduction (Base 60 seconds). 1 Second to release.",
+          "effect": "breakout cooldown reduction (base 60 seconds)",
+          "amount": "+50%",
           "team": false
         }
       ]
@@ -339,37 +288,30 @@
       "name": "Broadside",
       "type": "Offense",
       "affinity": "Brawn",
-      "secondaryEffects": [
-        {
-          "effect": "Precision Kills have a 20% chance to cause Ridden to explode, dealing 15 damage to other Ridden with 4 meters.",
-          "team": false
-        }
-      ]
+      "image": "Broadside.png",
+      "stats": []
     },
     {
       "name": "Buckshot Bruiser",
       "type": "Defense",
       "affinity": "Brawn",
-      "secondaryEffects": [
-        {
-          "effect": "When using Shotguns, gain 0.25 Temporary Health for each pellet that hits.",
-          "team": false
-        }
-      ]
+      "image": "BuckshotBruiser.png",
+      "stats": []
     },
     {
       "name": "Canned Goods",
       "type": "Defense",
       "affinity": "Brawn",
+      "image": "CannedGoods.png",
       "stats": [
         {
           "effect": "health",
-          "amount": 45,
+          "amount": "+45",
           "team": false
         },
         {
           "effect": "stamina",
-          "amount": -25,
+          "amount": "-25%",
           "team": false
         }
       ]
@@ -378,20 +320,18 @@
       "name": "Charitable Soul",
       "type": "Defense",
       "affinity": "Discipline",
-      "secondaryEffects": [
-        {
-          "effect": "Healing a teammate also applies 50% of the effect to you.",
-          "team": false
-        }
-      ]
+      "image": "CharitableSoul.png",
+      "stats": []
     },
     {
       "name": "Chemical Courage",
       "type": "Offense",
       "affinity": "Brawn",
-      "secondaryEffects": [
+      "image": "ChemicalCourage.png",
+      "stats": [
         {
-          "effect": "Pain meds you apply also grant +25% Damage for 60 Seconds.",
+          "effect": "damage for 60 seconds",
+          "amount": "+25%",
           "team": false
         }
       ]
@@ -400,16 +340,16 @@
       "name": "Cleansing Fire",
       "type": "Utility",
       "affinity": "Brawn",
-      "secondaryEffects": [
-        {
-          "effect": "Gain a stacking +5% Damage Resistance every second you're on fire, for a maximum 5 stacks lasting for 15 seconds. Fire removes most negative status effects.",
-          "team": false
-        }
-      ],
+      "image": "HotStuff.png",
       "stats": [
         {
+          "effect": "damage resistance every second you're on fire",
+          "amount": "+5%",
+          "team": false
+        },
+        {
           "effect": "fire resistance",
-          "amount": 40,
+          "amount": "+40%",
           "team": false
         }
       ]
@@ -418,16 +358,11 @@
       "name": "Cocky",
       "type": "Utility",
       "affinity": "Reflex",
+      "image": "Cocky.png",
       "stats": [
         {
           "effect": "weapon swap speed",
-          "amount": 75,
-          "team": false
-        }
-      ],
-      "secondaryEffects": [
-        {
-          "effect": "Whenever you take damage your accuracy is reduced for 3 seconds.",
+          "amount": "+75%",
           "team": false
         }
       ]
@@ -436,25 +371,26 @@
       "name": "Cold Brew Coffee",
       "type": "Mobility",
       "affinity": "Discipline",
+      "image": "ColdBrewCoffee.png",
       "stats": [
         {
           "effect": "reload speed",
-          "amount": 15,
+          "amount": "+15%",
           "team": false
         },
         {
           "effect": "aim speed",
-          "amount": 25,
+          "amount": "+25%",
           "team": false
         },
         {
           "effect": "weapon swap speed",
-          "amount": 25,
+          "amount": "+25%",
           "team": false
         },
         {
           "effect": "use speed",
-          "amount": 25,
+          "amount": "+25%",
           "team": false
         }
       ]
@@ -463,27 +399,18 @@
       "name": "Combat Knife",
       "type": "Offense",
       "affinity": "Discipline",
-      "secondaryEffects": [
-        {
-          "effect": "Turns your bash into a knife that counts as a melee weapon.",
-          "team": false
-        }
-      ]
+      "image": "CombatKnife.png",
+      "stats": []
     },
     {
       "name": "Combat Medic",
       "type": "Defense",
       "affinity": "Reflex",
+      "image": "CombatMedic.png",
       "stats": [
         {
           "effect": "use speed",
-          "amount": 50,
-          "team": false
-        }
-      ],
-      "secondaryEffects": [
-        {
-          "effect": "Teammates recover an additional 20 health when you revive them.",
+          "amount": "+50%",
           "team": false
         }
       ]
@@ -492,20 +419,21 @@
       "name": "Combat Training",
       "type": "Offense",
       "affinity": "Discipline",
+      "image": "CombatTraining.png",
       "stats": [
         {
           "effect": "bullet damage",
-          "amount": 5,
+          "amount": "+5%",
           "team": false
         },
         {
           "effect": "bullet stumble damage",
-          "amount": 1.5,
+          "amount": "+1.5",
           "team": false
         },
         {
           "effect": "melee stumble damage",
-          "amount": 7.5,
+          "amount": "+7.5",
           "team": false
         }
       ]
@@ -514,31 +442,25 @@
       "name": "Compound Interest",
       "type": "Utility",
       "affinity": "Fortune",
-      "secondaryEffects": [
-        {
-          "effect": "Each cleaner gains 5% of their total copper in each saferoom.",
-          "team": true
-        }
-      ]
+      "image": "CompoundInterest.png",
+      "stats": []
     },
     {
       "name": "Confident Killer",
       "type": "Offense",
       "affinity": "Brawn",
-      "secondaryEffects": [
-        {
-          "effect": "When you or your team kills a mutation gain 1% damage (up to 15%) until the end of the level.",
-          "team": false
-        }
-      ]
+      "image": "ConfidentKiller.png",
+      "stats": []
     },
     {
       "name": "Controlled Movement",
       "type": "Mobility",
       "affinity": "Discipline",
-      "secondaryEffects": [
+      "image": "ControlledMovement.png",
+      "stats": [
         {
-          "effect": "+40% movement speed while aiming down sights with sniper rifles.",
+          "effect": "movement speed while aiming down sights with sniper rifles",
+          "amount": "+40%",
           "team": false
         }
       ]
@@ -547,42 +469,40 @@
       "name": "Copper Scavenger",
       "type": "Utility",
       "affinity": "Fortune",
-      "secondaryEffects": [
-        {
-          "effect": "You can sense nearby copper, more copper piles spawn.",
-          "team": false
-        }
-      ]
+      "image": "CopperScavenger.png",
+      "stats": []
     },
     {
       "name": "Crippling Frequency",
       "type": "Ability",
       "affinity": "Discipline",
-      "ability": "Reduce incoming damage by 1 for nearby teammates for 7 seconds. Gadget Cost: 30 SMG/pistol ammo. REPLACES: Offensive Slot"
+      "image": "CripplingFrequency.png",
+      "stats": []
     },
     {
       "name": "Cross Trainers",
       "type": "Mobility",
       "affinity": "Reflex",
+      "image": "CrossTrainers.png",
       "stats": [
         {
           "effect": "stamina",
-          "amount": 20,
+          "amount": "+20%",
           "team": false
         },
         {
           "effect": "stamina regen",
-          "amount": 20,
+          "amount": "+20%",
           "team": false
         },
         {
           "effect": "move speed",
-          "amount": 3,
+          "amount": "+3%",
           "team": false
         },
         {
           "effect": "health",
-          "amount": 5,
+          "amount": "+5",
           "team": false
         }
       ]
@@ -591,15 +511,16 @@
       "name": "Dash",
       "type": "Mobility",
       "affinity": "Reflex",
+      "image": "Dash.png",
       "stats": [
         {
           "effect": "move speed",
-          "amount": 5,
+          "amount": "+5%",
           "team": false
         },
         {
           "effect": "sprint speed",
-          "amount": 5,
+          "amount": "+5%",
           "team": false
         }
       ]
@@ -608,26 +529,23 @@
       "name": "Defensive Maneuver",
       "type": "Mobility",
       "affinity": "Brawn",
-      "secondaryEffects": [
-        {
-          "effect": "When you take a hit for 15 or more damage. Gain 25% damage resistance for 3 seconds.",
-          "team": false
-        }
-      ]
+      "image": "EvasiveAction.png",
+      "stats": []
     },
     {
       "name": "Demolitions Expert",
       "type": "Offense",
       "affinity": "Brawn",
+      "image": "DemolitionsExpert.png",
       "stats": [
         {
           "effect": "accessory damage",
-          "amount": 50,
+          "amount": "+50%",
           "team": false
         },
         {
           "effect": "ammo capacity",
-          "amount": -15,
+          "amount": "-15%",
           "team": false
         }
       ]
@@ -636,10 +554,11 @@
       "name": "Double Grenade Pouch",
       "type": "Offense",
       "affinity": "Fortune",
+      "image": "DoubleGrenadePouch.png",
       "stats": [
         {
           "effect": "offensive inventory",
-          "amount": 2,
+          "amount": "+2",
           "team": false
         }
       ]
@@ -648,727 +567,1847 @@
       "name": "Down in Front!",
       "type": "Defense",
       "affinity": "Discipline",
+      "image": "DownInFront.png",
       "stats": [
         {
           "effect": "health",
-          "amount": 10
+          "amount": "+10",
+          "team": false
         }
       ]
     },
     {
       "name": "Drone Spotter",
       "type": "Utility",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "MotionSensor.png",
+      "stats": []
     },
     {
       "name": "Durable",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "Durable.png",
+      "stats": [
+        {
+          "effect": "trauma resistance",
+          "amount": "+15%",
+          "team": false
+        },
+        {
+          "effect": "health",
+          "amount": "+10",
+          "team": false
+        },
+        {
+          "effect": "fire resistance",
+          "amount": "+20%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Empowered Assault",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "ChainReaction.png",
+      "stats": [
+        {
+          "effect": "team stumble damage",
+          "amount": "+5%",
+          "team": true
+        }
+      ]
     },
     {
       "name": "EMT Bag",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "EMTBag.png",
+      "stats": [
+        {
+          "effect": "healing efficiency",
+          "amount": "+50%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Energy Bar",
       "type": "Mobility",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "EnergyBar.png",
+      "stats": [
+        {
+          "effect": "stamina regeneration",
+          "amount": "+30%",
+          "team": false
+        },
+        {
+          "effect": "health",
+          "amount": "+5",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Energy Drink",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "EnergyDrink.png",
+      "stats": [
+        {
+          "effect": "stamina",
+          "amount": "+15%",
+          "team": false
+        },
+        {
+          "effect": "weapon swap speed",
+          "amount": "+25%",
+          "team": false
+        },
+        {
+          "effect": "move speed while firing",
+          "amount": "+15%",
+          "team": false
+        },
+        {
+          "effect": "slow resistance",
+          "amount": "+10%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Ether Bomb",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "ShockAndAwe.png",
+      "stats": []
     },
     {
       "name": "Experienced EMT",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "ExperiencedEMT.png",
+      "stats": [
+        {
+          "effect": "maximum health",
+          "amount": "+10%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Experimental Stimulants",
       "type": "Talent",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "ExperimentalStims.png",
+      "stats": []
     },
     {
       "name": "Experimental Stun gun",
       "type": "Utility",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "ExperimentalStunGun.png",
+      "stats": []
     },
     {
       "name": "Expired T5",
       "type": "Ability",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "ExpiredT5.png",
+      "stats": []
     },
     {
       "name": "Face Your Fears",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "FaceYourFears.png",
+      "stats": []
     },
     {
       "name": "Fanny Pack",
       "type": "Defense",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "FannyPack.png",
+      "stats": [
+        {
+          "effect": "support inventory",
+          "amount": "+1",
+          "team": false
+        },
+        {
+          "effect": "trauma resistance",
+          "amount": "+15%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Field Surgeon",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "FieldSurgeon.png",
+      "stats": []
     },
     {
       "name": "Fill 'em Full of Lead",
       "type": "Talent",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "FillemFullOfLead.png",
+      "stats": []
     },
     {
       "name": "Fire in the Hole!",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "FireInTheHole.png",
+      "stats": []
     },
     {
       "name": "Fleet of Foot",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "FleetOfFoot.png",
+      "stats": [
+        {
+          "effect": "move speed",
+          "amount": "+8%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Food Scavenger",
       "type": "Talent",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "LunchTime.png",
+      "stats": [
+        {
+          "effect": "food items)",
+          "amount": "+7",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Fresh Bandage",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "FreshBandage.png",
+      "stats": []
     },
     {
       "name": "Front Sight Focus",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "FrontSightFocus.png",
+      "stats": [
+        {
+          "effect": "accuracy",
+          "amount": "+20%",
+          "team": false
+        },
+        {
+          "effect": "weakspot damage",
+          "amount": "+10%",
+          "team": false
+        },
+        {
+          "effect": "aim speed",
+          "amount": "+15%",
+          "team": false
+        },
+        {
+          "effect": "recoil control",
+          "amount": "+15%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Glass Cannon",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "GlassCannon.png",
+      "stats": [
+        {
+          "effect": "damage",
+          "amount": "+25%",
+          "team": false
+        },
+        {
+          "effect": "health",
+          "amount": "-30%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Grenade Pouch",
       "type": "Offense",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "GrenadePouch.png",
+      "stats": [
+        {
+          "effect": "offensive inventory",
+          "amount": "+1",
+          "team": false
+        },
+        {
+          "effect": "swap speed",
+          "amount": "+25%",
+          "team": false
+        },
+        {
+          "effect": "offensive accessory cost",
+          "amount": "-5%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Grenade Training",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "GrenadeTraining.png",
+      "stats": [
+        {
+          "effect": "accessory damage",
+          "amount": "+25%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Group Therapy",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "GroupTherapy.png",
+      "stats": []
     },
     {
       "name": "Guns Out",
       "type": "Utility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "GunsOut.png",
+      "stats": [
+        {
+          "effect": "weapon swap speed",
+          "amount": "+50%",
+          "team": false
+        },
+        {
+          "effect": "damage resistance",
+          "amount": "-5%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Hazard Pay",
       "type": "Utility",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "HazardPay.png",
+      "stats": []
     },
     {
       "name": "Hazmat Specialist",
       "type": "Utility",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "HazmatSpecialist.png",
+      "stats": [
+        {
+          "effect": "acid resistance",
+          "amount": "+35%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Headband Magnifier",
       "type": "Utility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "HeadbandMagnifier.png",
+      "stats": [
+        {
+          "effect": "use speed",
+          "amount": "+125%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Heavy Attack",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "HeavyAttack.png",
+      "stats": []
     },
     {
       "name": "Heavy Hitter",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "HeavyHitter.png",
+      "stats": []
     },
     {
       "name": "Hellfire",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "Hellfire.png",
+      "stats": [
+        {
+          "effect": "movement speed while firing",
+          "amount": "+45%",
+          "team": false
+        },
+        {
+          "effect": "move speed while not firing",
+          "amount": "+3%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Hi Vis Sights",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "HiVisSights.png",
+      "stats": [
+        {
+          "effect": "aim speed",
+          "amount": "+30%",
+          "team": false
+        },
+        {
+          "effect": "move speed while ads",
+          "amount": "+15%",
+          "team": false
+        },
+        {
+          "effect": "move speed while firing",
+          "amount": "+15%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Highwayman",
       "type": "Utility",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "Highwayman.png",
+      "stats": []
     },
     {
       "name": "Hunker Down",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "HunkerDown.png",
+      "stats": []
     },
     {
       "name": "Hydration Pack",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "HydrationPack.png",
+      "stats": [
+        {
+          "effect": "health",
+          "amount": "+35",
+          "team": false
+        },
+        {
+          "effect": "ammo capacity",
+          "amount": "-15%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Hyper-Focused",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "HyperFocused.png",
+      "stats": [
+        {
+          "effect": "weakspot damage",
+          "amount": "+50%",
+          "team": false
+        },
+        {
+          "effect": "move speed while shooting or melee attacking",
+          "amount": "-40%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Ignore the Pain",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "IgnoreThePain.png",
+      "stats": [
+        {
+          "effect": "melee damage against mutations",
+          "amount": "+20%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Improvised Explosives",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "ImprovisedExplosives.png",
+      "stats": [
+        {
+          "effect": "accessory damage",
+          "amount": "+75%",
+          "team": false
+        },
+        {
+          "effect": "swap speed",
+          "amount": "-25%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "In the Zone",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "InTheZone.png",
+      "stats": []
     },
     {
       "name": "Inspiring Sacrifice",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "InspiringSacrifice.png",
+      "stats": []
     },
     {
       "name": "Killer's Instinct",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "KillersInstinct.png",
+      "stats": [
+        {
+          "effect": "weakspot damage",
+          "amount": "+30%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Knowledge is Power",
       "type": "Utility",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "KnowledgeIsPower.png",
+      "stats": [
+        {
+          "effect": "weakspot damage",
+          "amount": "+10%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Large Caliber Rounds",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "LargeCaliberAmmo.png",
+      "stats": [
+        {
+          "effect": "bullet damage",
+          "amount": "+7.5%",
+          "team": false
+        },
+        {
+          "effect": "bullet penetration",
+          "amount": "+200%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Life Insurance",
       "type": "Defense",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "LifeInsurance.png",
+      "stats": [
+        {
+          "effect": "extra life",
+          "amount": "+2",
+          "team": false
+        },
+        {
+          "effect": "reduced incap trauma",
+          "amount": "+10%",
+          "team": true
+        }
+      ]
     },
     {
       "name": "Line 'em Up",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "LineemUp.png",
+      "stats": [
+        {
+          "effect": "effective bullet range",
+          "amount": "+10%",
+          "team": false
+        },
+        {
+          "effect": "recoil control",
+          "amount": "+15%",
+          "team": false
+        },
+        {
+          "effect": "bullet penetration",
+          "amount": "+25%",
+          "team": false
+        },
+        {
+          "effect": "aim speed",
+          "amount": "+25%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Lucky Pennies",
       "type": "Utility",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "LuckyPennies.png",
+      "stats": []
     },
     {
       "name": "Mad Dash",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "MadDash.png",
+      "stats": [
+        {
+          "effect": "sprint speed",
+          "amount": "+20%",
+          "team": false
+        },
+        {
+          "effect": "sprint stamina efficiency",
+          "amount": "-40%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Mag Carrier",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "MagCarrier.png",
+      "stats": [
+        {
+          "effect": "pistol/smg ammo capacity",
+          "amount": "+30%",
+          "team": false
+        },
+        {
+          "effect": "damage with pistols and smgs",
+          "amount": "+10%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Mag Coupler",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "MagCoupler.png",
+      "stats": [
+        {
+          "effect": "reload speed",
+          "amount": "+50%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Magician's Apprentice",
       "type": "Talent",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "Magician.png",
+      "stats": []
     },
     {
       "name": "Mandatory PT",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "MandatoryPT.png",
+      "stats": [
+        {
+          "effect": "team stamina",
+          "amount": "+10%",
+          "team": true
+        },
+        {
+          "effect": "team stamina regen",
+          "amount": "+10%",
+          "team": true
+        }
+      ]
     },
     {
       "name": "Marathon Runner",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "MarathonRunner.png",
+      "stats": []
     },
     {
       "name": "Marked for Death",
       "type": "Utility",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "MarkedForDeath.png",
+      "stats": []
     },
     {
       "name": "Mean Drunk",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "MeanDrunk.png",
+      "stats": [
+        {
+          "effect": "melee damage",
+          "amount": "+40%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Meatgrinder",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "Meatgrinder.png",
+      "stats": []
     },
     {
       "name": "Medical Expert",
       "type": "Defense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "MedicalExpert.png",
+      "stats": [
+        {
+          "effect": "revive speed",
+          "amount": "+50%",
+          "team": false
+        },
+        {
+          "effect": "healing efficiency",
+          "amount": "+15%",
+          "team": true
+        }
+      ]
     },
     {
       "name": "Medical Professional",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "MedicalProfessional.png",
+      "stats": []
     },
     {
       "name": "Meth Head",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "MethHead.png",
+      "stats": []
     },
     {
       "name": "Miraculous Recovery",
       "type": "Defense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "MiraculousRecovery.png",
+      "stats": []
     },
     {
       "name": "Money Grubbers",
       "type": "Utility",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "MoneyGrubbers.png",
+      "stats": []
     },
     {
       "name": "Motorcycle Helmet",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "MotorcycleHelmet.png",
+      "stats": [
+        {
+          "effect": "damage resistance",
+          "amount": "+15%",
+          "team": false
+        },
+        {
+          "effect": "health",
+          "amount": "+10",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Motorcycle Jacket",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "MotorcycleJacket.png",
+      "stats": [
+        {
+          "effect": "damage resistance",
+          "amount": "+5%",
+          "team": false
+        },
+        {
+          "effect": "health",
+          "amount": "+5",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Mugger",
       "type": "Utility",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "Mugger.png",
+      "stats": []
     },
     {
       "name": "Multitool",
       "type": "Utility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "Multitool.png",
+      "stats": [
+        {
+          "effect": "use speed",
+          "amount": "+75%",
+          "team": false
+        },
+        {
+          "effect": "damage resistance",
+          "amount": "-5%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Natural Sprinter",
       "type": "Mobility",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "NaturalSprinter.png",
+      "stats": [
+        {
+          "effect": "stamina regeneration",
+          "amount": "+100%",
+          "team": false
+        },
+        {
+          "effect": "maximum stamina",
+          "amount": "-50%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Needs of the Many",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "NeedsOfTheMany.png",
+      "stats": [
+        {
+          "effect": "health",
+          "amount": "-10%",
+          "team": false
+        },
+        {
+          "effect": "team extra life",
+          "amount": "+1",
+          "team": true
+        }
+      ]
     },
     {
       "name": "Numb",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "Numb.png",
+      "stats": [
+        {
+          "effect": "damage resistance while you have temporary health",
+          "amount": "+10%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Offensive Scavenger",
       "type": "Utility",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "OffensiveScavenger.png",
+      "stats": []
     },
     {
       "name": "Olympic Sprinter",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "OlympicSprinter.png",
+      "stats": [
+        {
+          "effect": "sprint efficiency",
+          "amount": "+30%",
+          "team": false
+        },
+        {
+          "effect": "damage resistance",
+          "amount": "-7%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "On your Mark...",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "OnYourMark.png",
+      "stats": []
     },
     {
       "name": "Optics Enthusiast",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "OpticsEnthusiast.png",
+      "stats": [
+        {
+          "effect": "accuracy",
+          "amount": "+30%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Out with a Bang",
       "type": "Talent",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "OutWithABang.png",
+      "stats": []
     },
     {
       "name": "Over-Protective",
       "type": "Talent",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "OverProtective.png",
+      "stats": []
     },
     {
       "name": "Overwatch",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "Overwatch.png",
+      "stats": []
     },
     {
       "name": "Padded Suit",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "PaddedSuit.png",
+      "stats": [
+        {
+          "effect": "damage resistance",
+          "amount": "+10%",
+          "team": false
+        },
+        {
+          "effect": "health",
+          "amount": "+5",
+          "team": false
+        },
+        {
+          "effect": "stamina efficiency",
+          "amount": "-20%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Patient Hunter",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "PatientHunter.png",
+      "stats": []
     },
     {
       "name": "Pep in your Step",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "PepInYourStep.png",
+      "stats": []
     },
     {
       "name": "Pep Talk",
       "type": "Utility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "PepTalk.png",
+      "stats": []
     },
     {
       "name": "Phosphorous Tipped",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "Overheat.png",
+      "stats": []
     },
     {
       "name": "Pinata",
       "type": "Talent",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "Pinata.png",
+      "stats": []
     },
     {
       "name": "Poultice",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "Poultice.png",
+      "stats": []
     },
     {
       "name": "Power Reload",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "PowerReload.png",
+      "stats": []
     },
     {
       "name": "Power Strike",
       "type": "Talent",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "PowerStrike.png",
+      "stats": [
+        {
+          "effect": "bash damage",
+          "amount": "+10",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Power Swap",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "PowerSwap.png",
+      "stats": [
+        {
+          "effect": "bullet and melee damage for 5 seconds",
+          "amount": "+20%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Pyro",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "Pyro.png",
+      "stats": [
+        {
+          "effect": "fire damage",
+          "amount": "+100%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Quick Kill",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "QuickKill.png",
+      "stats": [
+        {
+          "effect": "accuracy",
+          "amount": "+50%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Reckless",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "Reckless.png",
+      "stats": [
+        {
+          "effect": "sprint efficiency",
+          "amount": "+40%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Reckless Strategy",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "RecklessStrategy.png",
+      "stats": [
+        {
+          "effect": "weakspot damage",
+          "amount": "+30%",
+          "team": false
+        },
+        {
+          "effect": "damage resistance",
+          "amount": "-5%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Reload Drills",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "ReloadDrills.png",
+      "stats": [
+        {
+          "effect": "reload speed",
+          "amount": "+20%",
+          "team": false
+        },
+        {
+          "effect": "weapon swap speed",
+          "amount": "+25%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Rhythmic Breathing",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "RhythmicBreathing.png",
+      "stats": [
+        {
+          "effect": "stamina",
+          "amount": "+40%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Ridden Slayer",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "RiddenSlayer.png",
+      "stats": [
+        {
+          "effect": "weakspot damage",
+          "amount": "+20%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Rolling Thunder",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "RollingThunder.png",
+      "stats": [
+        {
+          "effect": "move speed while firing with shotguns",
+          "amount": "+35%",
+          "team": false
+        },
+        {
+          "effect": "damage with shotguns",
+          "amount": "+10%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Rousing Speech",
       "type": "Utility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "RousingSpeech.png",
+      "stats": [
+        {
+          "effect": "team revive speed",
+          "amount": "+50%",
+          "team": true
+        },
+        {
+          "effect": "team reduced incap trauma",
+          "amount": "+10%",
+          "team": true
+        }
+      ]
     },
     {
       "name": "Run and Gun",
       "type": "Mobility",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "RunAndGun.png",
+      "stats": []
     },
     {
       "name": "Run like Hell",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "RunLikeHell.png",
+      "stats": [
+        {
+          "effect": "move speed",
+          "amount": "+12%",
+          "team": false
+        },
+        {
+          "effect": "sprint speed",
+          "amount": "+15%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Sadist",
       "type": "Talent",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "Sadist.png",
+      "stats": []
     },
     {
       "name": "Sadistic",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "Sadistic.png",
+      "stats": []
     },
     {
       "name": "Saferoom Recovery",
       "type": "Defense",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "SaferoomRecovery.png",
+      "stats": []
     },
     {
       "name": "Scar Tissue",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "ScarTissue.png",
+      "stats": [
+        {
+          "effect": "acid resistance",
+          "amount": "+50%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Scattergun Skills",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "ScattergunSkills.png",
+      "stats": [
+        {
+          "effect": "reload speed with shotguns",
+          "amount": "+40%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Screwdriver",
       "type": "Utility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "Screwdriver.png",
+      "stats": [
+        {
+          "effect": "use speed",
+          "amount": "+50%",
+          "team": false
+        },
+        {
+          "effect": "stamina",
+          "amount": "+10%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Second Chance",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "SecondChance.png",
+      "stats": [
+        {
+          "effect": "extra life",
+          "amount": "+1",
+          "team": false
+        },
+        {
+          "effect": "health",
+          "amount": "+15",
+          "team": false
+        },
+        {
+          "effect": "bleed out resistance",
+          "amount": "+25%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Share the Wealth",
       "type": "Utility",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "ShareTheWealth.png",
+      "stats": []
     },
     {
       "name": "Shell Carrier",
       "type": "Offense",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "ShellCarrier.png",
+      "stats": [
+        {
+          "effect": "shotgun ammo capacity",
+          "amount": "+30%",
+          "team": false
+        },
+        {
+          "effect": "damage with shotguns",
+          "amount": "+10%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Shooting Gloves",
       "type": "Utility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "ShootingGloves.png",
+      "stats": [
+        {
+          "effect": "weapon swap speed",
+          "amount": "+25%",
+          "team": false
+        },
+        {
+          "effect": "recoil control",
+          "amount": "+15%",
+          "team": false
+        },
+        {
+          "effect": "accuracy",
+          "amount": "+15%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Shoulder Bag",
       "type": "Defense",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "ShoulderBag.png",
+      "stats": [
+        {
+          "effect": "support inventory",
+          "amount": "+2",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Shredder",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "Shredder.png",
+      "stats": []
     },
     {
       "name": "Silver Bullets",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "SilverBullets.png",
+      "stats": [
+        {
+          "effect": "bullet damage",
+          "amount": "+10%",
+          "team": false
+        },
+        {
+          "effect": "effective range",
+          "amount": "+15%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Slugger",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "Slugger.png",
+      "stats": [
+        {
+          "effect": "health",
+          "amount": "+5",
+          "team": false
+        },
+        {
+          "effect": "melee stamina efficiency",
+          "amount": "+10%",
+          "team": false
+        },
+        {
+          "effect": "melee attack speed",
+          "amount": "+20%",
+          "team": false
+        },
+        {
+          "effect": "bow stamina efficiency",
+          "amount": "+10%",
+          "team": false
+        },
+        {
+          "effect": "bow attack speed",
+          "amount": "+20%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Smelling Salts",
       "type": "Utility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "SmellingSalts.png",
+      "stats": [
+        {
+          "effect": "revive speed",
+          "amount": "+200%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Soften Up",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "BatterUp.png",
+      "stats": []
     },
     {
       "name": "Sonic Disruptor",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "ConcussiveBlast.png",
+      "stats": []
     },
     {
       "name": "Speed Demon",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "SpeedDemon.png",
+      "stats": [
+        {
+          "effect": "movement speed while using an smg",
+          "amount": "+4%",
+          "team": false
+        },
+        {
+          "effect": "reload speed while using an smg",
+          "amount": "+35%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Spiky Bits",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "SpikyBits.png",
+      "stats": [
+        {
+          "effect": "melee damage",
+          "amount": "+15",
+          "team": false
+        },
+        {
+          "effect": "damage resistance while using a melee weapon",
+          "amount": "+20%",
+          "team": false
+        },
+        {
+          "effect": "ammo capacity",
+          "amount": "-15%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Steady Aim",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "SteadyAim.png",
+      "stats": [
+        {
+          "effect": "aim speed",
+          "amount": "+80%",
+          "team": false
+        },
+        {
+          "effect": "ads move speed",
+          "amount": "-50%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Stealthy Passage",
       "type": "Talent",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "Infiltrator.png",
+      "stats": []
     },
     {
       "name": "Stimulants",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "Stimulants.png",
+      "stats": [
+        {
+          "effect": "stamina regen",
+          "amount": "+20%",
+          "team": false
+        },
+        {
+          "effect": "reload speed",
+          "amount": "+15%",
+          "team": false
+        },
+        {
+          "effect": "weapon swap speed for 60 seconds",
+          "amount": "+15%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Stock Pouch",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "StockPouch.png",
+      "stats": [
+        {
+          "effect": "sniper ammo capacity",
+          "amount": "+30%",
+          "team": false
+        },
+        {
+          "effect": "damage with sniper rifles",
+          "amount": "+10%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Sunder",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "Sunder.png",
+      "stats": []
     },
     {
       "name": "Superior Cardio",
       "type": "Mobility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "SuperiorCardio.png",
+      "stats": [
+        {
+          "effect": "stamina",
+          "amount": "+20%",
+          "team": false
+        },
+        {
+          "effect": "sprint efficiency  health",
+          "amount": "+20%+5",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Support Scavenger",
       "type": "Utility",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "SupportScavenger.png",
+      "stats": []
     },
     {
       "name": "Suppressing Fire",
       "type": "Talent",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "SuppressiveFire.png",
+      "stats": []
     },
     {
       "name": "Surplus Pouches",
       "type": "Offense",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "SurplusPouches.png",
+      "stats": [
+        {
+          "effect": "health",
+          "amount": "-5%",
+          "team": false
+        },
+        {
+          "effect": "team offensive accessory",
+          "amount": "+1",
+          "team": true
+        }
+      ]
     },
     {
       "name": "Tactical Vest",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "TacticalVest.png",
+      "stats": [
+        {
+          "effect": "rifle ammo capacity",
+          "amount": "+30%",
+          "team": false
+        },
+        {
+          "effect": "damage with assault rifles",
+          "amount": "+10%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Tool Belts",
       "type": "Utility",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "ToolBelts.png",
+      "stats": [
+        {
+          "effect": "health",
+          "amount": "-10%",
+          "team": false
+        },
+        {
+          "effect": "team quick item inventory",
+          "amount": "+1",
+          "team": true
+        }
+      ]
     },
     {
       "name": "Trigger Control",
       "type": "Offense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "TriggerControl.png",
+      "stats": [
+        {
+          "effect": "accuracy until the end of the level",
+          "amount": "+0.5%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "True Grit",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "TrueGrit.png",
+      "stats": []
     },
     {
       "name": "Tunnel Vision",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "TunnelVision.png",
+      "stats": [
+        {
+          "effect": "aim speed",
+          "amount": "+50%",
+          "team": false
+        },
+        {
+          "effect": "damage resistance",
+          "amount": "-5%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Two is One and One is None",
       "type": "Offense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "TwoIsOneAndOneIsNone.png",
+      "stats": [
+        {
+          "effect": "swap speed",
+          "amount": "-25%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Ugly Chachkies",
       "type": "Scavenger",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "QuickLearner.png",
+      "stats": []
     },
     {
       "name": "Ultrasonic Wound Therapy",
       "type": "Ability",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "UltrasonicWoundTherapy.png",
+      "stats": []
     },
     {
       "name": "Utility Belt",
       "type": "Utility",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "UtilityBelt.png",
+      "stats": [
+        {
+          "effect": "quick slot inventory",
+          "amount": "+2",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Utility Scavenger",
       "type": "Utility",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "UtilityScavenger.png",
+      "stats": []
     },
     {
       "name": "Vanguard",
       "type": "Defense",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "Vanguard.png",
+      "stats": []
     },
     {
       "name": "Vitamins",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "Vitamins.png",
+      "stats": [
+        {
+          "effect": "health",
+          "amount": "+25",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Wasteland Chef",
       "type": "Utility",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "ChefsKnife.png",
+      "stats": []
     },
     {
       "name": "Weapon Scavenger",
       "type": "Utility",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "WeaponScavenger.png",
+      "stats": []
     },
     {
       "name": "Weaponsmith",
       "type": "Ability",
-      "affinity": "Discipline"
+      "affinity": "Discipline",
+      "image": "Weaponsmith.png",
+      "stats": []
     },
     {
       "name": "Well Fed",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "WellFed.png",
+      "stats": [
+        {
+          "effect": "team health",
+          "amount": "+10",
+          "team": true
+        }
+      ]
     },
     {
       "name": "Well Rested",
       "type": "Talent",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "WellRested.png",
+      "stats": [
+        {
+          "effect": "team overheal",
+          "amount": "+20%",
+          "team": true
+        },
+        {
+          "effect": "team healing efficiency",
+          "amount": "+5%",
+          "team": true
+        }
+      ]
     },
     {
       "name": "Widemouth Magwell",
       "type": "Offense",
-      "affinity": "Reflex"
+      "affinity": "Reflex",
+      "image": "WidemouthMagwell.png",
+      "stats": [
+        {
+          "effect": "reload speed",
+          "amount": "+30%",
+          "team": false
+        },
+        {
+          "effect": "damage resistance",
+          "amount": "-5%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Wooden Armor",
       "type": "Defense",
-      "affinity": "Brawn"
+      "affinity": "Brawn",
+      "image": "WoodenArmor.png",
+      "stats": [
+        {
+          "effect": "trauma resistance",
+          "amount": "+30%",
+          "team": false
+        },
+        {
+          "effect": "fire resistance",
+          "amount": "-100%",
+          "team": false
+        }
+      ]
     },
     {
       "name": "Wounded Animal",
       "type": "Defense",
-      "affinity": "Fortune"
+      "affinity": "Fortune",
+      "image": "WoundedAnimal.png",
+      "stats": []
     }
   ]
 }

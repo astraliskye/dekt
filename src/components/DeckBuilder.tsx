@@ -3,6 +3,7 @@ import type { CardWithEffects } from "../types";
 import { api } from "../utils/api";
 import CardCollection from "./CardCollection";
 import CardList from "./CardList";
+import StatList from "./StatList";
 
 const DeckBuilder: React.FC = () => {
   const { data: cards } = api.card.getAll.useQuery();
@@ -29,10 +30,7 @@ const DeckBuilder: React.FC = () => {
           menuOpen ? "left-0" : "-left-96"
         } top-0 z-10 flex h-full w-96 flex-col overflow-auto border-r-2 border-r-red-600 bg-white p-4 transition-all`}
       >
-        <div className="flex-grow">
-          <CardList cardList={cardList} handleCardClick={removeCardFromList} />
-        </div>
-        <div className="flex">
+        <div className="flex w-full">
           <button
             className="mx-auto rounded-lg px-3 py-1 transition hover:bg-gray-300 active:bg-gray-400"
             onClick={() => setMenuOpen(false)}
@@ -42,6 +40,10 @@ const DeckBuilder: React.FC = () => {
           <button className="mx-auto rounded-lg bg-red-600 px-3 py-1 text-white transition hover:bg-red-700 active:bg-red-900">
             Save Deck
           </button>
+        </div>
+        <div className="flex-grow">
+          <CardList cardList={cardList} handleCardClick={removeCardFromList} />
+          <StatList cardList={cardList} />
         </div>
       </div>
 
