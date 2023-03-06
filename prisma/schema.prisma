@@ -56,9 +56,8 @@ model Card {
     type String
     affinity String
     image String
-    ability String?
+    originalEffects String
     stats CardStat[]
-    secondaryEffects SecondaryEffect[]
     decks Deck[]
 }
 
@@ -73,13 +72,13 @@ model CardStat {
     updatedAt DateTime @updatedAt
 }
 
-model SecondaryEffect {
-    id String @id @default(cuid())
-    effect String
-    team Boolean
-    cardId String
-    card Card @relation(fields: [cardId], references: [id])
-}
+// model SecondaryEffect {
+//     id String @id @default(cuid())
+//     effect String
+//     team Boolean
+//     cardId String
+//     card Card @relation(fields: [cardId], references: [id])
+// }
 
 model Session {
     id           String   @id @default(cuid())

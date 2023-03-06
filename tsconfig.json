@@ -23,7 +23,12 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs",
-    "prisma/load-cards.js"
+    "prisma/load-cards.mts"
   ],
-  "exclude": ["node_modules", "prisma"]
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

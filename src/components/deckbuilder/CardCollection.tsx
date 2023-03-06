@@ -72,9 +72,7 @@ function cardContainsTerm(searchTerm: string, card: CardWithEffects) {
   if (
     card.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     card.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    card.affinity.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (card.ability &&
-      card.ability.toLowerCase().includes(searchTerm.toLowerCase()))
+    card.affinity.toLowerCase().includes(searchTerm.toLowerCase())
   ) {
     return true;
   }
@@ -82,10 +80,6 @@ function cardContainsTerm(searchTerm: string, card: CardWithEffects) {
   for (const stat of card.stats) {
     if (stat.effect.toLowerCase().includes(searchTerm.toLowerCase()))
       return true;
-  }
-
-  for (const se of card.secondaryEffects) {
-    if (se.effect.toLowerCase().includes(searchTerm.toLowerCase())) return true;
   }
 
   return false;

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import type { CardWithEffects } from "../../types";
 
@@ -27,14 +28,14 @@ const Card = ({ card, isSelected, onClick }: Props) => {
 
   return (
     <div
-      className="h-[calc(35px*4)] w-[calc(25px*4)] cursor-pointer rounded-lg bg-red-600 bg-cover p-2 text-center font-semibold text-white transition-all hover:bg-red-700 md:h-[calc(35px*8)] md:w-[calc(25px*8)]"
+      className="relative h-[calc(35px*4)] w-[calc(25px*4)] cursor-pointer overflow-hidden rounded-lg bg-red-600 bg-cover p-2 text-center font-semibold text-white transition-all hover:bg-red-700 md:h-[calc(35px*8)] md:w-[calc(25px*8)]"
       style={{
         backgroundImage: `url(/images/cards/${card.image})`,
         border: "2px solid " + (isSelected ? "red" : borderColor),
       }}
       onClick={() => onClick()}
     >
-      {card.name}
+      <p className="z-10 text-white">{card.name}</p>
     </div>
   );
 };

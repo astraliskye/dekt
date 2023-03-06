@@ -14,7 +14,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
   return (
     <div
       onClick={() => setMenuOpen(false)}
-      className={darkMode ? "dark bg-black" : ""}
+      className={(darkMode ? "dark bg-black" : "") + " min-h-screen"}
     >
       <header className="mx-auto flex w-11/12 items-center justify-between border-b-8 border-red-600 py-2 dark:bg-black dark:text-white">
         <p className="flex items-center gap-4 text-2xl font-semibold">
