@@ -1,5 +1,5 @@
 import React from "react";
-import type { CardWithEffects } from "../types";
+import type { CardWithEffects } from "../../types";
 
 type Props = {
   cardList: CardWithEffects[];

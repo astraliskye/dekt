@@ -1,6 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import DeckBuilder from "../components/DeckBuilder";
+import DeckBuilder from "../components/deckbuilder/DeckBuilder";
 
 const Home: NextPage = () => {
   return (

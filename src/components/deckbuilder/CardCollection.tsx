@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import type { CardWithEffects } from "../types";
+import type { ChangeEvent } from "react";
+import type { CardWithEffects } from "../../types";
+import Card from "./Card";
+import TextInput from "../elements/TextInput";
 
 type Props = {
   cards: CardWithEffects[];
@@ -24,31 +27,42 @@ const CardCollection: React.FC<Props> = ({
 
   return (
     <>
-      <input
-        className="mx-auto rounded-lg border-2 px-2 py-1 transition hover:bg-gray-200"
-        type="text"
+      <TextInput
         placeholder="Search cards..."
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          setSearchTerm(e.target.value)
+        }
       />
-      <div className="mx-auto flex w-fit select-none flex-wrap justify-center gap-4">
+      <div className="mx-auto flex w-fit select-none flex-wrap justify-center gap-4 md:max-w-[1100px]">
         {cards &&
-          cards.filter(cardContainsTerm.bind(this, searchTerm)).map((card) => (
-            <div
-              key={card.id}
-              className="h-[calc(35px*4)] w-[calc(25px*4)] cursor-pointer rounded-lg bg-red-600 bg-cover p-2 text-center font-semibold text-white transition-all hover:bg-red-700"
-              style={{
-                backgroundImage: `url(/images/cards/${card.image})`,
-                border:
-                  cardList.filter((c) => c.id === card.id).length !== 0
-                    ? "3px solid red"
-                    : "3px solid transparent",
-              }}
-              onClick={() => handleCardClick(card)}
-            >
-              {card.name}
-            </div>
-          ))}
+          cards
+            .filter(cardContainsTerm.bind(this, searchTerm))
+            .sort((a, b) => {
+              if (a.affinity > b.affinity) {
+                return 1;
+              } else if (a.affinity < b.affinity) {
+                return -1;
+              } else if (a.type > b.type) {
+                return 1;
+              } else if (a.type < b.type) {
+                return -1;
+              } else if (a.name > b.name) {
+                return 1;
+              } else if (a.name < b.name) {
+                return -1;
+              }
+
+              return 0;
+            })
+            .map((card) => (
+              <Card
+                key={card.id}
+                card={card}
+                isSelected={cardList.filter((c) => c.id === card.id).length > 0}
+                onClick={handleCardClick.bind(this, card)}
+              />
+            ))}
       </div>
     </>
   );

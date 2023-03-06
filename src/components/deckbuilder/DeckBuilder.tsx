@@ -1,8 +1,10 @@
 import { useState } from "react";
-import type { CardWithEffects } from "../types";
-import { api } from "../utils/api";
+import type { CardWithEffects } from "../../types";
+import { api } from "../../utils/api";
 import CardCollection from "./CardCollection";
 import CardList from "./CardList";
+import PrimaryButton from "../elements/PrimaryButton";
+import SecondaryButton from "../elements/SecondaryButton";
 import StatList from "./StatList";
 
 const DeckBuilder: React.FC = () => {
@@ -14,6 +16,10 @@ const DeckBuilder: React.FC = () => {
     setCardList(cardList.filter((c) => c.id !== cardId));
 
   const toggleCardInCollection = (card: CardWithEffects) => {
+    if (cardList.length >= 15) {
+      return;
+    }
+
     const filteredList = cardList.filter((c) => c.id !== card.id);
 
     if (filteredList.length === cardList.length) {
@@ -24,22 +30,17 @@ const DeckBuilder: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-10">
+    <div className="flex flex-col items-center gap-10 dark:bg-black dark:text-white">
       <div
         className={`fixed ${
           menuOpen ? "left-0" : "-left-96"
-        } top-0 z-10 flex h-full w-96 flex-col overflow-auto border-r-2 border-r-red-600 bg-white p-4 transition-all`}
+        } top-0 z-10 flex h-full w-96 flex-col overflow-auto border-r-2 border-r-red-600 bg-white p-4 transition-all dark:bg-black`}
       >
         <div className="flex w-full">
-          <button
-            className="mx-auto rounded-lg px-3 py-1 transition hover:bg-gray-300 active:bg-gray-400"
-            onClick={() => setMenuOpen(false)}
-          >
+          <SecondaryButton onClick={() => setMenuOpen(false)}>
             Close
-          </button>
-          <button className="mx-auto rounded-lg bg-red-600 px-3 py-1 text-white transition hover:bg-red-700 active:bg-red-900">
-            Save Deck
-          </button>
+          </SecondaryButton>
+          <PrimaryButton>Save Deck</PrimaryButton>
         </div>
         <div className="flex-grow">
           <CardList cardList={cardList} handleCardClick={removeCardFromList} />
@@ -54,12 +55,7 @@ const DeckBuilder: React.FC = () => {
       >
         DECK EDITOR
       </h1>
-      <button
-        className="mx-auto rounded-lg bg-red-600 px-3 py-1 text-white transition hover:bg-red-700 active:bg-red-900"
-        onClick={() => setMenuOpen(true)}
-      >
-        Open Deck
-      </button>
+      <PrimaryButton onClick={() => setMenuOpen(true)}>Open Deck</PrimaryButton>
       {cards && (
         <CardCollection
           cards={cards}

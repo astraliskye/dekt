@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      transitionProperty: {
+        appear: "opacity, transform",
+      },
+    },
   },
   plugins: [],
+  darkMode: "class",
 };
