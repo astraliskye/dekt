@@ -16,13 +16,13 @@ const DeckBuilder: React.FC = () => {
     setCardList(cardList.filter((c) => c.id !== cardId));
 
   const toggleCardInCollection = (card: CardWithEffects) => {
-    if (cardList.length >= 15) {
-      return;
-    }
-
     const filteredList = cardList.filter((c) => c.id !== card.id);
 
     if (filteredList.length === cardList.length) {
+      if (cardList.length >= 15) {
+        return;
+      }
+
       setCardList((prev) => [...prev, card]);
     } else {
       setCardList(() => filteredList);
