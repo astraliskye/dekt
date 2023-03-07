@@ -9,7 +9,7 @@ type Props = {
 const CardList = ({ cardList, handleCardClick }: Props) => {
   return (
     <div className="flex flex-col gap-1">
-      <div className="mx-auto flex w-60 pt-8">
+      <div className="mx-auto mt-8 flex h-2 w-60 border-2 border-gray-200 dark:border-gray-800">
         {cardList
           .sort((a, b) => {
             if (a.affinity > b.affinity) return 1;
@@ -21,23 +21,23 @@ const CardList = ({ cardList, handleCardClick }: Props) => {
 
             switch (card.affinity) {
               case "Reflex":
-                color = "#ABBBCB";
+                color = "#7a9fc5";
                 break;
               case "Discipline":
-                color = "#FEBBB5";
+                color = "#ff8479";
                 break;
               case "Brawn":
-                color = "#CAF6AA";
+                color = "#a8f372";
                 break;
               case "Fortune":
-                color = "#F6F586";
+                color = "#f5f258";
                 break;
             }
 
             return (
               <div
                 key={card.id}
-                className="w-5"
+                className="w-4"
                 style={{ border: "2px solid " + color }}
               ></div>
             );
