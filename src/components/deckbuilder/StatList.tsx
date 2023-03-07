@@ -7,12 +7,17 @@ type Props = {
 
 const StatList: React.FC<Props> = ({ cardList }) => {
   return (
-    <div>
+    <div className="px-4">
       <h2 className="py-4 text-center text-3xl">Stats</h2>
       {statListFromCardList(cardList).length > 0 ? (
-        <ul>
+        <ul className="list-disc">
           {statListFromCardList(cardList).map((statPair) => (
-            <li key={statPair[0]}>{`${statPair[0]}: ${statPair[1]}`}</li>
+            <li key={statPair[0]}>
+              {`${
+                statPair[0].charAt(0).toUpperCase() + statPair[0].substring(1)
+              }:`}{" "}
+              <span className="font-bold text-red-600">{`${statPair[1]}`}</span>
+            </li>
           ))}
         </ul>
       ) : (
