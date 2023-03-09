@@ -40,45 +40,48 @@ model Account {
 }
 
 model Deck {
-    id String @id @default(cuid())
-    name String
+    id          String @id @default(cuid())
+    name        String
     description String?
-    cards Card[]
-    creatorId String
-    creator User @relation(fields: [creatorId], references: [id])
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    cards       Card[]
+    creatorId   String
+    creator     User @relation(fields: [creatorId], references: [id])
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
 }
 
 model Card {
-    id String @id @default(cuid())
-    name String
-    type String
-    affinity String
-    image String
-    originalEffects String
-    stats CardStat[]
-    decks Deck[]
+    id                  String @id @default(cuid())
+    name                String
+    type                String
+    affinity            String
+    image               String
+    gadget              String?
+    originalEffects     String
+    stats               CardStat[]
+    secondaryEffects    SecondaryEffect[]
+    decks               Deck[]
 }
 
 model CardStat {
-    id String @id @default(cuid())
-    effect String
-    amount String
-    team Boolean
-    cardId String
-    card Card @relation(fields: [cardId], references: [id])
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    id          String @id @default(cuid())
+    effect      String
+    amount      String
+    team        Boolean
+    cardId      String
+    card        Card @relation(fields: [cardId], references: [id])
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
 }
 
-// model SecondaryEffect {
-//     id String @id @default(cuid())
-//     effect String
-//     team Boolean
-//     cardId String
-//     card Card @relation(fields: [cardId], references: [id])
-// }
+model SecondaryEffect {
+    id      String @id @default(cuid())
+    effect  String
+    good    Boolean
+    team    Boolean
+    cardId  String
+    card    Card @relation(fields: [cardId], references: [id])
+}
 
 model Session {
     id           String   @id @default(cuid())

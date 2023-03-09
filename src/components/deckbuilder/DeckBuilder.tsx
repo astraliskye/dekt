@@ -6,11 +6,14 @@ import CardList from "./CardList";
 import PrimaryButton from "../elements/PrimaryButton";
 import SecondaryButton from "../elements/SecondaryButton";
 import StatList from "./StatList";
+import TextInput from "../elements/TextInput";
 
 const DeckBuilder: React.FC = () => {
   const { data: cards } = api.card.getAll.useQuery();
   const [cardList, setCardList] = useState([] as CardWithEffects[]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [deckTitle, setDeckTitle] = useState("");
+  const [deckDescription, setDeckDescription] = useState("");
 
   const removeCardFromList = (cardId: string) =>
     setCardList(cardList.filter((c) => c.id !== cardId));
@@ -36,13 +39,26 @@ const DeckBuilder: React.FC = () => {
           menuOpen ? "left-0" : "-left-96"
         } top-0 z-10 flex h-full w-96 flex-col overflow-auto border-r-2 border-r-red-600 bg-white p-4 transition-all dark:bg-black`}
       >
-        <div className="flex w-full">
-          <SecondaryButton onClick={() => setMenuOpen(false)}>
-            Close
-          </SecondaryButton>
-          <PrimaryButton>Save Deck</PrimaryButton>
-        </div>
-        <div className="flex-grow">
+        <form className="flex flex-col gap-4">
+          <div className="flex w-full">
+            <SecondaryButton onClick={() => setMenuOpen(false)}>
+              Close
+            </SecondaryButton>
+            <PrimaryButton submit>Save Deck</PrimaryButton>
+          </div>
+
+          <TextInput
+            value={deckTitle}
+            onChange={(e) => setDeckTitle(e.target.value)}
+            placeholder="Deck title..."
+          />
+          <TextInput
+            value={deckDescription}
+            onChange={(e) => setDeckDescription(e.target.value)}
+            placeholder="Deck description..."
+          />
+        </form>
+        <div>
           <CardList cardList={cardList} handleCardClick={removeCardFromList} />
           <StatList cardList={cardList} />
         </div>
