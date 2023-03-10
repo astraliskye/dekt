@@ -9,13 +9,21 @@ type Stat = {
   team: boolean;
 };
 
+type SecondaryEffect = {
+  effect: string;
+  good: boolean;
+  team: boolean;
+};
+
 type Card = {
   name: string;
   type: string;
   affinity: string;
   originalEffects: string;
   image: string;
+  gadget?: string;
   stats: Stat[];
+  secondaryEffects: SecondaryEffect[];
 };
 
 async function main() {
@@ -42,20 +50,18 @@ async function main() {
             affinity: card.affinity,
             originalEffects: card.originalEffects,
             image: card.image,
+            gadget: card.gadget,
             stats: card.stats
               ? {
                   createMany: {
-                    data: card.stats.map(
-                      (stat: {
-                        effect: string;
-                        amount: string;
-                        team: boolean;
-                      }) => ({
-                        effect: stat.effect,
-                        amount: stat.amount,
-                        team: stat.team,
-                      })
-                    ),
+                    data: card.stats,
+                  },
+                }
+              : undefined,
+            secondaryEffects: card.secondaryEffects
+              ? {
+                  createMany: {
+                    data: card.secondaryEffects,
                   },
                 }
               : undefined,
