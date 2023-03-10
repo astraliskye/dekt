@@ -5,7 +5,7 @@ import { TRPCError } from "@trpc/server";
 export const cardRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {
     return ctx.prisma.card.findMany({
-      include: { stats: true },
+      include: { stats: true, secondaryEffects: true },
     });
   }),
   create: protectedProcedure

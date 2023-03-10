@@ -14,12 +14,15 @@ const AppLayout = ({ children }: AppLayoutProps) => {
   return (
     <div
       onClick={() => setMenuOpen(false)}
-      className={(darkMode ? "dark bg-black" : "") + " min-h-screen"}
+      className={
+        (darkMode ? "dark bg-dark text-light" : " bg-light text-dark") +
+        " min-h-screen"
+      }
     >
-      <header className="mx-auto flex min-h-[90px] w-11/12 items-center justify-between border-b-8 border-red-600 py-2 dark:bg-black dark:text-white">
+      <header className="mx-auto flex min-h-[90px] w-11/12 items-center justify-between border-b-8 border-primary py-2">
         <p className="flex items-center gap-4 text-2xl font-semibold">
           <Link href="/">
-            DEKT<span className="text-red-600">.</span>
+            DEKT<span className="text-primary">.</span>
           </Link>
           <Toggle checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
         </p>

@@ -7,6 +7,8 @@ import PrimaryButton from "../elements/PrimaryButton";
 import SecondaryButton from "../elements/SecondaryButton";
 import StatList from "./StatList";
 import TextInput from "../elements/TextInput";
+import GadgetList from "./GadgetList";
+import SecondaryEffectList from "./SecondaryEffectList";
 
 const DeckBuilder: React.FC = () => {
   const { data: cards } = api.card.getAll.useQuery();
@@ -33,11 +35,11 @@ const DeckBuilder: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-10 dark:bg-black dark:text-white">
+    <div className="flex flex-col items-center gap-10">
       <div
         className={`fixed ${
           menuOpen ? "left-0" : "-left-96"
-        } top-0 z-10 flex h-full w-96 flex-col overflow-auto border-r-2 border-r-red-600 bg-white p-4 transition-all dark:bg-black`}
+        } top-0 z-10 flex h-full w-96 flex-col overflow-auto border-r-2 border-primary bg-light p-4 transition-all dark:bg-dark`}
       >
         <form className="flex flex-col gap-4">
           <div className="flex w-full">
@@ -61,6 +63,8 @@ const DeckBuilder: React.FC = () => {
         <div>
           <CardList cardList={cardList} handleCardClick={removeCardFromList} />
           <StatList cardList={cardList} />
+          <SecondaryEffectList cardList={cardList} />
+          <GadgetList cardList={cardList} />
         </div>
       </div>
 

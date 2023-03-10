@@ -16,7 +16,9 @@ const Auth = ({ menuOpen, setMenuOpen }: Props) => {
       {sessionData ? (
         <div className="relative flex items-center gap-4">
           <div
-            className={`flex cursor-pointer select-none items-center gap-2 border-2 border-white px-4 py-2 transition hover:bg-gray-200 dark:border-black dark:hover:bg-gray-800`}
+            className={`${
+              menuOpen ? "bg-light-shade dark:bg-dark-tint" : ""
+            } flex cursor-pointer select-none items-center gap-2 px-4 py-2 transition hover:bg-light-shade dark:hover:bg-dark-tint`}
             onClick={(e) => {
               e.stopPropagation();
               setMenuOpen(!menuOpen);
@@ -36,7 +38,7 @@ const Auth = ({ menuOpen, setMenuOpen }: Props) => {
           <div
             className={`${
               menuOpen ? "scale-y-100 opacity-100" : "scale-y-90 opacity-0"
-            } absolute top-16 right-0 z-50 flex w-36 origin-top flex-col gap-2 overflow-hidden border-2 border-gray-200 bg-white py-2 transition-appear dark:border-gray-800 dark:bg-black`}
+            } absolute top-16 right-0 z-50 flex w-36 origin-top flex-col gap-2 overflow-hidden border-2 border-light-shade bg-white py-2 transition-appear dark:border-dark-tint dark:bg-black`}
             onClick={(e) => {
               e.stopPropagation();
             }}
