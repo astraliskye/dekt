@@ -1,3 +1,4 @@
+import type { FormEvent } from "react";
 import { useState } from "react";
 import type { CardWithEffects } from "../../types";
 import { api } from "../../utils/api";
@@ -9,13 +10,27 @@ import StatList from "./StatList";
 import TextInput from "../elements/TextInput";
 import GadgetList from "./GadgetList";
 import SecondaryEffectList from "./SecondaryEffectList";
+import { useRouter } from "next/router";
+import Error from "../elements/Error";
 
 const DeckBuilder: React.FC = () => {
+  const router = useRouter();
+
   const { data: cards } = api.card.getAll.useQuery();
+  const saveDeck = api.deck.create.useMutation({
+    onSuccess: async ({ id }) => {
+      await router.push(`/decks/${id}`);
+    },
+    onError: (error) => {
+      setErrorMessage(error.message);
+    },
+  });
+
   const [cardList, setCardList] = useState([] as CardWithEffects[]);
   const [menuOpen, setMenuOpen] = useState(false);
   const [deckTitle, setDeckTitle] = useState("");
   const [deckDescription, setDeckDescription] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const removeCardFromList = (cardId: string) =>
     setCardList(cardList.filter((c) => c.id !== cardId));
@@ -34,6 +49,16 @@ const DeckBuilder: React.FC = () => {
     }
   };
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    saveDeck.mutate({
+      name: deckTitle,
+      description: deckDescription === "" ? undefined : deckDescription,
+      cards: cardList,
+    });
+  };
+
   return (
     <div className="flex flex-col items-center gap-10">
       <div
@@ -41,7 +66,7 @@ const DeckBuilder: React.FC = () => {
           menuOpen ? "left-0" : "-left-96"
         } top-0 z-10 flex h-full w-96 flex-col overflow-auto border-r-2 border-primary bg-light p-4 transition-all dark:bg-dark`}
       >
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex w-full">
             <SecondaryButton onClick={() => setMenuOpen(false)}>
               Close
@@ -49,10 +74,13 @@ const DeckBuilder: React.FC = () => {
             <PrimaryButton submit>Save Deck</PrimaryButton>
           </div>
 
+          <Error message={errorMessage} />
+
           <TextInput
             value={deckTitle}
             onChange={(e) => setDeckTitle(e.target.value)}
             placeholder="Deck title..."
+            required
           />
           <TextInput
             value={deckDescription}
