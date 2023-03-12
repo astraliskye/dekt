@@ -18,8 +18,8 @@ const DeckBuilder: React.FC = () => {
 
   const { data: cards } = api.card.getAll.useQuery();
   const saveDeck = api.deck.create.useMutation({
-    onSuccess: async ({ id }) => {
-      await router.push(`/decks/${id}`);
+    onSuccess: async () => {
+      await router.push(`/collection`);
     },
     onError: (error) => {
       setErrorMessage(error.message);

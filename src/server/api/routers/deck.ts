@@ -67,4 +67,13 @@ export const deckRouter = createTRPCRouter({
         },
       });
     }),
+  getCurrentUserCollection: protectedProcedure.query(({ ctx }) => {
+    return ctx.prisma.deck.findMany({
+      where: { creatorId: ctx.session.user.id },
+      orderBy: { updatedAt: "desc" },
+      include: {
+        creator: true,
+      },
+    });
+  }),
 });

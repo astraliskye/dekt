@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           property="og:description"
           content="Theory craft your Back4Blood builds!"
         />
-        <meta name="theme-color" content="#FF0000" />
+        <meta name="theme-color" content="#dc2626" />
 
         <meta name="twitter:card" content="summary_large_image" />
 

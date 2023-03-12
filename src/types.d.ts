@@ -1,6 +1,16 @@
-import type { Card, CardStat, SecondaryEffect } from "@prisma/client";
+import type {
+  Card,
+  CardStat,
+  Deck,
+  SecondaryEffect,
+  User,
+} from "@prisma/client";
 
 export type CardWithEffects = Card & {
   stats: CardStat[];
   secondaryEffects: SecondaryEffect[];
+};
+
+export type DeckWithCreator = Deck & {
+  creator: User;
 };

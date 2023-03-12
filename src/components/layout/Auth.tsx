@@ -1,5 +1,6 @@
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import PrimaryButton from "../elements/PrimaryButton";
 
@@ -44,13 +45,10 @@ const Auth = ({ menuOpen, setMenuOpen }: Props) => {
             }}
           >
             <span className="cursor-pointer px-2 py-1 transition hover:bg-gray-200 dark:hover:bg-gray-800">
-              Edit Profile
+              <Link href="/">Create a Deck!</Link>
             </span>
             <span className="cursor-pointer px-2 py-1 transition hover:bg-gray-200 dark:hover:bg-gray-800">
-              About
-            </span>
-            <span className="cursor-pointer px-2 py-1 transition hover:bg-gray-200 dark:hover:bg-gray-800">
-              Donate
+              <Link href="/collection">Your Collection</Link>
             </span>
             <hr />
             <button
