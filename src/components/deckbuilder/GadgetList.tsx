@@ -7,7 +7,7 @@ type Props = {
 
 const GadgetList = ({ cardList }: Props) => {
   return (
-    <div className="px-4">
+    <div className="mx-auto max-w-xl">
       <h2 className="py-4 text-center text-3xl">Gadgets</h2>
       {cardList.filter((card) => card.gadget !== null).length > 0 ? (
         <ul className="list-disc">
@@ -18,7 +18,7 @@ const GadgetList = ({ cardList }: Props) => {
             ))}
         </ul>
       ) : (
-        <p className="text-gray-400">None</p>
+        <p className="text-center text-gray-400">None</p>
       )}
     </div>
   );

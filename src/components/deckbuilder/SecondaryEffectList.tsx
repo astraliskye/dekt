@@ -7,8 +7,8 @@ type Props = {
 
 const SecondaryEffectList = ({ cardList }: Props) => {
   return (
-    <div className="px-4">
-      <h2 className="text-centedr py-4 text-3xl">Secondary Effects</h2>
+    <div className="mx-auto max-w-xl">
+      <h2 className="py-4 text-center text-3xl">Secondary Effects</h2>
       {cardList
         .map((card) => card.secondaryEffects)
         .filter((elem) => elem !== undefined)
@@ -22,7 +22,7 @@ const SecondaryEffectList = ({ cardList }: Props) => {
             ))}
         </ul>
       ) : (
-        <p className="text-gray-400">None</p>
+        <p className="text-center text-gray-400">None</p>
       )}
     </div>
   );

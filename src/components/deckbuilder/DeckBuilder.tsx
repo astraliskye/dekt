@@ -12,6 +12,7 @@ import GadgetList from "./GadgetList";
 import SecondaryEffectList from "./SecondaryEffectList";
 import { useRouter } from "next/router";
 import Error from "../elements/Error";
+import TextArea from "../elements/TextArea";
 
 const DeckBuilder: React.FC = () => {
   const router = useRouter();
@@ -64,7 +65,7 @@ const DeckBuilder: React.FC = () => {
       <div
         className={`fixed ${
           menuOpen ? "left-0" : "-left-96"
-        } top-0 z-10 flex h-full w-96 flex-col overflow-auto border-r-2 border-primary bg-light p-4 transition-all dark:bg-dark`}
+        } top-0 z-10 flex h-full w-96 flex-col overflow-auto border-r-2 border-primary bg-light px-8 py-4 transition-all dark:bg-dark`}
       >
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div className="flex w-full">
@@ -82,7 +83,7 @@ const DeckBuilder: React.FC = () => {
             placeholder="Deck title..."
             required
           />
-          <TextInput
+          <TextArea
             value={deckDescription}
             onChange={(e) => setDeckDescription(e.target.value)}
             placeholder="Deck description..."

@@ -1,6 +1,6 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const deckRouter = createTRPCRouter({
   create: protectedProcedure
@@ -73,6 +73,19 @@ export const deckRouter = createTRPCRouter({
       orderBy: { updatedAt: "desc" },
       include: {
         creator: true,
+      },
+    });
+  }),
+  getById: publicProcedure.input(z.string()).query(({ input: deckId, ctx }) => {
+    return ctx.prisma.deck.findUnique({
+      where: { id: deckId },
+      include: {
+        cards: {
+          include: {
+            stats: true,
+            secondaryEffects: true,
+          },
+        },
       },
     });
   }),

@@ -7,7 +7,7 @@ type Props = {
 
 const StatList: React.FC<Props> = ({ cardList }) => {
   return (
-    <div className="px-4">
+    <div className="mx-auto max-w-lg">
       <h2 className="py-4 text-center text-3xl">Stats</h2>
       {statListFromCardList(cardList).length > 0 ? (
         <ul className="list-disc">
@@ -21,7 +21,7 @@ const StatList: React.FC<Props> = ({ cardList }) => {
           ))}
         </ul>
       ) : (
-        <p className="text-gray-400">None</p>
+        <p className="text-center text-gray-400">None</p>
       )}
     </div>
   );
