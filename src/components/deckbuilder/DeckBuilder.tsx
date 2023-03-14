@@ -27,12 +27,12 @@ const DeckBuilder: React.FC = () => {
   const router = useRouter();
   const touchSensor = useSensor(TouchSensor, {
     activationConstraint: {
-      distance: 8,
+      distance: 1,
     },
   });
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
-      distance: 8,
+      distance: 1,
     },
   });
 
