@@ -25,8 +25,8 @@ const Collection: NextPage = () => {
   return (
     <>
       <Head>
-        <title>DEKT</title>
-        <meta property="og:title" content="DEKT" />
+        <title>Collection</title>
+        <meta property="og:title" content={`Collection`} />
         <meta property="og:type" content="website" />
         <meta
           property="og:url"

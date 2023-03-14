@@ -1,3 +1,10 @@
+import type {
+  Card,
+  CardStat,
+  Deck,
+  DeckCard,
+  SecondaryEffect,
+} from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
@@ -8,11 +15,7 @@ export const deckRouter = createTRPCRouter({
       z.object({
         name: z.string().trim().min(1),
         description: z.string().trim().min(1).optional(),
-        cards: z
-          .object({
-            id: z.string(),
-          })
-          .array(),
+        cards: z.object({ id: z.string(), position: z.number() }).array(),
       })
     )
     .mutation(({ input, ctx }) => {
@@ -21,7 +24,12 @@ export const deckRouter = createTRPCRouter({
           name: input.name,
           description: input.description,
           cards: {
-            connect: input.cards,
+            createMany: {
+              data: input.cards.map((card) => ({
+                cardId: card.id,
+                position: card.position,
+              })),
+            },
           },
           creatorId: ctx.session.user.id,
         },
@@ -36,6 +44,7 @@ export const deckRouter = createTRPCRouter({
         cards: z
           .object({
             id: z.string(),
+            position: z.number(),
           })
           .array(),
       })
@@ -62,7 +71,12 @@ export const deckRouter = createTRPCRouter({
           description: input.description,
           cards: {
             set: [],
-            connect: input.cards,
+            createMany: {
+              data: input.cards.map((card) => ({
+                cardId: card.id,
+                position: card.position,
+              })),
+            },
           },
         },
       });
@@ -76,17 +90,37 @@ export const deckRouter = createTRPCRouter({
       },
     });
   }),
-  getById: publicProcedure.input(z.string()).query(({ input: deckId, ctx }) => {
-    return ctx.prisma.deck.findUnique({
-      where: { id: deckId },
-      include: {
-        cards: {
-          include: {
-            stats: true,
-            secondaryEffects: true,
+  getById: publicProcedure
+    .input(z.string())
+    .query(async ({ input: deckId, ctx }) => {
+      const result:
+        | (Deck & {
+            cards: (DeckCard & {
+              card: Card & {
+                stats: CardStat[];
+                secondaryEffects: SecondaryEffect[];
+              };
+            })[];
+          })
+        | null = await ctx.prisma.deck.findUnique({
+        where: { id: deckId },
+        include: {
+          cards: {
+            orderBy: { position: "asc" },
+            include: {
+              card: {
+                include: {
+                  stats: true,
+                  secondaryEffects: true,
+                },
+              },
+            },
           },
         },
-      },
-    });
-  }),
+      });
+
+      if (result === null) return null;
+
+      return { ...result, cards: result.cards.map((card) => card.card) };
+    }),
 });

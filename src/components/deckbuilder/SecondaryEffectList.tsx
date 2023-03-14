@@ -1,5 +1,8 @@
 import React from "react";
 import type { CardWithEffects } from "../../types";
+import { sortedCards } from "../../utils/front-end";
+import Container from "../elements/Container";
+import H2 from "../elements/H2";
 
 type Props = {
   cards: CardWithEffects[];
@@ -7,24 +10,17 @@ type Props = {
 
 const SecondaryEffectList = ({ cards }: Props) => {
   return (
-    <div className="mx-auto max-w-xl">
-      <h2 className="py-4 text-center text-3xl">Secondary Effects</h2>
-      {cards
-        .map((card) => card.secondaryEffects)
-        .filter((elem) => elem !== undefined)
-        .flat().length > 0 ? (
-        <ul className="list-disc">
-          {cards
-            .map((card) => card.secondaryEffects)
-            .flat()
-            .map((se) => (
-              <li key={se.id}>{se.effect}</li>
-            ))}
-        </ul>
-      ) : (
-        <p className="text-center text-gray-400">None</p>
-      )}
-    </div>
+    <Container lg>
+      <H2>Secondary Effects</H2>
+      <ul className="list-disc">
+        {sortedCards(cards)
+          .map((card) => card.secondaryEffects)
+          .flat()
+          .map((se) => (
+            <li key={se.id}>{se.effect}</li>
+          ))}
+      </ul>
+    </Container>
   );
 };
 

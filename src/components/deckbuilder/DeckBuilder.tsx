@@ -1,4 +1,4 @@
-import type { FormEvent } from "react";
+import { type FormEvent, useEffect } from "react";
 import { useState } from "react";
 import type { CardWithEffects } from "../../types";
 import { api } from "../../utils/api";
@@ -13,6 +13,8 @@ import SecondaryEffectList from "./SecondaryEffectList";
 import { useRouter } from "next/router";
 import Error from "../elements/Error";
 import TextArea from "../elements/TextArea";
+import DeckComposition from "../cardlist/DeckComposition";
+import { DndContext, type DragEndEvent } from "@dnd-kit/core";
 
 const DeckBuilder: React.FC = () => {
   const router = useRouter();
@@ -32,6 +34,10 @@ const DeckBuilder: React.FC = () => {
   const [deckTitle, setDeckTitle] = useState("");
   const [deckDescription, setDeckDescription] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    console.log(cardList);
+  }, [cardList]);
 
   const removeCardFromList = (cardId: string) =>
     setCardList(cardList.filter((c) => c.id !== cardId));
@@ -56,82 +62,104 @@ const DeckBuilder: React.FC = () => {
     saveDeck.mutate({
       name: deckTitle,
       description: deckDescription === "" ? undefined : deckDescription,
-      cards: cardList,
+      cards: cardList.map((card, i) => ({ ...card, position: i })),
     });
   };
 
-  const moveCard = (i1: number, i2: number) => {
-    setCardList((cards) => {
-      const temp = cards.at(i1);
+  function handleDragEnd(event: DragEndEvent) {
+    const { active, over } = event;
 
-      if (temp !== undefined) {
-        const result = cards.filter((card) => card.id !== temp.id);
-        result.splice(i2, 0, temp);
-        return [...result];
-      }
+    if (over && active.id !== over.id) {
+      const [i1, i2] = [
+        cardList.findIndex((card) => card.id === active.id),
+        cardList.findIndex((card) => card.id === over.id),
+      ];
 
-      return [...cards];
-    });
-  };
+      setCardList((cards) => {
+        const temp = cards.at(i1);
+
+        if (temp !== undefined) {
+          const result = cards.filter((card) => card.id !== temp.id);
+          result.splice(i2, 0, temp);
+          console.log(`Moving ${temp.name} from ${i1} to ${i2}`);
+          console.log(result);
+          return [...result];
+        }
+
+        return [...cards];
+      });
+    }
+  }
 
   return (
-    <div className="flex flex-col items-center gap-10">
-      <h1
-        className={`text-center text-3xl font-semibold tracking-widest ${
-          menuOpen ? "overflow-hidden" : ""
-        }`}
-      >
-        DECK EDITOR
-      </h1>
-      <PrimaryButton onClick={() => setMenuOpen(true)}>Open Deck</PrimaryButton>
+    <DndContext onDragEnd={handleDragEnd}>
+      <div className="flex flex-col items-center gap-10">
+        <h1
+          className={`text-center text-3xl font-semibold tracking-widest ${
+            menuOpen ? "overflow-hidden" : ""
+          }`}
+        >
+          DECK EDITOR
+        </h1>
+        <PrimaryButton onClick={() => setMenuOpen(true)}>
+          Open Deck
+        </PrimaryButton>
 
-      <div
-        className={`fixed ${
-          menuOpen ? "left-0" : "-left-96"
-        } top-0 z-10 flex h-full w-96 flex-col overflow-auto border-r-2 border-primary bg-light px-8 py-4 transition-all dark:bg-dark`}
-      >
-        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-          <div className="flex w-full">
-            <SecondaryButton onClick={() => setMenuOpen(false)}>
-              Close
-            </SecondaryButton>
-            <PrimaryButton submit>Save Deck</PrimaryButton>
+        {menuOpen && (
+          <div
+            className="fixed top-0 left-0 z-10 h-screen w-screen bg-black opacity-70 transition"
+            onClick={() => setMenuOpen(false)}
+          ></div>
+        )}
+
+        <div
+          className={`fixed ${
+            menuOpen ? "left-0" : "-left-96"
+          } top-0 z-20 flex h-full w-96 flex-col overflow-auto border-r-2 border-primary bg-light px-8 py-4 transition-all dark:bg-dark`}
+        >
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+            <div className="flex w-full">
+              <SecondaryButton onClick={() => setMenuOpen(false)}>
+                Close
+              </SecondaryButton>
+              <PrimaryButton submit>Save Deck</PrimaryButton>
+            </div>
+
+            <Error message={errorMessage} />
+
+            <TextInput
+              value={deckTitle}
+              onChange={(e) => setDeckTitle(e.target.value)}
+              placeholder="Deck title..."
+              required
+            />
+            <TextArea
+              value={deckDescription}
+              onChange={(e) => setDeckDescription(e.target.value)}
+              placeholder="Deck description..."
+            />
+          </form>
+          <div>
+            <DeckComposition cards={cardList} />
+            <SortableCardList
+              cards={cardList}
+              handleCardClick={removeCardFromList}
+            />
+            <StatList cards={cardList} />
+            <SecondaryEffectList cards={cardList} />
+            <GadgetList cards={cardList} />
           </div>
-
-          <Error message={errorMessage} />
-
-          <TextInput
-            value={deckTitle}
-            onChange={(e) => setDeckTitle(e.target.value)}
-            placeholder="Deck title..."
-            required
-          />
-          <TextArea
-            value={deckDescription}
-            onChange={(e) => setDeckDescription(e.target.value)}
-            placeholder="Deck description..."
-          />
-        </form>
-        <div>
-          <SortableCardList
-            cards={cardList}
-            handleCardClick={removeCardFromList}
-            moveCard={moveCard}
-          />
-          <StatList cards={cardList} />
-          <SecondaryEffectList cards={cardList} />
-          <GadgetList cards={cardList} />
         </div>
-      </div>
 
-      {cards && (
-        <CardCollection
-          cards={cards}
-          handleCardClick={toggleCardInCollection}
-          cardList={cardList}
-        />
-      )}
-    </div>
+        {cards && (
+          <CardCollection
+            cards={cards}
+            handleCardClick={toggleCardInCollection}
+            cardList={cardList}
+          />
+        )}
+      </div>
+    </DndContext>
   );
 };
 

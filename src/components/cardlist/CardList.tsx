@@ -12,7 +12,7 @@ const CardList = ({ cards }: Props) => {
   return (
     <Container>
       <H2>Cards</H2>
-      <div>
+      <div className="flex flex-col gap-1">
         {cards.map((card) => (
           <CardListItem key={card.id} card={card} />
         ))}

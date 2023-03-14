@@ -15,8 +15,9 @@ const AppLayout = ({ children }: AppLayoutProps) => {
     <div
       onClick={() => setMenuOpen(false)}
       className={
-        (darkMode ? "dark bg-dark text-light" : " bg-light text-dark") +
-        " min-h-screen"
+        (darkMode ? "dark bg-dark text-light " : " bg-light text-dark ") +
+        (menuOpen ? "overflow-hidden " : "overflow-auto ") +
+        "h-screen"
       }
     >
       <header className="mx-auto flex min-h-[90px] w-11/12 items-center justify-between border-b-8 border-primary py-2">

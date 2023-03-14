@@ -64,13 +64,15 @@ model Card {
 }
 
 model DeckCard {
-    deck Deck @relation(fields: [deckId], references: [id])
     deckId String
+    deck Deck @relation(fields: [deckId], references: [id])
 
-    card Card @relation(fields: [cardId], references: [id])
     cardId String
+    card Card @relation(fields: [cardId], references: [id])
 
-    @@id(deckId)
+    position Int
+
+    @@id([deckId, cardId])
 }
 
 model CardStat {

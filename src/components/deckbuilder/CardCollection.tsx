@@ -3,6 +3,7 @@ import type { ChangeEvent } from "react";
 import type { CardWithEffects } from "../../types";
 import Card from "./Card";
 import TextInput from "../elements/TextInput";
+import { sortedCards } from "../../utils/front-end";
 
 type Props = {
   cards: CardWithEffects[];
@@ -26,7 +27,7 @@ const CardCollection: React.FC<Props> = ({
     );
 
   return (
-    <>
+    <div className="flex flex-col items-center gap-8">
       <TextInput
         placeholder="Search cards..."
         value={searchTerm}
@@ -36,25 +37,8 @@ const CardCollection: React.FC<Props> = ({
       />
       <div className="mx-auto flex w-fit select-none flex-wrap justify-center gap-4 md:max-w-[1100px]">
         {cards &&
-          cards
+          sortedCards(cards)
             .filter(cardContainsTerm.bind(this, searchTerm))
-            .sort((a, b) => {
-              if (a.affinity > b.affinity) {
-                return 1;
-              } else if (a.affinity < b.affinity) {
-                return -1;
-              } else if (a.type > b.type) {
-                return 1;
-              } else if (a.type < b.type) {
-                return -1;
-              } else if (a.name > b.name) {
-                return 1;
-              } else if (a.name < b.name) {
-                return -1;
-              }
-
-              return 0;
-            })
             .map((card) => (
               <Card
                 key={card.id}
@@ -64,7 +48,7 @@ const CardCollection: React.FC<Props> = ({
               />
             ))}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,5 +1,8 @@
 import React from "react";
 import type { CardWithEffects } from "../../types";
+import { sortedCards } from "../../utils/front-end";
+import Container from "../elements/Container";
+import H2 from "../elements/H2";
 
 type Props = {
   cards: CardWithEffects[];
@@ -7,20 +10,16 @@ type Props = {
 
 const GadgetList = ({ cards }: Props) => {
   return (
-    <div className="mx-auto max-w-xl">
-      <h2 className="py-4 text-center text-3xl">Gadgets</h2>
-      {cards.filter((card) => card.gadget !== null).length > 0 ? (
-        <ul className="list-disc">
-          {cards
-            .filter((card) => card.gadget !== null)
-            .map((card) => (
-              <li key={card.id}>{card.gadget}</li>
-            ))}
-        </ul>
-      ) : (
-        <p className="text-center text-gray-400">None</p>
-      )}
-    </div>
+    <Container lg>
+      <H2>Gadgets</H2>
+      <ul className="list-disc">
+        {sortedCards(cards)
+          .filter((card) => card.gadget !== null)
+          .map((card) => (
+            <li key={card.id}>{card.gadget}</li>
+          ))}
+      </ul>
+    </Container>
   );
 };
 
