@@ -95,16 +95,19 @@ const DeckBuilder: React.FC = () => {
         >
           DECK EDITOR
         </h1>
-        <PrimaryButton onClick={() => setMenuOpen(true)}>
-          Open Deck
-        </PrimaryButton>
-
         {menuOpen && (
           <div
             className="fixed top-0 left-0 z-10 h-screen w-screen bg-black opacity-70 transition"
             onClick={() => setMenuOpen(false)}
           ></div>
         )}
+
+        <div
+          className="fixed left-0 top-0 flex h-screen w-12 items-center justify-center bg-dark bg-opacity-20 font-bold text-dark transition hover:scale-150 hover:bg-opacity-40 dark:bg-light dark:bg-opacity-20 dark:text-light hover:dark:bg-opacity-40"
+          onClick={() => setMenuOpen(true)}
+        >
+          {">"}
+        </div>
 
         <div
           className={`fixed ${
