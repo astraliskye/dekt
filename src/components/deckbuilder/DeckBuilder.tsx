@@ -3,7 +3,7 @@ import { useState } from "react";
 import type { CardWithEffects } from "../../types";
 import { api } from "../../utils/api";
 import CardCollection from "./CardCollection";
-import CardList from "./CardList";
+import SortableCardList from "../cardlist/SortableCardList";
 import PrimaryButton from "../elements/PrimaryButton";
 import SecondaryButton from "../elements/SecondaryButton";
 import StatList from "./StatList";
@@ -60,8 +60,31 @@ const DeckBuilder: React.FC = () => {
     });
   };
 
+  const moveCard = (i1: number, i2: number) => {
+    setCardList((cards) => {
+      const temp = cards.at(i1);
+
+      if (temp !== undefined) {
+        const result = cards.filter((card) => card.id !== temp.id);
+        result.splice(i2, 0, temp);
+        return [...result];
+      }
+
+      return [...cards];
+    });
+  };
+
   return (
     <div className="flex flex-col items-center gap-10">
+      <h1
+        className={`text-center text-3xl font-semibold tracking-widest ${
+          menuOpen ? "overflow-hidden" : ""
+        }`}
+      >
+        DECK EDITOR
+      </h1>
+      <PrimaryButton onClick={() => setMenuOpen(true)}>Open Deck</PrimaryButton>
+
       <div
         className={`fixed ${
           menuOpen ? "left-0" : "-left-96"
@@ -90,21 +113,17 @@ const DeckBuilder: React.FC = () => {
           />
         </form>
         <div>
-          <CardList cardList={cardList} handleCardClick={removeCardFromList} />
-          <StatList cardList={cardList} />
-          <SecondaryEffectList cardList={cardList} />
-          <GadgetList cardList={cardList} />
+          <SortableCardList
+            cards={cardList}
+            handleCardClick={removeCardFromList}
+            moveCard={moveCard}
+          />
+          <StatList cards={cardList} />
+          <SecondaryEffectList cards={cardList} />
+          <GadgetList cards={cardList} />
         </div>
       </div>
 
-      <h1
-        className={`text-center text-3xl font-semibold tracking-widest ${
-          menuOpen ? "overflow-hidden" : ""
-        }`}
-      >
-        DECK EDITOR
-      </h1>
-      <PrimaryButton onClick={() => setMenuOpen(true)}>Open Deck</PrimaryButton>
       {cards && (
         <CardCollection
           cards={cards}

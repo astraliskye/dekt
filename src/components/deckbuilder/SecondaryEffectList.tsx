@@ -2,19 +2,19 @@ import React from "react";
 import type { CardWithEffects } from "../../types";
 
 type Props = {
-  cardList: CardWithEffects[];
+  cards: CardWithEffects[];
 };
 
-const SecondaryEffectList = ({ cardList }: Props) => {
+const SecondaryEffectList = ({ cards }: Props) => {
   return (
     <div className="mx-auto max-w-xl">
       <h2 className="py-4 text-center text-3xl">Secondary Effects</h2>
-      {cardList
+      {cards
         .map((card) => card.secondaryEffects)
         .filter((elem) => elem !== undefined)
         .flat().length > 0 ? (
         <ul className="list-disc">
-          {cardList
+          {cards
             .map((card) => card.secondaryEffects)
             .flat()
             .map((se) => (

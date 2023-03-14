@@ -43,7 +43,7 @@ model Deck {
     id          String @id @default(cuid())
     name        String
     description String?
-    cards       Card[]
+    cards       DeckCard[]
     creatorId   String
     creator     User @relation(fields: [creatorId], references: [id])
     createdAt   DateTime @default(now())
@@ -60,7 +60,17 @@ model Card {
     originalEffects     String
     stats               CardStat[]
     secondaryEffects    SecondaryEffect[]
-    decks               Deck[]
+    decks               DeckCard[]
+}
+
+model DeckCard {
+    deck Deck @relation(fields: [deckId], references: [id])
+    deckId String
+
+    card Card @relation(fields: [cardId], references: [id])
+    cardId String
+
+    @@id(deckId)
 }
 
 model CardStat {

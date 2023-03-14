@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import React from "react";
-import CardList from "../../components/deckbuilder/CardList";
+import CardList from "../../components/cardlist/CardList";
 import GadgetList from "../../components/deckbuilder/GadgetList";
 import SecondaryEffectList from "../../components/deckbuilder/SecondaryEffectList";
 import StatList from "../../components/deckbuilder/StatList";
@@ -20,10 +20,10 @@ const ViewDeck: NextPage = () => {
     <div>
       <h1 className="text-center text-5xl">{deck.name}</h1>
       <div className="mx-auto flex flex-col gap-10">
-        <CardList cardList={deck.cards} />
-        <StatList cardList={deck.cards} />
-        <SecondaryEffectList cardList={deck.cards} />
-        <GadgetList cardList={deck.cards} />
+        <CardList cards={deck.cards} />
+        <StatList cards={deck.cards} />
+        <SecondaryEffectList cards={deck.cards} />
+        <GadgetList cards={deck.cards} />
       </div>
     </div>
   );

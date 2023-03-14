@@ -2,16 +2,16 @@ import React from "react";
 import type { CardWithEffects } from "../../types";
 
 type Props = {
-  cardList: CardWithEffects[];
+  cards: CardWithEffects[];
 };
 
-const StatList: React.FC<Props> = ({ cardList }) => {
+const StatList: React.FC<Props> = ({ cards }) => {
   return (
     <div className="mx-auto max-w-lg">
       <h2 className="py-4 text-center text-3xl">Stats</h2>
-      {statListFromCardList(cardList).length > 0 ? (
+      {statListFromCardList(cards).length > 0 ? (
         <ul className="list-disc">
-          {statListFromCardList(cardList).map((statPair) => (
+          {statListFromCardList(cards).map((statPair) => (
             <li key={statPair[0]}>
               {`${
                 statPair[0].charAt(0).toUpperCase() + statPair[0].substring(1)
