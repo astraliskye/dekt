@@ -49,7 +49,7 @@ const ViewDeck: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <H1>{deck.name}</H1>
-      <p className="text-center">{deck.description}</p>
+      <p className="mx-auto max-w-xl text-center">{deck.description}</p>
       <div className="mx-auto flex flex-col gap-10">
         <DeckComposition cards={deck.cards} />
         <CardList cards={deck.cards} />
