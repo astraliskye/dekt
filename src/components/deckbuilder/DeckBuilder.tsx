@@ -1,4 +1,4 @@
-import { type FormEvent, useEffect } from "react";
+import { type FormEvent } from "react";
 import { useState } from "react";
 import type { CardWithEffects } from "../../types";
 import { api } from "../../utils/api";
