@@ -1,7 +1,6 @@
 import { useSortable } from "@dnd-kit/sortable";
 import React from "react";
 import type { CardWithEffects } from "../../types";
-import { cardBorderColor } from "../../utils/front-end";
 
 type Props = {
   card: CardWithEffects;
