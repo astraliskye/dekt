@@ -56,7 +56,8 @@ function cardContainsTerm(searchTerm: string, card: CardWithEffects) {
   if (
     card.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     card.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    card.affinity.toLowerCase().includes(searchTerm.toLowerCase())
+    card.affinity.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    card.originalEffects.toLowerCase().includes(searchTerm.toLowerCase())
   ) {
     return true;
   }
