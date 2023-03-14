@@ -1,6 +1,7 @@
 import { useSortable } from "@dnd-kit/sortable";
 import React from "react";
 import type { CardWithEffects } from "../../types";
+import { cardBorderColor } from "../../utils/front-end";
 
 type Props = {
   card: CardWithEffects;
@@ -14,14 +15,17 @@ const CardListItem = ({ card, onClick }: Props) => {
 
   return (
     <div
-      className={`flex h-8 w-full cursor-pointer select-none items-center rounded-lg bg-primary px-2 font-semibold text-light`}
+      className={`${cardBorderColor(
+        card
+      )} flex h-10 w-full cursor-pointer select-none items-center rounded-lg border-2 px-2 font-semibold text-dark dark:text-light`}
       onClick={onClick ? () => onClick(card.id) : undefined}
       ref={setNodeRef}
-      style={
-        transform
-          ? { transform: `translate3d(${transform.x}px, ${transform.y}px, 0)` }
-          : undefined
-      }
+      style={{
+        transform: transform
+          ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
+          : undefined,
+        // backgroundImage: `linear-gradient(to right bottom, rgba(#000), rgba(#fff))), url('/images/cards/${card.image}')`,
+      }}
       {...listeners}
       {...attributes}
     >
