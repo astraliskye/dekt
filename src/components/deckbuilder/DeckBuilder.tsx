@@ -14,10 +14,27 @@ import { useRouter } from "next/router";
 import Error from "../elements/Error";
 import TextArea from "../elements/TextArea";
 import DeckComposition from "../cardlist/DeckComposition";
-import { DndContext, type DragEndEvent } from "@dnd-kit/core";
+import {
+  DndContext,
+  MouseSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from "@dnd-kit/core";
 
 const DeckBuilder: React.FC = () => {
   const router = useRouter();
+  const touchSensor = useSensor(TouchSensor, {
+    activationConstraint: {
+      distance: 8,
+    },
+  });
+  const mouseSensor = useSensor(MouseSensor, {
+    activationConstraint: {
+      distance: 8,
+    },
+  });
 
   const { data: cards } = api.card.getAll.useQuery();
   const saveDeck = api.deck.create.useMutation({
@@ -86,7 +103,10 @@ const DeckBuilder: React.FC = () => {
   }
 
   return (
-    <DndContext onDragEnd={handleDragEnd}>
+    <DndContext
+      onDragEnd={handleDragEnd}
+      sensors={useSensors(touchSensor, mouseSensor)}
+    >
       <div className="flex flex-col items-center gap-10">
         <h1
           className={`text-center text-3xl font-semibold tracking-widest ${
@@ -103,7 +123,7 @@ const DeckBuilder: React.FC = () => {
         )}
 
         <div
-          className="fixed left-0 top-0 flex h-screen w-12 items-center justify-center bg-dark bg-opacity-20 font-bold text-dark transition hover:scale-150 hover:bg-opacity-40 dark:bg-light dark:bg-opacity-20 dark:text-light hover:dark:bg-opacity-40"
+          className="fixed left-0 top-0 z-20 flex h-screen w-4 items-center justify-center bg-dark bg-opacity-20 text-xs font-bold text-dark transition hover:scale-150 hover:bg-opacity-40 dark:bg-light dark:bg-opacity-20 dark:text-light hover:dark:bg-opacity-40 md:w-12 md:text-base"
           onClick={() => setMenuOpen(true)}
         >
           {">"}
@@ -112,7 +132,7 @@ const DeckBuilder: React.FC = () => {
         <div
           className={`fixed ${
             menuOpen ? "left-0" : "-left-96"
-          } top-0 z-20 flex h-full w-96 flex-col overflow-auto border-r-2 border-primary bg-light px-8 py-4 transition-all dark:bg-dark`}
+          } top-0 z-30 flex h-full w-96 flex-col overflow-auto border-r-2 border-primary bg-light px-8 py-4 transition-all dark:bg-dark`}
         >
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <div className="flex w-full">

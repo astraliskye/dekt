@@ -17,7 +17,7 @@ const CardListItem = ({ card, onClick }: Props) => {
     <div
       className={`${cardBorderColor(
         card
-      )} flex h-10 w-full cursor-pointer select-none items-center rounded-lg border-2 px-2 font-semibold text-dark dark:text-light`}
+      )} flex h-10 w-full cursor-pointer select-none items-center rounded-lg border-2 bg-light px-2 font-semibold text-dark dark:bg-dark dark:text-light`}
       onClick={onClick ? () => onClick(card.id) : undefined}
       ref={setNodeRef}
       style={{
