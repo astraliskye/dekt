@@ -35,10 +35,6 @@ const DeckBuilder: React.FC = () => {
   const [deckDescription, setDeckDescription] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    console.log(cardList);
-  }, [cardList]);
-
   const removeCardFromList = (cardId: string) =>
     setCardList(cardList.filter((c) => c.id !== cardId));
 
@@ -81,8 +77,6 @@ const DeckBuilder: React.FC = () => {
         if (temp !== undefined) {
           const result = cards.filter((card) => card.id !== temp.id);
           result.splice(i2, 0, temp);
-          console.log(`Moving ${temp.name} from ${i1} to ${i2}`);
-          console.log(result);
           return [...result];
         }
 
