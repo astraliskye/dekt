@@ -18,7 +18,7 @@ const Auth = ({ menuOpen, setMenuOpen }: Props) => {
         <div className="relative flex items-center gap-4">
           <div
             className={`${
-              menuOpen ? "bg-light-shade dark:bg-dark-tint" : ""
+              menuOpen ? "bg-light-shade" : ""
             } flex cursor-pointer select-none items-center gap-2 px-4 py-2 transition hover:bg-light-shade dark:hover:bg-dark-tint`}
             onClick={(e) => {
               e.stopPropagation();
@@ -29,12 +29,11 @@ const Auth = ({ menuOpen, setMenuOpen }: Props) => {
               <Image
                 src={sessionData.user.image}
                 alt="profile picture"
-                width="50"
-                height="50"
+                width={32}
+                height={32}
                 className="rounded-full"
               />
             )}
-            <span>{sessionData.user?.name}</span>
           </div>
           <div
             className={`${
@@ -44,13 +43,6 @@ const Auth = ({ menuOpen, setMenuOpen }: Props) => {
               e.stopPropagation();
             }}
           >
-            <span className="cursor-pointer px-2 py-1 transition hover:bg-gray-200 dark:hover:bg-gray-800">
-              <Link href="/">Create a Deck!</Link>
-            </span>
-            <span className="cursor-pointer px-2 py-1 transition hover:bg-gray-200 dark:hover:bg-gray-800">
-              <Link href="/collection">Your Collection</Link>
-            </span>
-            <hr />
             <button
               className="w-full px-2 py-1 text-left transition hover:bg-gray-200 dark:hover:bg-gray-800"
               onClick={() => void signOut()}

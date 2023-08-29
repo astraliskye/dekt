@@ -60,11 +60,11 @@ function cardContainsTerm(searchTerm: string, card: CardWithEffects) {
     card.originalEffects.toLowerCase().includes(searchTerm.toLowerCase())
   ) {
     return true;
-  }
-
-  for (const stat of card.stats) {
-    if (stat.effect.toLowerCase().includes(searchTerm.toLowerCase()))
-      return true;
+  } else {
+    for (const stat of card.stats) {
+      if (stat.effect.toLowerCase().includes(searchTerm.toLowerCase()))
+        return true;
+    }
   }
 
   return false;

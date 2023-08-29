@@ -1,25 +1,31 @@
 import React from "react";
 import type { CardWithEffects } from "../../types";
-import { sortedCards } from "../../utils/front-end";
-import Container from "../elements/Container";
-import H2 from "../elements/H2";
 
 type Props = {
   cards: CardWithEffects[];
 };
 
 const GadgetList = ({ cards }: Props) => {
+  const gadgetCards = cards.filter((card) => card.gadget != null);
+
+  if (gadgetCards.length === 0) return null;
+
   return (
-    <Container lg>
-      <H2>Gadgets</H2>
-      <ul className="list-disc">
-        {sortedCards(cards)
-          .filter((card) => card.gadget !== null)
-          .map((card) => (
-            <li key={card.id}>{card.gadget}</li>
-          ))}
+    <div className="w-11/12">
+      <h2 className="mx-auto w-fit border-b-2 border-primary pt-8 pb-2 text-center text-2xl">
+        Gadgets
+      </h2>
+      <ul>
+        {gadgetCards.map((card) => (
+          <li
+            className="border-b-2 border-primary border-opacity-25 py-2"
+            key={card.id}
+          >
+            {card.gadget}
+          </li>
+        ))}
       </ul>
-    </Container>
+    </div>
   );
 };
 

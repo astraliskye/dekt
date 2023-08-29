@@ -1,8 +1,7 @@
 import React from "react";
 import type { CardWithEffects } from "../../types";
-import Container from "../elements/Container";
-import H2 from "../elements/H2";
 import CardListItem from "./CardListItem";
+import DeckCompositionMeter from "./DeckCompositionMeter";
 
 type Props = {
   cards: CardWithEffects[];
@@ -10,14 +9,19 @@ type Props = {
 
 const CardList = ({ cards }: Props) => {
   return (
-    <Container>
-      <H2>Cards</H2>
-      <div className="flex flex-col gap-1">
+    <div className="flex w-64 flex-col items-center">
+      <h2 className="mx-auto w-fit border-b-2 border-primary text-2xl">
+        Cards
+      </h2>
+
+      <DeckCompositionMeter cards={cards} />
+
+      <div className="flex w-64 flex-col gap-1">
         {cards.map((card) => (
           <CardListItem key={card.id} card={card} />
         ))}
       </div>
-    </Container>
+    </div>
   );
 };
 

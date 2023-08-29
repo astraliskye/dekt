@@ -48,7 +48,13 @@ const Collection: NextPage = () => {
       <main>
         <h1 className="py-12 text-center text-3xl">Your Collection</h1>
 
-        {decks ? <DeckList decks={decks} /> : <p>Nothing to show!</p>}
+        {decks ? (
+          <div className="pb-12">
+            <DeckList decks={decks} />
+          </div>
+        ) : (
+          <p>Nothing to show!</p>
+        )}
       </main>
     </>
   );

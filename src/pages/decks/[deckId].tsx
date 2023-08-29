@@ -3,12 +3,10 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 import CardList from "../../components/cardlist/CardList";
-import DeckComposition from "../../components/cardlist/DeckComposition";
-import GadgetList from "../../components/deckbuilder/GadgetList";
 import SecondaryEffectList from "../../components/deckbuilder/SecondaryEffectList";
 import StatList from "../../components/deckbuilder/StatList";
-import H1 from "../../components/elements/H1";
 import { api } from "../../utils/api";
+import GadgetList from "../../components/deckbuilder/GadgetList";
 
 const ViewDeck: NextPage = () => {
   const { deckId } = useRouter().query as { deckId: string };
@@ -48,10 +46,9 @@ const ViewDeck: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <H1>{deck.name}</H1>
-      <p className="mx-auto max-w-xl text-center">{deck.description}</p>
-      <div className="mx-auto flex flex-col gap-10">
-        <DeckComposition cards={deck.cards} />
+      <h1 className="text-center text-3xl">{deck.name}</h1>
+      <p className="text-center">{deck.description}</p>
+      <div className="mx-auto flex w-11/12 flex-col items-center">
         <CardList cards={deck.cards} />
         <StatList cards={deck.cards} />
         <SecondaryEffectList cards={deck.cards} />

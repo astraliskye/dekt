@@ -1,10 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import PrimaryButton from "../components/elements/PrimaryButton";
-import SecondaryButton from "../components/elements/SecondaryButton";
-import Link from "next/link";
+import DeckBuilder from "../components/deckbuilder/DeckBuilder";
 
-const Home: NextPage = () => {
+const Builder: NextPage = () => {
   return (
     <>
       <Head>
@@ -35,22 +33,10 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main>
-        <h1 className="py-32 text-center text-4xl">Welcome to DEKT!</h1>
-        <p className="text-center text-lg">
-          The place to theory craft Back 4 Blood builds to clear even the most
-          difficult No Mercy lobbies.
-        </p>
-        <div className="mx-auto flex w-72 justify-between py-16">
-          <Link href="/collection">
-            <SecondaryButton>Browse Decks</SecondaryButton>
-          </Link>
-          <Link href="/builder">
-            <PrimaryButton>Create Deck</PrimaryButton>
-          </Link>
-        </div>
+        <DeckBuilder />
       </main>
     </>
   );
 };
 
-export default Home;
+export default Builder;

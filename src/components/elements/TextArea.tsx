@@ -12,7 +12,7 @@ type Props = {
 const TextArea = ({ value, placeholder, required, onChange }: Props) => {
   return (
     <textarea
-      className="mx-auto rounded-lg border-2 border-light-shade bg-light px-2 py-1 transition hover:bg-light-shade focus:bg-light-shade dark:border-dark-tint dark:bg-dark dark:hover:bg-dark-tint dark:focus:bg-dark-tint"
+      className="mx-auto rounded-lg border-2 border-light-shade bg-white px-2 py-1 transition hover:bg-light-shade focus:bg-light-shade"
       value={value}
       onChange={onChange}
       required={required}

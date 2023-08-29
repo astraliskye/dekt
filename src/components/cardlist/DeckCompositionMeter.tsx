@@ -6,9 +6,9 @@ type Props = {
   cards: CardWithEffects[];
 };
 
-const DeckComposition = ({ cards }: Props) => {
+const DeckCompositionMeter = ({ cards }: Props) => {
   return (
-    <div className="mx-auto mt-8 flex h-2 w-60 border-2 border-light-shade dark:border-dark-tint">
+    <div className="mx-auto flex h-2 w-60 border-2 border-light-shade dark:border-dark-tint">
       {sortedCards(cards).map((card) => {
         return (
           <div
@@ -21,4 +21,4 @@ const DeckComposition = ({ cards }: Props) => {
   );
 };
 
-export default DeckComposition;
+export default DeckCompositionMeter;

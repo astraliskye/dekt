@@ -1,20 +1,24 @@
 import React from "react";
 import type { CardWithEffects } from "../../types";
 import { sortedCards } from "../../utils/front-end";
-import Container from "../elements/Container";
-import H2 from "../elements/H2";
 
 type Props = {
   cards: CardWithEffects[];
 };
 
 const StatList: React.FC<Props> = ({ cards }) => {
+  const statList = statListFromCardList(cards);
+
+  if (statList.length === 0) return null;
+
   return (
-    <Container>
-      <H2>Stats</H2>
-      <ul className="list-disc">
-        {statListFromCardList(cards).map((statPair) => (
-          <li key={statPair[0]}>
+    <div className="w-11/12">
+      <h2 className="mx-auto w-fit border-b-2 border-primary pb-2 pt-8 text-center text-2xl">
+        Stats
+      </h2>
+      <ul>
+        {statList.map((statPair) => (
+          <li className="py-1" key={statPair[0]}>
             {`${
               statPair[0].charAt(0).toUpperCase() + statPair[0].substring(1)
             }:`}{" "}
@@ -22,7 +26,7 @@ const StatList: React.FC<Props> = ({ cards }) => {
           </li>
         ))}
       </ul>
-    </Container>
+    </div>
   );
 };
 
