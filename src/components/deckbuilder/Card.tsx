@@ -17,7 +17,7 @@ const Card = ({ card, isSelected, onClick }: Props) => {
         isSelected
       )} relative flex h-[calc(35px*6)] w-[calc(25px*6)] border-collapse cursor-pointer flex-col justify-between overflow-hidden rounded-lg border-4 bg-primary bg-cover text-center font-semibold text-white transition-all hover:bg-red-700 md:h-[calc(35px*9)] md:w-[calc(25px*9)] md:p-2`}
       style={{
-        backgroundImage: `url(/images/cards/${card.image})`,
+        backgroundImage: `url(https://dekt-card-images.s3.us-west-1.amazonaws.com/${card.image})`,
       }}
       onClick={() => onClick()}
     >
