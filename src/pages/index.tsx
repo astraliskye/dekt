@@ -11,13 +11,10 @@ const Home: NextPage = () => {
         <title>DEKT</title>
         <meta property="og:title" content="DEKT" />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://gleeful-pudding-f9510a.netlify.app/"
-        />
+        <meta property="og:url" content="https://buildwithdekt.com" />
         <meta
           property="og:image"
-          content="https://gleeful-pudding-f9510a.netlify.app/images/cards/Flawless.webp"
+          content="https://buildwithdekt.com/images/logo.png"
         />
         <meta
           property="og:description"
@@ -35,7 +32,7 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main>
-        <h1 className="py-32 text-center text-4xl">Welcome to DEKT!</h1>
+        <h1 className="py-12 text-center text-4xl">Welcome to DEKT!</h1>
         <p className="text-center text-lg">
           The place to theory craft Back 4 Blood builds to clear even the most
           difficult No Mercy lobbies.
