@@ -9,7 +9,7 @@ type Props = {
 
 const CardList = ({ cards }: Props) => {
   return (
-    <div className="flex w-64 flex-col items-center">
+    <div className="flex w-64 flex-col items-center gap-8">
       <h2 className="mx-auto w-fit border-b-2 border-primary text-2xl">
         Cards
       </h2>

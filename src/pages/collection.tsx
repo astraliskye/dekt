@@ -6,10 +6,14 @@ import { api } from "../utils/api";
 import PrimaryButton from "../components/elements/PrimaryButton";
 import DeckList from "../components/decklist/DeckList";
 import Link from "next/link";
+import Loading from "../components/elements/Loading";
 
 const Collection: NextPage = () => {
   const { data: session } = useSession();
-  const { data: decks } = api.deck.getCurrentUserCollection.useQuery();
+  const { data: decks, isLoading } =
+    api.deck.getCurrentUserCollection.useQuery();
+
+  if (isLoading) return <Loading />;
 
   if (!session)
     return (
