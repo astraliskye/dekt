@@ -1,13 +1,7 @@
-import type {
-  Card,
-  CardStat,
-  Deck,
-  DeckCard,
-  SecondaryEffect,
-} from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
+import { DeckWithCreatorAndCards } from "../../../types";
 
 export const deckRouter = createTRPCRouter({
   create: protectedProcedure
@@ -58,28 +52,33 @@ export const deckRouter = createTRPCRouter({
         throw new TRPCError({ code: "NOT_FOUND" });
       }
 
-      if (deck.creatorId !== input.id) {
+      if (deck.creatorId !== ctx.session.user.id) {
         throw new TRPCError({
           code: "UNAUTHORIZED",
         });
       }
 
-      return ctx.prisma.deck.update({
-        where: { id: input.id },
-        data: {
-          name: input.name,
-          description: input.description,
-          cards: {
-            set: [],
-            createMany: {
-              data: input.cards.map((card) => ({
-                cardId: card.id,
-                position: card.position,
-              })),
+      const [_, result] = await ctx.prisma.$transaction([
+        ctx.prisma.deckCard.deleteMany({ where: { deckId: deck.id } }),
+        ctx.prisma.deck.update({
+          where: { id: input.id },
+          data: {
+            name: input.name,
+            description: input.description,
+            cards: {
+              set: [],
+              createMany: {
+                data: input.cards.map((card) => ({
+                  cardId: card.id,
+                  position: card.position,
+                })),
+              },
             },
           },
-        },
-      });
+        }),
+      ]);
+
+      return result;
     }),
   getCurrentUserCollection: protectedProcedure.query(({ ctx }) => {
     return ctx.prisma.deck.findMany({
@@ -87,24 +86,53 @@ export const deckRouter = createTRPCRouter({
       orderBy: { updatedAt: "desc" },
       include: {
         creator: true,
+        cards: {
+          orderBy: { position: "asc" },
+          include: {
+            card: {
+              include: {
+                stats: true,
+                secondaryEffects: true,
+              },
+            },
+          },
+        },
+      },
+      take: 100,
+    });
+  }),
+  getAll: publicProcedure.query(async ({ ctx }) => {
+    const result = await ctx.prisma.deck.findMany({
+      take: 100,
+      orderBy: { updatedAt: "desc" },
+      include: {
+        creator: true,
+        cards: {
+          orderBy: { position: "asc" },
+          include: {
+            card: {
+              include: {
+                stats: true,
+                secondaryEffects: true,
+              },
+            },
+          },
+        },
       },
     });
+
+    return result.map((deck) => ({
+      ...deck,
+      cards: deck.cards.map((card) => card.card),
+    }));
   }),
   getById: publicProcedure
     .input(z.string())
-    .query(async ({ input: deckId, ctx }) => {
-      const result:
-        | (Deck & {
-            cards: (DeckCard & {
-              card: Card & {
-                stats: CardStat[];
-                secondaryEffects: SecondaryEffect[];
-              };
-            })[];
-          })
-        | null = await ctx.prisma.deck.findUnique({
+    .query(async ({ input: deckId, ctx }): Promise<DeckWithCreatorAndCards> => {
+      const result = await ctx.prisma.deck.findUnique({
         where: { id: deckId },
         include: {
+          creator: true,
           cards: {
             orderBy: { position: "asc" },
             include: {
@@ -119,8 +147,16 @@ export const deckRouter = createTRPCRouter({
         },
       });
 
-      if (result === null) return null;
+      if (result === null) return Promise.reject();
 
-      return { ...result, cards: result.cards.map((card) => card.card) };
+      return Promise.resolve({
+        ...result,
+        cards: result.cards.map((card) => card.card),
+      });
+    }),
+  deleteById: protectedProcedure
+    .input(z.string())
+    .mutation(async ({ input: deckId, ctx }) => {
+      return ctx.prisma.deck.delete({ where: { id: deckId } });
     }),
 });

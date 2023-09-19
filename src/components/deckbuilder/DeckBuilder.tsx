@@ -1,11 +1,11 @@
 import { useState } from "react";
-import type { CardWithEffects } from "../../types";
+import type { CardWithEffects, DeckWithCreatorAndCards } from "../../types";
 import { api } from "../../utils/api";
 import CardCollection from "./CardCollection";
 import SortableCardList from "../cardlist/SortableCardList";
-import StatList from "./StatList";
-import GadgetList from "./GadgetList";
-import SecondaryEffectList from "./SecondaryEffectList";
+import StatList from "../cardlist/StatList";
+import GadgetList from "../cardlist/GadgetList";
+import SecondaryEffectList from "../cardlist/SecondaryEffectList";
 import { useRouter } from "next/router";
 import {
   DndContext,
@@ -26,23 +26,28 @@ enum ViewState {
   Form,
 }
 
-const DeckBuilder: React.FC = () => {
+type Props = {
+  deck?: DeckWithCreatorAndCards;
+};
+
+const DeckBuilder = ({ deck }: Props) => {
   {
     /* HOOKS */
   }
   const router = useRouter();
+
   const touchSensor = useSensor(TouchSensor, {
     activationConstraint: {
       distance: 1,
     },
   });
+
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
       distance: 1,
     },
   });
 
-  const { data: cards } = api.card.getAll.useQuery();
   const saveDeck = api.deck.create.useMutation({
     onSuccess: async () => {
       await router.push(`/collection`);
@@ -52,7 +57,16 @@ const DeckBuilder: React.FC = () => {
     },
   });
 
-  const [cardList, setCardList] = useState([] as CardWithEffects[]);
+  const replaceDeck = api.deck.replace.useMutation({
+    onSuccess: async () => {
+      await router.push(`/collection`);
+    },
+    onError: (error: { message: string }) => {
+      setErrorMessage(error.message);
+    },
+  });
+
+  const [cardList, setCardList] = useState(deck ? deck.cards : []);
   const [viewState, setViewState] = useState(ViewState.CardList);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -77,11 +91,20 @@ const DeckBuilder: React.FC = () => {
   };
 
   const handleSubmit = (name: string, description: string) => {
-    saveDeck.mutate({
-      name,
-      description: description === "" ? undefined : description,
-      cards: cardList.map((card, i) => ({ ...card, position: i })),
-    });
+    if (deck) {
+      replaceDeck.mutate({
+        id: deck.id,
+        name,
+        description: description === "" ? undefined : description,
+        cards: cardList.map((card, i) => ({ ...card, position: i })),
+      });
+    } else {
+      saveDeck.mutate({
+        name,
+        description: description === "" ? undefined : description,
+        cards: cardList.map((card, i) => ({ ...card, position: i })),
+      });
+    }
   };
 
   function handleDragEnd(event: DragEndEvent) {
@@ -132,16 +155,26 @@ const DeckBuilder: React.FC = () => {
           </div>
         )}
 
-        {viewState === ViewState.Collection && cards && (
+        {viewState === ViewState.Collection && (
           <CardCollection
-            cards={cards}
             handleCardClick={toggleCardInCollection}
             cardList={cardList}
           />
         )}
 
         {viewState === ViewState.Form && (
-          <DeckForm submitForm={handleSubmit} errorMessage={errorMessage} />
+          <>
+            {errorMessage && <p>{errorMessage}</p>}
+            {deck ? (
+              <DeckForm
+                submitForm={handleSubmit}
+                initialName={deck.name}
+                initialDescription={deck.description}
+              />
+            ) : (
+              <DeckForm submitForm={handleSubmit} />
+            )}
+          </>
         )}
 
         <div className="py-16"></div>

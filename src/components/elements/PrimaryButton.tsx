@@ -9,7 +9,7 @@ type Props = {
 const PrimaryButton = ({ onClick, children, submit }: Props) => {
   return (
     <button
-      className="mx-auto rounded-lg bg-primary bg-center px-3 py-1 font-semibold text-light transition hover:bg-primary-shade active:bg-primary-shader active:bg-cover"
+      className="rounded-lg bg-primary bg-center px-3 py-1 font-semibold text-light transition hover:bg-primary-shade active:bg-primary-shader"
       onClick={onClick ? () => onClick() : undefined}
       type={submit ? "submit" : "button"}
     >

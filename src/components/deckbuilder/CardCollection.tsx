@@ -4,19 +4,20 @@ import type { CardWithEffects } from "../../types";
 import Card from "./Card";
 import TextInput from "../elements/TextInput";
 import { sortedCards } from "../../utils/front-end";
+import { api } from "../../utils/api";
+import Loading from "../elements/Loading";
 
 type Props = {
-  cards: CardWithEffects[];
   handleCardClick: (card: CardWithEffects) => void;
   cardList: CardWithEffects[];
 };
 
-const CardCollection: React.FC<Props> = ({
-  cards,
-  handleCardClick,
-  cardList,
-}) => {
+const CardCollection: React.FC<Props> = ({ handleCardClick, cardList }) => {
   const [searchTerm, setSearchTerm] = useState("");
+
+  const { data: cards, isLoading } = api.card.getAll.useQuery();
+
+  if (isLoading) return <Loading />;
 
   if (!cards || cards.length === 0)
     return (

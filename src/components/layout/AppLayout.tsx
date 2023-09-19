@@ -1,19 +1,16 @@
 import { useState } from "react";
 import Header from "./Header";
 
-type AppLayoutProps = {
+type Props = {
   children: React.ReactNode;
 };
 
-const AppLayout = ({ children }: AppLayoutProps) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const AppLayout = ({ children }: Props) => {
+  const [authMenuOpen, setAuthMenuOpen] = useState(false);
 
   return (
-    <div
-      onClick={() => setMenuOpen(false)}
-      className="min-h-screen bg-white text-black"
-    >
-      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+    <div onClick={() => setAuthMenuOpen(false)} className="h-screen">
+      <Header menuOpen={authMenuOpen} setMenuOpen={setAuthMenuOpen} />
       <div className="h-full">{children}</div>
     </div>
   );

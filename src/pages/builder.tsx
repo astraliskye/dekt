@@ -1,39 +1,33 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import DeckBuilder from "../components/deckbuilder/DeckBuilder";
+import { useRouter } from "next/router";
+import { api } from "../utils/api";
+import Loading from "../components/elements/Loading";
+import ErrorPage from "next/error";
 
 const Builder: NextPage = () => {
+  const deckId = useRouter().query.deckId as string | undefined;
+
+  if (!deckId)
+    return (
+      <main>
+        <DeckBuilder />
+      </main>
+    );
+
+  const { data: deck, isLoading } = api.deck.getById.useQuery(deckId);
+
+  if (isLoading) return <Loading />;
+  if (!deck) return <ErrorPage statusCode={404} />;
+
   return (
     <>
       <Head>
-        <title>DEKT</title>
-        <meta property="og:title" content="DEKT" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://gleeful-pudding-f9510a.netlify.app/"
-        />
-        <meta
-          property="og:image"
-          content="https://gleeful-pudding-f9510a.netlify.app/images/cards/Flawless.webp"
-        />
-        <meta
-          property="og:description"
-          content="Theory craft your Back4Blood builds!"
-        />
-        <meta name="theme-color" content="#dc2626" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-
-        <meta
-          name="description"
-          content="Theory craft your Back4Blood builds!"
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Builder</title>
       </Head>
       <main>
-        <DeckBuilder />
+        <DeckBuilder deck={deck} />
       </main>
     </>
   );

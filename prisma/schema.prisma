@@ -65,10 +65,10 @@ model Card {
 
 model DeckCard {
     deckId String
-    deck Deck @relation(fields: [deckId], references: [id])
+    deck Deck @relation(fields: [deckId], references: [id], onDelete: Cascade)
 
     cardId String
-    card Card @relation(fields: [cardId], references: [id])
+    card Card @relation(fields: [cardId], references: [id], onDelete: Cascade)
 
     position Int
 

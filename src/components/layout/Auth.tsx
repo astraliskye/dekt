@@ -28,8 +28,8 @@ const Auth = ({ menuOpen, setMenuOpen }: Props) => {
               <Image
                 src={sessionData.user.image}
                 alt="profile picture"
-                width={48}
-                height={48}
+                width={42}
+                height={42}
                 className="rounded-full"
               />
             )}

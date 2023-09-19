@@ -5,12 +5,11 @@ type Props = {
 };
 
 const Error = ({ message }: Props) => {
-  if (message === "") return <></>;
-
   return (
-    <p className="text-center font-bold text-red-500 underline">
-      Error: {message}
-    </p>
+    <main>
+      <h1>Oops! Something went wrong!</h1>
+      <p>{message}</p>
+    </main>
   );
 };
 

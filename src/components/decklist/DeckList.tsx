@@ -8,7 +8,7 @@ type Props = {
 
 const DeckList = ({ decks }: Props) => {
   return (
-    <div className="mx-auto flex w-11/12 cursor-pointer flex-col gap-4">
+    <div className="flex flex-col">
       {decks.map((deck) => (
         <DeckListItem key={deck.id} deck={deck} />
       ))}

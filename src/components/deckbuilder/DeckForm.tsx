@@ -3,16 +3,16 @@ import type { FormEvent } from "react";
 import PrimaryButton from "../elements/PrimaryButton";
 import TextInput from "../elements/TextInput";
 import TextArea from "../elements/TextArea";
-import Error from "../elements/Error";
 
 type Props = {
   submitForm: (name: string, description: string) => void;
-  errorMessage: string;
+  initialName?: string;
+  initialDescription?: string | null;
 };
 
-const DeckForm = ({ submitForm, errorMessage }: Props) => {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+const DeckForm = ({ submitForm, initialName, initialDescription }: Props) => {
+  const [name, setName] = useState(initialName || "");
+  const [description, setDescription] = useState(initialDescription || "");
 
   return (
     <form
@@ -23,8 +23,6 @@ const DeckForm = ({ submitForm, errorMessage }: Props) => {
         submitForm(name, description);
       }}
     >
-      <Error message={errorMessage} />
-
       <TextInput
         value={name}
         onChange={(e) => setName(e.target.value)}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Auth from "./Auth";
-import dektLogo from "./dekt-logo.png";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -20,24 +19,32 @@ const Header = ({ menuOpen, setMenuOpen }: Props) => {
 
   return (
     <header className="sticky top-0 border-b-2 border-primary bg-white">
-      <div className="flex items-center justify-between p-4">
-        <div className="z-20 flex items-center gap-4 bg-white">
+      <div className="flex items-center justify-between px-4">
+        <div className="z-20 flex items-center gap-4">
           <p
             className="cursor-pointer select-none"
             onClick={() => setNavOpen(!navOpen)}
           >
-            <svg viewBox="0 0 100 80" width="32" height="32">
-              <rect fill="#dc2626" width="100" height="12"></rect>
-              <rect fill="#dc2626" y="30" width="100" height="12"></rect>
-              <rect fill="#dc2626" y="60" width="100" height="12"></rect>
+            <svg viewBox="0 0 100 80" width="24" height="24">
+              <rect fill="#dc2626" width="100" height="12" rx="6"></rect>
+              <rect fill="#dc2626" y="30" width="100" height="12" rx="6"></rect>
+              <rect fill="#dc2626" y="60" width="100" height="12" rx="6"></rect>
             </svg>
           </p>
           <Link href="/">
-            <Image src={dektLogo} width={64} height={64} alt="website logo" />
+            <Image
+              src="/images/logo-plain.png"
+              width={64}
+              height={64}
+              alt="website logo"
+              className="py-2"
+            />
           </Link>
         </div>
         <Auth menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       </div>
+
+      {/* left nav drawer */}
       <nav
         className={`${
           navOpen ? "translate-x-0" : "-translate-x-full"
@@ -57,7 +64,7 @@ const Header = ({ menuOpen, setMenuOpen }: Props) => {
         </Link>
         <Link
           className="w-full cursor-pointer select-none py-2 px-12 text-center transition hover:bg-light-shade"
-          href="/decks"
+          href="/browse"
         >
           Browse
         </Link>
