@@ -9,9 +9,14 @@ const AppLayout = ({ children }: Props) => {
   const [authMenuOpen, setAuthMenuOpen] = useState(false);
 
   return (
-    <div onClick={() => setAuthMenuOpen(false)} className="h-screen">
+    <div
+      onClick={() => setAuthMenuOpen(false)}
+      className="flex h-screen flex-col"
+    >
       <Header menuOpen={authMenuOpen} setMenuOpen={setAuthMenuOpen} />
-      <div className="h-full">{children}</div>
+      <div className="mx-auto w-full max-w-4xl flex-grow bg-white shadow-xl shadow-black">
+        {children}
+      </div>
     </div>
   );
 };

@@ -38,7 +38,7 @@ const ViewDeck = () => {
       <Head>
         <title>{deck.name}</title>
       </Head>
-      <main className="mx-auto flex w-full max-w-2xl flex-col items-center">
+      <main className="mx-auto flex w-full flex-col items-center">
         {session?.user?.id === deck.creatorId && (
           <div className="flex w-full items-center justify-end gap-4 py-4">
             <SecondaryButton onClick={() => setIsDeleting(true)}>

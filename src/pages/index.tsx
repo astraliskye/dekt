@@ -11,19 +11,22 @@ const Home: NextPage = () => {
       <Head>
         <title>DEKT.</title>
       </Head>
-      <main className="flex flex-col items-center justify-center">
-        <h1 className="flex gap-4 py-12 text-center text-4xl">
+      <main className="flex h-full flex-col items-center justify-center bg-white">
+        <h1 className="flex items-center gap-4 pt-12 text-center text-4xl">
           Welcome to
           <Image
             alt="DEKT"
             src="/images/logo-plain.png"
-            width={92}
-            height={92}
+            width={128}
+            height={128}
           />
         </h1>
-        <p className="text-center text-lg">
-          The place for theory crafting the best Back 4 Blood builds! Browse
-          decks created by others, use their decks as
+        <p className="max-w-2xl px-4 pb-12 text-center text-xl">
+          The place for theory crafting your best Back 4 Blood builds!
+        </p>
+        <p className="px-4 text-center">
+          Browse decks created by others, use their decks as inspiration, and
+          create your own original decks to clean out those zombie hordes.
         </p>
         <div className="flex w-72 justify-between py-16">
           <Link href="/browse">

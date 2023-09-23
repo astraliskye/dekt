@@ -18,6 +18,9 @@ const Collection: NextPage = () => {
   if (!session)
     return (
       <>
+        <Head>
+          <title>Sign in to see your collection</title>
+        </Head>
         <main className="py-12 text-center">
           <PrimaryButton onClick={() => void signIn("discord")}>
             Sign In
@@ -32,7 +35,7 @@ const Collection: NextPage = () => {
       <Head>
         <title>Your Collection</title>
       </Head>
-      <main className="mx-auto w-full max-w-2xl">
+      <main>
         {decks && decks.length > 0 ? (
           <div>
             <h1 className="py-12 text-center text-4xl">Your Collection</h1>

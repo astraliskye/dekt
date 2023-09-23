@@ -18,7 +18,7 @@ const Header = ({ menuOpen, setMenuOpen }: Props) => {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 border-b-2 border-primary bg-white">
+    <header className="sticky top-0 z-50 border-b-2 border-primary bg-white">
       <div className="flex items-center justify-between px-4">
         <div className="z-20 flex items-center gap-4">
           <p

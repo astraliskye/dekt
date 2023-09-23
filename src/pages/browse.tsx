@@ -17,7 +17,7 @@ const Browse: NextPage = () => {
       <Head>
         <title>Browse</title>
       </Head>
-      <main className="mx-auto w-full max-w-2xl">
+      <main>
         <h1 className="py-12 text-center text-4xl">Browse Decks</h1>
         <DeckList decks={decks} />
       </main>
