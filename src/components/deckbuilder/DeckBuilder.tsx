@@ -75,17 +75,17 @@ const DeckBuilder = ({ deck }: Props) => {
     /* HANDLERS */
   }
   const removeCardFromList = (cardId: string) =>
-    setCardList(cardList.filter((c) => c.id !== cardId));
+    setCardList(cardList.filter((c: CardWithEffects) => c.id !== cardId));
 
   const toggleCardInCollection = (card: CardWithEffects) => {
-    const filteredList = cardList.filter((c) => c.id !== card.id);
+    const filteredList = cardList.filter((c: CardWithEffects) => c.id !== card.id);
 
     if (filteredList.length === cardList.length) {
       if (cardList.length >= 15) {
         return;
       }
-
-      setCardList((prev) => [...prev, card]);
+ 
+      setCardList((prev: CardWithEffects[]) => [...prev, card]);
     } else {
       setCardList(() => filteredList);
     }
@@ -97,13 +97,13 @@ const DeckBuilder = ({ deck }: Props) => {
         id: deck.id,
         name,
         description: description === "" ? undefined : description,
-        cards: cardList.map((card, i) => ({ ...card, position: i })),
+        cards: cardList.map((card: CardWithEffects, i: number) => ({ ...card, position: i })),
       });
     } else {
       saveDeck.mutate({
         name,
         description: description === "" ? undefined : description,
-        cards: cardList.map((card, i) => ({ ...card, position: i })),
+        cards: cardList.map((card: CardWithEffects, i: number) => ({ ...card, position: i })),
       });
     }
   };
@@ -113,15 +113,15 @@ const DeckBuilder = ({ deck }: Props) => {
 
     if (over && active.id !== over.id) {
       const [i1, i2] = [
-        cardList.findIndex((card) => card.id === active.id),
-        cardList.findIndex((card) => card.id === over.id),
+        cardList.findIndex((card: CardWithEffects) => card.id === active.id),
+        cardList.findIndex((card: CardWithEffects) => card.id === over.id),
       ];
 
-      setCardList((cards) => {
+      setCardList((cards: CardWithEffects[]) => {
         const temp = cards.at(i1);
 
         if (temp !== undefined) {
-          const result = cards.filter((card) => card.id !== temp.id);
+          const result = cards.filter((card: CardWithEffects) => card.id !== temp.id);
           result.splice(i2, 0, temp);
           return [...result];
         }

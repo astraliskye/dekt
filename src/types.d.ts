@@ -18,3 +18,7 @@ export type DeckWithCreator = Deck & {
 export type DeckWithCreatorAndCards = DeckWithCreator & {
   cards: CardWithEffects[];
 };
+
+export type DeckWithCards = Deck & {
+  cards: CardWithEffects[];
+};
