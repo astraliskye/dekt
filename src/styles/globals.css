@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-red-600;
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-light-secondary dark:bg-dark text-gray-900 dark:text-white transition-colors;
+  }
+}
+
+@layer components {
+  .card-hover {
+    @apply transition-all duration-200 hover:scale-105 hover:shadow-lg;
+  }
+  
+  .glass-effect {
+    @apply bg-white/80 dark:bg-dark-secondary/80 backdrop-blur-md;
+  }
 }

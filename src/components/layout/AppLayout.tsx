@@ -11,10 +11,10 @@ const AppLayout = ({ children }: Props) => {
   return (
     <div
       onClick={() => setAuthMenuOpen(false)}
-      className="flex h-screen flex-col"
+      className="flex h-screen flex-col bg-light-secondary dark:bg-dark transition-colors"
     >
       <Header menuOpen={authMenuOpen} setMenuOpen={setAuthMenuOpen} />
-      <div className="mx-auto w-full max-w-4xl flex-grow bg-white shadow-xl shadow-black">
+      <div className="mx-auto w-full max-w-6xl flex-grow bg-white dark:bg-dark-secondary shadow-xl shadow-black/10 dark:shadow-black/30 transition-colors">
         {children}
       </div>
     </div>

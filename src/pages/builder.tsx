@@ -11,9 +11,13 @@ const Builder: NextPage = () => {
 
   if (!deckId)
     return (
-      <main>
+      <>
+        <Head>
+          <title>Deck Builder - DEKT</title>
+          <meta name="description" content="Build your perfect Back 4 Blood deck with our intuitive mobile-optimized deck builder." />
+        </Head>
         <DeckBuilder />
-      </main>
+      </>
     );
 
   const { data: deck, isLoading } = api.deck.getById.useQuery(deckId);
@@ -24,11 +28,10 @@ const Builder: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Builder</title>
+        <title>Edit Deck - DEKT</title>
+        <meta name="description" content="Edit your Back 4 Blood deck build with our mobile-optimized deck builder." />
       </Head>
-      <main>
-        <DeckBuilder deck={deck} />
-      </main>
+      <DeckBuilder deck={deck} />
     </>
   );
 };

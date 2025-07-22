@@ -15,10 +15,7 @@ import {
   useSensors,
   type DragEndEvent,
 } from "@dnd-kit/core";
-import ViewDeckIcon from "../elements/ViewDeckIcon";
-import AddCardIcon from "../elements/AddCardIcon";
 import DeckForm from "./DeckForm";
-import CheckmarkIcon from "../elements/CheckmarkIcon";
 import Head from "next/head";
 
 enum ViewState {
@@ -32,9 +29,6 @@ type Props = {
 };
 
 const DeckBuilder = ({ deck }: Props) => {
-  {
-    /* HOOKS */
-  }
   const router = useRouter();
 
   const touchSensor = useSensor(TouchSensor, {
@@ -71,9 +65,6 @@ const DeckBuilder = ({ deck }: Props) => {
   const [viewState, setViewState] = useState(ViewState.CardList);
   const [errorMessage, setErrorMessage] = useState("");
 
-  {
-    /* HANDLERS */
-  }
   const removeCardFromList = (cardId: string) =>
     setCardList(cardList.filter((c: CardWithEffects) => c.id !== cardId));
 
@@ -84,7 +75,6 @@ const DeckBuilder = ({ deck }: Props) => {
       if (cardList.length >= 15) {
         return;
       }
- 
       setCardList((prev: CardWithEffects[]) => [...prev, card]);
     } else {
       setCardList(() => filteredList);
@@ -131,46 +121,112 @@ const DeckBuilder = ({ deck }: Props) => {
     }
   }
 
-  {
-    /* RENDER */
-  }
+  const getViewTitle = () => {
+    switch (viewState) {
+      case ViewState.CardList:
+        return "Your Deck";
+      case ViewState.Collection:
+        return "Card Collection";
+      case ViewState.Form:
+        return "Save Deck";
+      default:
+        return "Deck Builder";
+    }
+  };
+
   return (
     <>
       <Head>
-        <title>Builder</title>
+        <title>Deck Builder - DEKT</title>
       </Head>
-      <main>
+      <main className="min-h-screen bg-light-secondary dark:bg-dark pb-20">
         <DndContext
           onDragEnd={handleDragEnd}
           sensors={useSensors(touchSensor, mouseSensor)}
         >
-          <div className="flex flex-col items-center">
-            <h1 className="pt-4 pb-8 text-3xl font-bold tracking-widest">
-              DECK EDITOR
-            </h1>
+          {/* Header */}
+          <div className="sticky top-0 z-10 bg-white/80 dark:bg-dark-secondary/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+            <div className="px-4 py-4">
+              <div className="flex items-center justify-between">
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+                  {getViewTitle()}
+                </h1>
+                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                  <span className="flex items-center gap-1">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    {cardList.length}/15 Cards
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          {/* Content */}
+          <div className="px-4 py-6">
             {viewState === ViewState.CardList && (
-              <div className="flex w-11/12 flex-col items-center">
-                <SortableCardList
-                  cards={cardList}
-                  handleCardClick={removeCardFromList}
-                />
-                <StatList cards={cardList} />
-                <SecondaryEffectList cards={cardList} />
-                <GadgetList cards={cardList} />
+              <div className="space-y-6">
+                {/* Deck Overview */}
+                <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      Current Build
+                    </h2>
+                    {cardList.length === 0 && (
+                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                        Add cards to get started
+                      </span>
+                    )}
+                  </div>
+                  <SortableCardList
+                    cards={cardList}
+                    handleCardClick={removeCardFromList}
+                  />
+                </div>
+
+                {/* Stats */}
+                {cardList.length > 0 && (
+                  <>
+                    <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                        Deck Statistics
+                      </h3>
+                      <StatList cards={cardList} />
+                    </div>
+
+                    <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                        Secondary Effects
+                      </h3>
+                      <SecondaryEffectList cards={cardList} />
+                    </div>
+
+                    <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                        Gadgets & Equipment
+                      </h3>
+                      <GadgetList cards={cardList} />
+                    </div>
+                  </>
+                )}
               </div>
             )}
 
             {viewState === ViewState.Collection && (
-              <CardCollection
-                handleCardClick={toggleCardInCollection}
-                cardList={cardList}
-              />
+              <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6">
+                <CardCollection
+                  handleCardClick={toggleCardInCollection}
+                  cardList={cardList}
+                />
+              </div>
             )}
 
             {viewState === ViewState.Form && (
-              <>
-                {errorMessage && <p>{errorMessage}</p>}
+              <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6">
+                {errorMessage && (
+                  <div className="mb-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+                    <p className="text-red-700 dark:text-red-400">{errorMessage}</p>
+                  </div>
+                )}
                 {deck ? (
                   <DeckForm
                     submitForm={handleSubmit}
@@ -180,63 +236,55 @@ const DeckBuilder = ({ deck }: Props) => {
                 ) : (
                   <DeckForm submitForm={handleSubmit} />
                 )}
-              </>
-            )}
-
-            <div className="py-16"></div>
-
-            {/* BOTTOM NAV */}
-            <div className="fixed bottom-0 z-20 h-16 w-screen max-w-4xl border-t-2 border-primary bg-primary">
-              <div className="mx-auto flex h-full items-center justify-evenly">
-                <div
-                  className={`flex h-full w-1/3 cursor-pointer items-center justify-center ${
-                    viewState === ViewState.CardList
-                      ? " bg-primary "
-                      : " bg-white "
-                  }`}
-                  onClick={() => setViewState(ViewState.CardList)}
-                >
-                  <ViewDeckIcon
-                    color={
-                      viewState === ViewState.CardList ? "#fff" : "#ff0000"
-                    }
-                  />
-                </div>
-
-                <div
-                  className={`flex h-full w-1/3 cursor-pointer items-center justify-center ${
-                    viewState === ViewState.Collection
-                      ? " bg-primary "
-                      : " bg-white "
-                  }`}
-                  onClick={() => setViewState(ViewState.Collection)}
-                >
-                  <AddCardIcon
-                    color={
-                      viewState === ViewState.Collection ? "#fff" : "#ff0000"
-                    }
-                  />
-                </div>
-
-                <div
-                  className={`flex h-full w-1/3 cursor-pointer items-center justify-center ${
-                    viewState === ViewState.Form ? " bg-primary " : " bg-white "
-                  }`}
-                  onClick={() => setViewState(ViewState.Form)}
-                >
-                  <span
-                    className={`flex items-center justify-center text-3xl font-bold ${
-                      viewState === ViewState.Form
-                        ? " text-white "
-                        : " text-primary "
-                    }`}
-                  >
-                    <CheckmarkIcon
-                      color={viewState === ViewState.Form ? "#fff" : "#ff0000"}
-                    />
-                  </span>
-                </div>
               </div>
+            )}
+          </div>
+
+          {/* Mobile Bottom Navigation */}
+          <div className="fixed bottom-0 left-0 right-0 z-20 bg-white dark:bg-dark-secondary border-t border-gray-200 dark:border-gray-700 shadow-lg">
+            <div className="flex">
+              <button
+                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 transition-colors ${
+                  viewState === ViewState.CardList
+                    ? "bg-primary text-white"
+                    : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
+                }`}
+                onClick={() => setViewState(ViewState.CardList)}
+              >
+                <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+                <span className="text-xs font-medium">Deck</span>
+              </button>
+
+              <button
+                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 transition-colors ${
+                  viewState === ViewState.Collection
+                    ? "bg-primary text-white"
+                    : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
+                }`}
+                onClick={() => setViewState(ViewState.Collection)}
+              >
+                <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+                <span className="text-xs font-medium">Cards</span>
+              </button>
+
+              <button
+                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 transition-colors ${
+                  viewState === ViewState.Form
+                    ? "bg-primary text-white"
+                    : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
+                }`}
+                onClick={() => setViewState(ViewState.Form)}
+                disabled={cardList.length === 0}
+              >
+                <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-xs font-medium">Save</span>
+              </button>
             </div>
           </div>
         </DndContext>
