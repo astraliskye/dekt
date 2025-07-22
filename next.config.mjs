@@ -21,7 +21,7 @@ const config = {
     defaultLocale: "en",
   },
   images: {
-    domains: ["cdn.discordapp.com"],
+    domains: ["cdn.discordapp.com", "dekt-card-images.s3.us-west-1.amazonaws.com"],
   },
   output: "standalone"
 };

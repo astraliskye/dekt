@@ -18,22 +18,14 @@ const Home: NextPage = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent dark:from-primary/20"></div>
           <div className="relative px-6 py-16 sm:py-24 lg:py-32">
             <div className="mx-auto max-w-4xl text-center">
-              <div className="flex items-center justify-center gap-6 mb-8 animate-fade-in">
+              <div className="flex items-center justify-center mb-8 animate-fade-in">
                 <Image
                   alt="DEKT Logo"
                   src="/images/logo-plain.png"
-                  width={120}
-                  height={120}
+                  width={160}
+                  height={160}
                   className="drop-shadow-lg"
                 />
-                <div className="text-left">
-                  <h1 className="text-6xl font-bold text-gray-900 dark:text-white tracking-tight">
-                    DEKT
-                  </h1>
-                  <p className="text-xl text-primary font-semibold">
-                    Deck Builder
-                  </p>
-                </div>
               </div>
               
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6 animate-slide-up">

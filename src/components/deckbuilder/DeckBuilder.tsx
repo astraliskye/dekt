@@ -1,11 +1,13 @@
 import { useState } from "react";
 import type { CardWithEffects, DeckWithCreatorAndCards } from "../../types";
 import { api } from "../../utils/api";
-import CardCollection from "./CardCollection";
 import SortableCardList from "../cardlist/SortableCardList";
 import StatList from "../cardlist/StatList";
 import GadgetList from "../cardlist/GadgetList";
 import SecondaryEffectList from "../cardlist/SecondaryEffectList";
+import DeckCompositionMeter from "../cardlist/DeckCompositionMeter";
+import PrimaryButton from "../elements/PrimaryButton";
+import SecondaryButton from "../elements/SecondaryButton";
 import { useRouter } from "next/router";
 import {
   DndContext,
@@ -17,12 +19,9 @@ import {
 } from "@dnd-kit/core";
 import DeckForm from "./DeckForm";
 import Head from "next/head";
-
-enum ViewState {
-  Collection,
-  CardList,
-  Form,
-}
+import Card from "./Card";
+import { sortedCards } from "../../utils/front-end";
+import Loading from "../elements/Loading";
 
 type Props = {
   deck?: DeckWithCreatorAndCards;
@@ -30,6 +29,7 @@ type Props = {
 
 const DeckBuilder = ({ deck }: Props) => {
   const router = useRouter();
+  const { data: allCards, isLoading } = api.card.getAll.useQuery();
 
   const touchSensor = useSensor(TouchSensor, {
     activationConstraint: {
@@ -62,8 +62,13 @@ const DeckBuilder = ({ deck }: Props) => {
   });
 
   const [cardList, setCardList] = useState(deck ? deck.cards : []);
-  const [viewState, setViewState] = useState(ViewState.CardList);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showSaveForm, setShowSaveForm] = useState(false);
+  
+  // Filter states
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedType, setSelectedType] = useState<string>("All");
+  const [selectedAffinity, setSelectedAffinity] = useState<string>("All");
 
   const removeCardFromList = (cardId: string) =>
     setCardList(cardList.filter((c: CardWithEffects) => c.id !== cardId));
@@ -121,112 +126,97 @@ const DeckBuilder = ({ deck }: Props) => {
     }
   }
 
-  const getViewTitle = () => {
-    switch (viewState) {
-      case ViewState.CardList:
-        return "Your Deck";
-      case ViewState.Collection:
-        return "Card Collection";
-      case ViewState.Form:
-        return "Save Deck";
-      default:
-        return "Deck Builder";
-    }
+  // Filter cards based on search term, type, and affinity
+  const getFilteredCards = () => {
+    if (!allCards) return [];
+    
+    return sortedCards(allCards).filter((card) => {
+      const matchesSearch = cardContainsTerm(searchTerm, card);
+      const matchesType = selectedType === "All" || card.type === selectedType;
+      const matchesAffinity = selectedAffinity === "All" || card.affinity === selectedAffinity;
+      
+      return matchesSearch && matchesType && matchesAffinity;
+    });
   };
+
+  // Get unique types and affinities for filter options
+  const getFilterOptions = () => {
+    if (!allCards) return { types: [], affinities: [] };
+    
+    const types = [...new Set(allCards.map(card => card.type))].sort();
+    const affinities = [...new Set(allCards.map(card => card.affinity))].sort();
+    
+    return { types, affinities };
+  };
+
+  const { types, affinities } = getFilterOptions();
+  const sensors = useSensors(touchSensor, mouseSensor)
+
+  if (isLoading) return <Loading />;
 
   return (
     <>
       <Head>
         <title>Deck Builder - DEKT</title>
       </Head>
-      <main className="min-h-screen bg-light-secondary dark:bg-dark pb-20">
+      <main className="min-h-screen bg-light-secondary dark:bg-dark">
         <DndContext
           onDragEnd={handleDragEnd}
-          sensors={useSensors(touchSensor, mouseSensor)}
+          sensors={sensors}
         >
           {/* Header */}
-          <div className="sticky top-0 z-10 bg-white/80 dark:bg-dark-secondary/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+          <div className="sticky top-0 z-10 bg-white/90 dark:bg-dark-secondary/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
             <div className="px-4 py-4">
               <div className="flex items-center justify-between">
                 <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  {getViewTitle()}
+                  Deck Builder
                 </h1>
-                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                  <span className="flex items-center gap-1">
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
                     {cardList.length}/15 Cards
-                  </span>
+                  </div>
+                  {cardList.length > 0 && (
+                    <PrimaryButton onClick={() => setShowSaveForm(true)}>
+                      Save Deck
+                    </PrimaryButton>
+                  )}
                 </div>
               </div>
+              
+              {/* Deck Composition Meter */}
+              {cardList.length > 0 && (
+                <div className="mt-3">
+                  <DeckCompositionMeter cards={cardList} />
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Content */}
-          <div className="px-4 py-6">
-            {viewState === ViewState.CardList && (
-              <div className="space-y-6">
-                {/* Deck Overview */}
-                <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      Current Build
-                    </h2>
-                    {cardList.length === 0 && (
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        Add cards to get started
-                      </span>
-                    )}
-                  </div>
-                  <SortableCardList
-                    cards={cardList}
-                    handleCardClick={removeCardFromList}
-                  />
+          {/* Save Form Modal */}
+          {showSaveForm && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+              <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-2xl p-6 w-full max-w-md border border-gray-200 dark:border-gray-700">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                    Save Your Deck
+                  </h2>
+                  <button
+                    onClick={() => setShowSaveForm(false)}
+                    className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
                 </div>
-
-                {/* Stats */}
-                {cardList.length > 0 && (
-                  <>
-                    <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                        Deck Statistics
-                      </h3>
-                      <StatList cards={cardList} />
-                    </div>
-
-                    <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                        Secondary Effects
-                      </h3>
-                      <SecondaryEffectList cards={cardList} />
-                    </div>
-
-                    <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6">
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                        Gadgets & Equipment
-                      </h3>
-                      <GadgetList cards={cardList} />
-                    </div>
-                  </>
-                )}
-              </div>
-            )}
-
-            {viewState === ViewState.Collection && (
-              <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6">
-                <CardCollection
-                  handleCardClick={toggleCardInCollection}
-                  cardList={cardList}
-                />
-              </div>
-            )}
-
-            {viewState === ViewState.Form && (
-              <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6">
+                
                 {errorMessage && (
                   <div className="mb-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
                     <p className="text-red-700 dark:text-red-400">{errorMessage}</p>
                   </div>
                 )}
+                
                 {deck ? (
                   <DeckForm
                     submitForm={handleSubmit}
@@ -237,54 +227,154 @@ const DeckBuilder = ({ deck }: Props) => {
                   <DeckForm submitForm={handleSubmit} />
                 )}
               </div>
+            </div>
+          )}
+
+          {/* Content */}
+          <div className="px-4 py-6 space-y-6">
+            {/* Current Deck Section */}
+            <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  Your Deck
+                </h2>
+                {cardList.length === 0 && (
+                  <span className="text-sm text-gray-500 dark:text-gray-400">
+                    Select cards below to build your deck
+                  </span>
+                )}
+              </div>
+              <SortableCardList
+                cards={cardList}
+                handleCardClick={removeCardFromList}
+              />
+            </div>
+
+            {/* Deck Stats */}
+            {cardList.length > 0 && (
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                    Statistics
+                  </h3>
+                  <StatList cards={cardList} />
+                </div>
+
+                <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                    Secondary Effects
+                  </h3>
+                  <SecondaryEffectList cards={cardList} />
+                </div>
+
+                <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                    Equipment
+                  </h3>
+                  <GadgetList cards={cardList} />
+                </div>
+              </div>
             )}
-          </div>
 
-          {/* Mobile Bottom Navigation */}
-          <div className="fixed bottom-0 left-0 right-0 z-20 bg-white dark:bg-dark-secondary border-t border-gray-200 dark:border-gray-700 shadow-lg">
-            <div className="flex">
-              <button
-                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 transition-colors ${
-                  viewState === ViewState.CardList
-                    ? "bg-primary text-white"
-                    : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
-                }`}
-                onClick={() => setViewState(ViewState.CardList)}
-              >
-                <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
-                <span className="text-xs font-medium">Deck</span>
-              </button>
+            {/* Card Collection Section */}
+            <div className="space-y-6">
+              {/* Filters */}
+              <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                  Find Cards
+                </h3>
+                
+                <div className="space-y-4">
+                  {/* Search */}
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Search cards by name, type, or effects..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
+                    />
+                  </div>
+                  
+                  {/* Type and Affinity Filters */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <select
+                      value={selectedType}
+                      onChange={(e) => setSelectedType(e.target.value)}
+                      className="px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
+                    >
+                      <option value="All">All Types</option>
+                      {types.map((type) => (
+                        <option key={type} value={type}>
+                          {type}
+                        </option>
+                      ))}
+                    </select>
+                    
+                    <select
+                      value={selectedAffinity}
+                      onChange={(e) => setSelectedAffinity(e.target.value)}
+                      className="px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
+                    >
+                      <option value="All">All Affinities</option>
+                      {affinities.map((affinity) => (
+                        <option key={affinity} value={affinity}>
+                          {affinity}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  
+                  {/* Clear Filters */}
+                  <div className="flex items-center justify-between">
+                    <button
+                      onClick={() => {
+                        setSearchTerm("");
+                        setSelectedType("All");
+                        setSelectedAffinity("All");
+                      }}
+                      className="text-sm text-primary hover:text-primary-dark transition-colors"
+                    >
+                      Clear filters
+                    </button>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">
+                      {getFilteredCards().length} cards available
+                    </span>
+                  </div>
+                </div>
+              </div>
 
-              <button
-                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 transition-colors ${
-                  viewState === ViewState.Collection
-                    ? "bg-primary text-white"
-                    : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
-                }`}
-                onClick={() => setViewState(ViewState.Collection)}
-              >
-                <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                </svg>
-                <span className="text-xs font-medium">Cards</span>
-              </button>
-
-              <button
-                className={`flex-1 flex flex-col items-center justify-center py-3 px-2 transition-colors ${
-                  viewState === ViewState.Form
-                    ? "bg-primary text-white"
-                    : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
-                }`}
-                onClick={() => setViewState(ViewState.Form)}
-                disabled={cardList.length === 0}
-              >
-                <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                <span className="text-xs font-medium">Save</span>
-              </button>
+              {/* Card Grid */}
+              <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                  Available Cards
+                </h3>
+                
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                  {getFilteredCards().map((card) => (
+                    <Card
+                      key={card.id}
+                      card={card}
+                      isSelected={cardList.some((c) => c.id === card.id)}
+                      onClick={() => toggleCardInCollection(card)}
+                    />
+                  ))}
+                </div>
+                
+                {getFilteredCards().length === 0 && (
+                  <div className="text-center py-12">
+                    <svg className="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 6.306a7.962 7.962 0 00-6 0m6 0V5a2 2 0 00-2-2H9a2 2 0 00-2 2v1.306m8 0V7a2 2 0 012 2v6.414l-1.293-1.293a1 1 0 00-1.414 0L12 16.414l-2.293-2.293a1 1 0 00-1.414 0L7 15.414V9a2 2 0 012-2h8a2 2 0 012 2v-.694z" />
+                    </svg>
+                    <p className="text-gray-500 dark:text-gray-400 text-lg">
+                      No cards match your filters
+                    </p>
+                    <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">
+                      Try adjusting your search or filter criteria
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </DndContext>
@@ -292,5 +382,29 @@ const DeckBuilder = ({ deck }: Props) => {
     </>
   );
 };
+
+// Helper function for card filtering
+function cardContainsTerm(searchTerm: string, card: CardWithEffects) {
+  if (!searchTerm) return true;
+  
+  const term = searchTerm.toLowerCase();
+  
+  if (
+    card.name.toLowerCase().includes(term) ||
+    card.type.toLowerCase().includes(term) ||
+    card.affinity.toLowerCase().includes(term) ||
+    card.originalEffects.toLowerCase().includes(term)
+  ) {
+    return true;
+  }
+
+  for (const stat of card.stats) {
+    if (stat.effect.toLowerCase().includes(term)) {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 export default DeckBuilder;

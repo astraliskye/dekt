@@ -4,20 +4,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#8B0000", // Blood red
-        "primary-light": "#B22222", // Lighter blood red
-        "primary-dark": "#660000", // Darker blood red
+        primary: "#DC143C", // Brighter crimson red
+        "primary-light": "#FF1744", // Lighter bright red
+        "primary-dark": "#B71C1C", // Darker bright red
         "primary-tint": "#A52A2A",
         "primary-shade": "#800000",
         "primary-shader": "#4B0000",
         light: "#ffffff",
         "light-secondary": "#f8fafc",
         "light-accent": "#64748b",
-        dark: "#0f172a",
-        "dark-secondary": "#1e293b",
-        "dark-accent": "#94a3b8",
+        dark: "#0a0a0a",
+        "dark-secondary": "#111111",
+        "dark-accent": "#666666",
         "light-shade": "#f1f5f9",
-        "dark-tint": "#334155",
+        "dark-tint": "#1a1a1a",
         brawn: "#caf6aa",
         discipline: "#eb867b",
         fortune: "#fbe089",
@@ -57,6 +57,12 @@ module.exports = {
   plugins: [
     function ({ addUtilities }) {
       const newUtilities = {
+        '.line-clamp-2': {
+          overflow: 'hidden',
+          display: '-webkit-box',
+          '-webkit-box-orient': 'vertical',
+          '-webkit-line-clamp': '2',
+        },
         '.line-clamp-4': {
           overflow: 'hidden',
           display: '-webkit-box',
@@ -65,6 +71,29 @@ module.exports = {
         },
         '.safe-area-bottom': {
           'padding-bottom': 'env(safe-area-inset-bottom)',
+        },
+        '.scrollbar-thin': {
+          'scrollbar-width': 'thin',
+          '&::-webkit-scrollbar': {
+            width: '6px',
+          },
+        },
+        '.scrollbar-thumb-gray-300': {
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: '#d1d5db',
+            borderRadius: '9999px',
+          },
+        },
+        '.scrollbar-thumb-gray-600': {
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: '#4b5563',
+            borderRadius: '9999px',
+          },
+        },
+        '.scrollbar-track-transparent': {
+          '&::-webkit-scrollbar-track': {
+            backgroundColor: 'transparent',
+          },
         },
       }
       addUtilities(newUtilities)

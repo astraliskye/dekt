@@ -33,7 +33,7 @@ const Header = ({ menuOpen, setMenuOpen }: Props) => {
               <rect fill="currentColor" y="60" width="100" height="12" rx="6" className="text-primary"></rect>
             </svg>
           </button>
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center">
             <Image
               src="/images/logo-plain.png"
               width={48}
@@ -41,9 +41,6 @@ const Header = ({ menuOpen, setMenuOpen }: Props) => {
               alt="DEKT logo"
               className="transition-transform hover:scale-105"
             />
-            <span className="text-xl font-bold text-gray-900 dark:text-white hidden sm:block">
-              DEKT
-            </span>
           </Link>
         </div>
         
@@ -60,16 +57,13 @@ const Header = ({ menuOpen, setMenuOpen }: Props) => {
         } fixed top-0 z-50 flex h-screen w-80 flex-col overflow-hidden bg-white dark:bg-dark shadow-2xl transition-transform duration-300 ease-in-out`}
       >
         <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center">
             <Image
               src="/images/logo-plain.png"
-              width={40}
-              height={40}
+              width={48}
+              height={48}
               alt="DEKT logo"
             />
-            <span className="text-xl font-bold text-gray-900 dark:text-white">
-              DEKT
-            </span>
           </div>
         </div>
         
