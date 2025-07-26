@@ -1,4 +1,4 @@
-name: DEKT
+name: dekt
 services:
   db:
     image: "postgres:latest"
@@ -16,7 +16,7 @@ services:
       tags:
         - "astraliskye/dekt:latest"
     ports:
-      - "3000:3000"
+      - "8888:3000"
     depends_on:
       - db
     post_start:
