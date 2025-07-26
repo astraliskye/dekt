@@ -14,11 +14,12 @@ jobs:
     steps:
       - name: Run remote SSH commands!!!!
         uses: appleboy/ssh-action@v1
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
-        script: |
-          cd ~/dekt
-          git pull origin main
-          git checkout main
-          sudo podman compose up -d --no-deps --build app
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd ~/dekt
+            git pull origin main
+            git checkout main
+            sudo podman compose up -d --no-deps --build app
