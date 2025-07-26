@@ -1,0 +1,23 @@
+name: DEKT
+services:
+  db:
+    image: "postgres:latest"
+    container_name: "dekt-postgres"
+    environment:
+      POSTGRES_PASSWORD: postgres
+    expose:
+      - "5432"
+  app:
+    container_name: "dekt-app"
+    env_file: ./.env
+    build:
+      context: .
+      network: dekt
+      tags:
+        - "astraliskye/dekt:latest"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    post_start:
+      - command: npx prisma db push

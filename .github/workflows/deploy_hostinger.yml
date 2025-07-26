@@ -1,0 +1,29 @@
+# Assumptions!!!!
+#   - Node is setup on the remote machine
+#   - docker is installed on the remote machine
+#   - The dekt-net docker network is created
+name: Deploy to Hostinger VPS
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy_dis_bihh:
+    name: Deploy to Hostiner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run remote SSH commands!!!!
+        uses: appleboy/ssh-action@v1
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        script: |
+          cd ~/dekt
+          git pull origin main
+          docker build -t astraliskye/dekt .
+          docker kill dekt_postgres
+          docker kill dekt_app
+          docker run -d --rm --net dekt-net --name dekt_postgres -e POSTGRES_PASSWORD=$(secrets.DEKT_POSTGRES_PASSWORD) postgres
+          docker run -d --rm --net dekt-net -p 8888:3000 -e NEXTAUTH_SECRET=$(secrets.DEKT_NEXT_AUTH_SECRET) -e NEXTAUTH_URL=https://dekt.skyegibney.com -e DISCORD_CLIENT_ID=$(secrets.DEKT_DISCORD_CLIENT_ID) -e DISCORD_CLIENT_SECRET=$(secrets.DEKT_DISCORD_CLIENT_SECRET) -e DATABASE_URL=postgresql://postgres:$(DEKT_POSTGRES_PASSWORD)@dekt_postgres/postgres --name dekt_app dekt
+          
+
