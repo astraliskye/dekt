@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import type { NextPage } from "next";
 import React, { useState } from "react";
 import { api } from "../utils/api";
 import Loading from "../components/elements/Loading";

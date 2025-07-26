@@ -7,7 +7,6 @@ import GadgetList from "../cardlist/GadgetList";
 import SecondaryEffectList from "../cardlist/SecondaryEffectList";
 import DeckCompositionMeter from "../cardlist/DeckCompositionMeter";
 import PrimaryButton from "../elements/PrimaryButton";
-import SecondaryButton from "../elements/SecondaryButton";
 import { useRouter } from "next/router";
 import {
   DndContext,

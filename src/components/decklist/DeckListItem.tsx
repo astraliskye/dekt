@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import type { DeckWithCreator, DeckWithCreatorAndCards } from "../../types";
+import type { DeckWithCreatorAndCards } from "../../types";
 import Image from "next/image";
 
 type Props = {
@@ -12,7 +12,7 @@ const DeckListItem = ({ deck }: Props) => {
   const getCardImage = () => {
     if (deck.cards && deck.cards.length > 0) {
       const randomCard = deck.cards[Math.floor(Math.random() * deck.cards.length)];
-      return randomCard!.image || "default-card.webp";
+      return randomCard?.image || "default-card.webp";
     }
     return "default-card.webp";
   };

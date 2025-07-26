@@ -36,7 +36,7 @@ const DeckCompositionMeter = ({ cards }: Props) => {
           Composition:
         </span>
         <div className="flex-1 flex h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden border border-gray-300 dark:border-gray-600">
-          {sortedCards(cards).map((card, index) => {
+          {sortedCards(cards).map((card) => {
             const width = `${(1 / Math.max(cards.length, 15)) * 100}%`;
             return (
               <div

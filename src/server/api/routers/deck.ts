@@ -1,7 +1,7 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
-import { DeckWithCreatorAndCards } from "../../../types";
+import type { DeckWithCreatorAndCards } from "../../../types";
 
 export const deckRouter = createTRPCRouter({
   create: protectedProcedure
@@ -58,7 +58,7 @@ export const deckRouter = createTRPCRouter({
         });
       }
 
-      const [_, result] = await ctx.prisma.$transaction([
+      const result = await ctx.prisma.$transaction([
         ctx.prisma.deckCard.deleteMany({ where: { deckId: deck.id } }),
         ctx.prisma.deck.update({
           where: { id: input.id },
@@ -78,11 +78,11 @@ export const deckRouter = createTRPCRouter({
         }),
       ]);
 
-      return result;
+      return result[1];
     }),
-  getCurrentUserCollection: protectedProcedure.query(({ ctx }) => {
-    return ctx.prisma.deck.findMany({
-      where: { creatorId: ctx.session.user.id },
+  getCurrentUserCollection: protectedProcedure.query(async ({ ctx }) => {
+    const result = await ctx.prisma.deck.findMany({
+      take: 100,
       orderBy: { updatedAt: "desc" },
       include: {
         creator: true,
@@ -98,8 +98,12 @@ export const deckRouter = createTRPCRouter({
           },
         },
       },
-      take: 100,
     });
+
+    return result.map((deck) => ({
+      ...deck,
+      cards: deck.cards.map((card) => card.card),
+    }));
   }),
   getAll: publicProcedure.query(async ({ ctx }) => {
     const result = await ctx.prisma.deck.findMany({

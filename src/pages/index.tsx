@@ -109,7 +109,7 @@ const Home: NextPage = () => {
                   Advanced Analytics
                 </h4>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Get detailed insights into your deck's performance and optimization opportunities.
+                  Get detailed insights into your deck&apos;s performance and optimization opportunities.
                 </p>
               </div>
             </div>
