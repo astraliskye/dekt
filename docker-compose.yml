@@ -21,3 +21,5 @@ services:
       - db
     post_start:
       - command: npx prisma db push
+volumes:
+  dbdata:
