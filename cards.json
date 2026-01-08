@@ -4,12 +4,9 @@
       "name": "Admin Reload",
       "type": "Offense",
       "affinity": "Fortune",
-      "originalEffects": "When you stow your weapon, it reloads.",
-      "image": "AdminReload.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you stow your weapon, it reloads.",
-          "good": true,
+          "name": "When you stow your weapon, it reloads.",
           "team": false
         }
       ]
@@ -18,12 +15,9 @@
       "name": "Adrenaline Fueled",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "When you kill an enemy, gain 5 Stamina instantly and an additional 7 Stamina over 7 seconds, stacking up to 5 times.",
-      "image": "AdrenalineFueled.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you kill an enemy, gain 5 stamina instantly and an additional 7 stamina over 7 seconds, stacking up to 5 times.",
-          "good": true,
+          "name": "When you kill an enemy, gain 5 stamina instantly and an additional 7 stamina over 7 seconds, stacking up to 5 times.",
           "team": false
         }
       ]
@@ -32,24 +26,20 @@
       "name": "AI Assistant Module",
       "type": "Ability",
       "affinity": "Fortune",
-      "originalEffects": "5% Item Reuse Chance that increases by 10% after every item used. Resets on Reuse. Gadget Cost: 20 Sniper Rifle Ammo. REPLACES: Quick Slot, FRAGILE (Effects removed after recieving damage)",
-      "image": "AIAssistModule.webp",
       "gadget": "5% Item Reuse Chance that increases by 10% after every item used. Resets on Reuse. Gadget Cost: 20 Sniper Rifle Ammo. REPLACES: Quick Slot, FRAGILE (Effects removed after recieving damage)"
     },
     {
       "name": "Ammo Belt",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "+50% Ammo Capacity, +15% Reload Speed",
-      "image": "AmmoBelt.webp",
       "stats": [
         {
-          "effect": "ammo capacity",
+          "name": "ammo capacity",
           "amount": "50%",
           "team": false
         },
         {
-          "effect": "reload speed",
+          "name": "reload speed",
           "amount": "15%",
           "team": false
         }
@@ -59,18 +49,16 @@
       "name": "Ammo For All",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "Team Effects: +10% Team Ammo Capacity, +3.5% Team Damage",
-      "image": "AmmoForAll.webp",
       "stats": [
         {
-          "effect": "ammo capacity",
+          "name": "ammo capacity",
           "amount": "10%",
           "team": true
         },
         {
-          "effect": "damage",
+          "name": "damage",
           "amount": "3.5%",
-          "team": false
+          "team": true
         }
       ]
     },
@@ -78,16 +66,14 @@
       "name": "Ammo Mule",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "+75% Ammo Capacity, -5% Move Speed",
-      "image": "AmmoMule.webp",
       "stats": [
         {
-          "effect": "ammo capacity",
+          "name": "ammo capacity",
           "amount": "75%",
           "team": false
         },
         {
-          "effect": "move speed",
+          "name": "move speed",
           "amount": "-5%",
           "team": false
         }
@@ -97,16 +83,14 @@
       "name": "Ammo Pouch",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "+25% Ammo Capacity, +2.5% Bullet Damage",
-      "image": "AmmoPouch.webp",
       "stats": [
         {
-          "effect": "ammo capacity",
+          "name": "ammo capacity",
           "amount": "25%",
           "team": false
         },
         {
-          "effect": "bullet damage",
+          "name": "bullet damage",
           "amount": "2.5%",
           "team": false
         }
@@ -116,12 +100,9 @@
       "name": "Ammo Scavenger",
       "type": "Utility",
       "affinity": "Discipline",
-      "originalEffects": "You can sense Nearby Ammo, 1 additional Ammo crate spawn.",
-      "image": "AmmoScavenger.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "You can sense nearby ammo, 1 additional ammo crate spawns.",
-          "good": true,
+          "name": "You can sense nearby ammo, 1 additional ammo crate spawns.",
           "team": false
         }
       ]
@@ -130,17 +111,13 @@
       "name": "Ammo Stash",
       "type": "Offense",
       "affinity": "Fortune",
-      "originalEffects": "Your secondary weapons have Unlimited Ammo. Your secondary weapons reload 20% Slower",
-      "image": "AmmoStash.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Your secondary weapons have unlimited ammo.",
-          "good": true,
+          "name": "Your secondary weapons have unlimited ammo.",
           "team": false
         },
         {
-          "effect": "Your secondary weapons reload 20% slower.",
-          "good": false,
+          "name": "Your secondary weapons reload 20% slower.",
           "team": false
         }
       ]
@@ -149,12 +126,9 @@
       "name": "Amped Up",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "Team Effects: When a horde is triggered, your team recovers 20 Health.",
-      "image": "AmpedUp.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When a horde is triggered, your team recovers 20 health.",
-          "good": true,
+          "name": "When a horde is triggered, your team recovers 20 health.",
           "team": true
         }
       ]
@@ -163,19 +137,16 @@
       "name": "Antibiotic Ointment",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "+25% Healing Efficiency, When you use a medical Accessory, the target heals 20 Temporary Health.",
-      "image": "AntibioticOintment.webp",
       "stats": [
         {
-          "effect": "healing efficiency",
+          "name": "healing efficiency",
           "amount": "25%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you use a medical accessory, the target heals 20 temporary health.",
-          "good": true,
+          "name": "When you use a medical accessory, the target heals 20 temporary health.",
           "team": false
         }
       ]
@@ -184,12 +155,9 @@
       "name": "Avenge the Fallen",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "Team Effects: When you or a teammate becomes incapacitated, all teammates gain 30% Damage, 20% Reload Speed, and Unlimited Ammo for 10 Seconds.",
-      "image": "AvengeTheFallen.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you or a teammate becomes incapacitated, all teammates gain 30% Damage, 20% Reload Speed, and Unlimited Ammo for 10 Seconds.",
-          "good": true,
+          "name": "When you or a teammate becomes incapacitated, all teammates gain 30% Damage, 20% Reload Speed, and Unlimited Ammo for 10 Seconds.",
           "team": false
         }
       ]
@@ -198,12 +166,9 @@
       "name": "Battle Lust",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "Melee Kills heal 1 health and 0.125 Trauma.",
-      "image": "BattleLust.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Melee kills heal 1 health and 0.125 trauma.",
-          "good": true,
+          "name": "Melee kills heal 1 health and 0.125 trauma.",
           "team": false
         }
       ]
@@ -212,12 +177,9 @@
       "name": "Belligerent",
       "type": "Talent",
       "affinity": "Fortune",
-      "originalEffects": "Gain a stacking 4% increase to Damage each time a horde is called up to 6 stacks (30 second cooldown between Hordes). Stacks are reset when a Cleaner is incapped or killed.",
-      "image": "Flawless.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Gain a stacking 4% increase to Damage each time a horde is called up to 6 stacks (30 second cooldown between Hordes). Stacks are reset when a Cleaner is incapped or killed.",
-          "good": true,
+          "name": "Gain a stacking 4% increase to Damage each time a horde is called up to 6 stacks (30 second cooldown between Hordes). Stacks are reset when a Cleaner is incapped or killed.",
           "team": false
         }
       ]
@@ -226,16 +188,14 @@
       "name": "Belt Clip",
       "type": "Utility",
       "affinity": "Fortune",
-      "originalEffects": "+1 Quick Item Inventory, +10% Use Speed",
-      "image": "BeltClip.webp",
       "stats": [
         {
-          "effect": "quick item inventory",
+          "name": "quick item inventory",
           "amount": "1",
           "team": false
         },
         {
-          "effect": "use speed",
+          "name": "use speed",
           "amount": "10%",
           "team": false
         }
@@ -245,12 +205,9 @@
       "name": "Berserker",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "Each Melee kill grants 5% Melee Damage, 5% Melee Speed, and 5% Move Speed for 4 seconds.",
-      "image": "Berserker.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Each Melee kill grants 5% Melee Damage, 5% Melee Speed, and 5% Move Speed for 4 seconds.",
-          "good": true,
+          "name": "Each Melee kill grants 5% Melee Damage, 5% Melee Speed, and 5% Move Speed for 4 seconds.",
           "team": false
         }
       ]
@@ -259,11 +216,9 @@
       "name": "Body Armor",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "+20% Trauma Resistance",
-      "image": "BodyArmor.webp",
       "stats": [
         {
-          "effect": "trauma resistance",
+          "name": "trauma resistance",
           "amount": "20%",
           "team": false
         }
@@ -273,12 +228,9 @@
       "name": "Bodyguard",
       "type": "Talent",
       "affinity": "Brawn",
-      "originalEffects": "When a teammate within 5 meters is attacked, you instead recieve 75% of that damage. Can trigger once every 5 seconds.",
-      "image": "Bodyguard.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When a teammate within 5 meters is attacked, you instead recieve 75% of that damage. Can trigger once every 5 seconds.",
-          "good": true,
+          "name": "When a teammate within 5 meters is attacked, you instead recieve 75% of that damage. Can trigger once every 5 seconds.",
           "team": false
         }
       ]
@@ -287,23 +239,20 @@
       "name": "Bomb Squad",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "1 Additional Frag Grenade spawns in each map. Team Effects: +25% Explosive Damage, +20% Explosive Resistance",
-      "image": "BombSquad.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "1 Additional Frag Grenade spawns in each map.",
-          "good": true,
+          "name": "1 Additional Frag Grenade spawns in each map.",
           "team": false
         }
       ],
       "stats": [
         {
-          "effect": "explosive damage",
+          "name": "explosive damage",
           "amount": "25%",
           "team": true
         },
         {
-          "effect": "explosive resistance",
+          "name": "explosive resistance",
           "amount": "20%",
           "team": true
         }
@@ -313,12 +262,9 @@
       "name": "Bounty Hunter",
       "type": "Utility",
       "affinity": "Fortune",
-      "originalEffects": "When you or your team kills a Mutation, gain 10 Copper (Up to 300 per Level).",
-      "image": "BountyHunter.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you or your team kills a Mutation, gain 10 Copper (Up to 300 per Level).",
-          "good": true,
+          "name": "When you or your team kills a Mutation, gain 10 Copper (Up to 300 per Level).",
           "team": false
         }
       ]
@@ -327,16 +273,14 @@
       "name": "Box O' Bags",
       "type": "Defense",
       "affinity": "Fortune",
-      "originalEffects": "-10% Health. Team Effects: +1 Team Support Inventory",
-      "image": "BoxOBags.webp",
       "stats": [
         {
-          "effect": "health",
+          "name": "health",
           "amount": "-10%",
           "team": false
         },
         {
-          "effect": "support inventory",
+          "name": "support inventory",
           "amount": "1",
           "team": true
         }
@@ -346,12 +290,9 @@
       "name": "Bravado",
       "type": "Talent",
       "affinity": "Brawn",
-      "originalEffects": "When a teammate within 15 meters recieves trauma damage, gain 15% of that amount as Trauma Health.",
-      "image": "Bravado.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When a teammate within 15 meters recieves trauma damage, gain 15% of that amount as Trauma Health.",
-          "good": true,
+          "name": "When a teammate within 15 meters recieves trauma damage, gain 15% of that amount as Trauma Health.",
           "team": false
         }
       ]
@@ -360,26 +301,24 @@
       "name": "Brazen",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+15% Melee Stamina Efficiency, +20% Melee Attack speed, +15% Bow Stamina Efficiency, +20% Bow Attack Speed",
-      "image": "Brazen.webp",
       "stats": [
         {
-          "effect": "melee stamina efficiency",
+          "name": "melee stamina efficiency",
           "amount": "15%",
           "team": false
         },
         {
-          "effect": "melee attack speed",
+          "name": "melee attack speed",
           "amount": "20%",
           "team": false
         },
         {
-          "effect": "bow stamina efficiency",
+          "name": "bow stamina efficiency",
           "amount": "15%",
           "team": false
         },
         {
-          "effect": "bow attack speed",
+          "name": "bow attack speed",
           "amount": "20%",
           "team": false
         }
@@ -389,12 +328,9 @@
       "name": "Breakout",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "Breakout: Hold [E/SQUARE/X] to free yourself from Grabs. +50% Breakout Cooldown Reduction (Base 60 seconds). 1 Second to release",
-      "image": "Breakout.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Breakout: Hold [E/SQUARE/X] to free yourself from Grabs. +50% Breakout Cooldown Reduction (Base 60 seconds). 1 Second to release.",
-          "good": true,
+          "name": "Breakout: Hold [E/SQUARE/X] to free yourself from Grabs. +50% Breakout Cooldown Reduction (Base 60 seconds). 1 Second to release.",
           "team": false
         }
       ]
@@ -403,12 +339,9 @@
       "name": "Broadside",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "Precision Kills have a 20% chance to cause Ridden to explode, dealing 15 damage to other Ridden with 4 meters.",
-      "image": "Broadside.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Precision Kills have a 20% chance to cause Ridden to explode, dealing 15 damage to other Ridden with 4 meters.",
-          "good": true,
+          "name": "Precision Kills have a 20% chance to cause Ridden to explode, dealing 15 damage to other Ridden with 4 meters.",
           "team": false
         }
       ]
@@ -417,30 +350,24 @@
       "name": "Buckshot Bruiser",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "When using Shotguns, gain 0.25 Temporary Health for each pellet that hits.",
-      "image": "BuckshotBruiser.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When using Shotguns, gain 0.25 Temporary Health for each pellet that hits.",
-          "good": true,
+          "name": "When using Shotguns, gain 0.25 Temporary Health for each pellet that hits.",
           "team": false
         }
       ]
     },
     {
-      "name": "Canned Goods",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "+45 Health, -25% Stamina",
-      "image": "CannedGoods.webp",
       "stats": [
         {
-          "effect": "health",
+          "name": "health",
           "amount": "45",
           "team": false
         },
         {
-          "effect": "stamina",
+          "name": "stamina",
           "amount": "-25%",
           "team": false
         }
@@ -450,12 +377,9 @@
       "name": "Charitable Soul",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "Healing a teammate also applies 50% of the effect to you.",
-      "image": "CharitableSoul.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Healing a teammate also applies 50% of the effect to you.",
-          "good": true,
+          "name": "Healing a teammate also applies 50% of the effect to you.",
           "team": false
         }
       ]
@@ -464,12 +388,9 @@
       "name": "Chemical Courage",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "Pain meds you apply also grant +25% Damage for 60 Seconds.",
-      "image": "ChemicalCourage.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Pain meds you apply also grant +25% Damage for 60 Seconds.",
-          "good": true,
+          "name": "Pain meds you apply also grant +25% Damage for 60 Seconds.",
           "team": false
         }
       ]
@@ -478,18 +399,15 @@
       "name": "Cleansing Fire",
       "type": "Utility",
       "affinity": "Brawn",
-      "originalEffects": "Gain a stacking +5% Damage Resistance every second you're on fire, for a maximum 5 stacks lasting for 15 seconds. Fire removes most negative status effects. +40% Fire Resistance",
-      "image": "HotStuff.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Gain a stacking +5% Damage Resistance every second you're on fire, for a maximum 5 stacks lasting for 15 seconds. Fire removes most negative status effects.",
-          "good": true,
+          "name": "Gain a stacking +5% Damage Resistance every second you're on fire, for a maximum 5 stacks lasting for 15 seconds. Fire removes most negative status effects.",
           "team": false
         }
       ],
       "stats": [
         {
-          "effect": "fire resistance",
+          "name": "fire resistance",
           "amount": "40%",
           "team": false
         }
@@ -499,19 +417,16 @@
       "name": "Cocky",
       "type": "Utility",
       "affinity": "Reflex",
-      "originalEffects": "+75% Weapon Swap Speed, When you take Damage your Accuracy is reduced for 3 Seconds.",
-      "image": "Cocky.webp",
       "stats": [
         {
-          "effect": "weapon swap speed",
+          "name": "weapon swap speed",
           "amount": "75%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you take Damage your Accuracy is reduced for 3 Seconds.",
-          "good": false,
+          "name": "When you take Damage your Accuracy is reduced for 3 Seconds.",
           "team": false
         }
       ]
@@ -520,26 +435,24 @@
       "name": "Cold Brew Coffee",
       "type": "Mobility",
       "affinity": "Discipline",
-      "originalEffects": "+15% Reload Speed, +25% Aim Speed, +25% Weapon Swap Speed, +25% Use Speed",
-      "image": "ColdBrewCoffee.webp",
       "stats": [
         {
-          "effect": "reload speed",
+          "name": "reload speed",
           "amount": "15%",
           "team": false
         },
         {
-          "effect": "aim speed",
+          "name": "aim speed",
           "amount": "25%",
           "team": false
         },
         {
-          "effect": "weapon swap speed",
+          "name": "weapon swap speed",
           "amount": "25%",
           "team": false
         },
         {
-          "effect": "use speed",
+          "name": "use speed",
           "amount": "25%",
           "team": false
         }
@@ -549,12 +462,9 @@
       "name": "Combat Knife",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "Turns your Bash into a Knife that counts as a Melee weapon.",
-      "image": "CombatKnife.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Turns your Bash into a Knife that counts as a Melee weapon.",
-          "good": true,
+          "name": "Turns your Bash into a Knife that counts as a Melee weapon.",
           "team": false
         }
       ]
@@ -563,19 +473,16 @@
       "name": "Combat Medic",
       "type": "Defense",
       "affinity": "Reflex",
-      "originalEffects": "+50% Use Speed. Teammates recover an additional 20 Health when you revive them.",
-      "image": "CombatMedic.webp",
       "stats": [
         {
-          "effect": "use speed",
+          "name": "use speed",
           "amount": "50%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Teammates recover an additional 20 Health when you revive them.",
-          "good": true,
+          "name": "Teammates recover an additional 20 Health when you revive them.",
           "team": false
         }
       ]
@@ -584,21 +491,19 @@
       "name": "Combat Training",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "+5% Bullet Damage, +1.5 Bullet Stumble Damage, +7.5 Melee Stumble Damage",
-      "image": "CombatTraining.webp",
       "stats": [
         {
-          "effect": "bullet damage",
+          "name": "bullet damage",
           "amount": "5%",
           "team": false
         },
         {
-          "effect": "bullet stumble damage",
+          "name": "bullet stumble damage",
           "amount": "1.5",
           "team": false
         },
         {
-          "effect": "melee stumble damage",
+          "name": "melee stumble damage",
           "amount": "7.5",
           "team": false
         }
@@ -608,12 +513,9 @@
       "name": "Compound Interest",
       "type": "Utility",
       "affinity": "Fortune",
-      "originalEffects": "Team Effects: Each Cleaner gains 5% of thier total Copper in each Saferoom.",
-      "image": "CompoundInterest.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Each Cleaner gains 5% of thier total Copper in each Saferoom.",
-          "good": true,
+          "name": "Each Cleaner gains 5% of thier total Copper in each Saferoom.",
           "team": true
         }
       ]
@@ -622,12 +524,9 @@
       "name": "Confident Killer",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "When you or your team kills a mutation gain 1% damage (up to 15%) until the end of the level. Only Card holder obtains damage increase",
-      "image": "ConfidentKiller.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you or your team kills a mutation gain 1% damage (up to 15%) until the end of the level.",
-          "good": true,
+          "name": "When you or your team kills a mutation gain 1% damage (up to 15%) until the end of the level.",
           "team": false
         }
       ]
@@ -636,12 +535,9 @@
       "name": "Controlled Movement",
       "type": "Mobility",
       "affinity": "Discipline",
-      "originalEffects": "+40% Movement Speed while aiming down sights with Sniper Rifles.",
-      "image": "ControlledMovement.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "+40% Movement Speed while aiming down sights with Sniper Rifles.",
-          "good": true,
+          "name": "+40% Movement Speed while aiming down sights with Sniper Rifles.",
           "team": false
         }
       ]
@@ -650,12 +546,9 @@
       "name": "Copper Scavenger",
       "type": "Utility",
       "affinity": "Fortune",
-      "originalEffects": "You can sense Nearby Copper, More copper piles spawn",
-      "image": "CopperScavenger.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "You can sense Nearby Copper, More copper piles spawn.",
-          "good": true,
+          "name": "You can sense Nearby Copper, More copper piles spawn.",
           "team": false
         }
       ]
@@ -664,34 +557,30 @@
       "name": "Crippling Frequency",
       "type": "Ability",
       "affinity": "Discipline",
-      "originalEffects": "Reduce incoming Damage by 1 for nearby teammates for 7 seconds. Gadget Cost: 30 SMG/Pistol Ammo. REPLACES: Offensive Slot",
-      "image": "CripplingFrequency.webp",
       "gadget": "Reduce incoming Damage by 1 for nearby teammates for 7 seconds. Gadget Cost: 30 SMG/Pistol Ammo. REPLACES: Offensive Slot."
     },
     {
       "name": "Cross Trainers",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+20% Stamina, +20% Stamina Regen, +3% Move Speed, +5 Health",
-      "image": "CrossTrainers.webp",
       "stats": [
         {
-          "effect": "stamina",
+          "name": "stamina",
           "amount": "20%",
           "team": false
         },
         {
-          "effect": "stamina regen",
+          "name": "stamina regen",
           "amount": "20%",
           "team": false
         },
         {
-          "effect": "move speed",
+          "name": "move speed",
           "amount": "3%",
           "team": false
         },
         {
-          "effect": "health",
+          "name": "health",
           "amount": "5",
           "team": false
         }
@@ -701,16 +590,14 @@
       "name": "Dash",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+5% Move Speed, +5% Sprint Speed",
-      "image": "Dash.webp",
       "stats": [
         {
-          "effect": "move speed",
+          "name": "move speed",
           "amount": "5%",
           "team": false
         },
         {
-          "effect": "sprint speed",
+          "name": "sprint speed",
           "amount": "5%",
           "team": false
         }
@@ -720,12 +607,9 @@
       "name": "Defensive Maneuver",
       "type": "Mobility",
       "affinity": "Brawn",
-      "originalEffects": "When you take a hit for 15 or more damage. Gain 25% Damage Resistance for 3 seconds.",
-      "image": "EvasiveAction.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you take a hit for 15 or more damage. Gain 25% Damage Resistance for 3 seconds.",
-          "good": true,
+          "name": "When you take a hit for 15 or more damage. Gain 25% Damage Resistance for 3 seconds.",
           "team": false
         }
       ]
@@ -734,16 +618,14 @@
       "name": "Demolitions Expert",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "+50% Accessory Damage, -15% Ammo Capacity",
-      "image": "DemolitionsExpert.webp",
       "stats": [
         {
-          "effect": "accessory damage",
+          "name": "accessory damage",
           "amount": "50%",
           "team": false
         },
         {
-          "effect": "ammo capacity",
+          "name": "ammo capacity",
           "amount": "-15%",
           "team": false
         }
@@ -753,11 +635,9 @@
       "name": "Double Grenade Pouch",
       "type": "Offense",
       "affinity": "Fortune",
-      "originalEffects": "+2 Offensive Inventory",
-      "image": "DoubleGrenadePouch.webp",
       "stats": [
         {
-          "effect": "offensive inventory",
+          "name": "offensive inventory",
           "amount": "2",
           "team": false
         }
@@ -767,18 +647,15 @@
       "name": "Down in Front!",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "While Crouching you neither take nor deal Friendly Fire damage. +10 Health",
-      "image": "DownInFront.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "While Crouching you neither take nor deal Friendly Fire damage.",
-          "good": true,
+          "name": "While Crouching you neither take nor deal Friendly Fire damage.",
           "team": false
         }
       ],
       "stats": [
         {
-          "effect": "health",
+          "name": "health",
           "amount": "10",
           "team": false
         }
@@ -788,29 +665,25 @@
       "name": "Drone Spotter",
       "type": "Utility",
       "affinity": "Brawn",
-      "originalEffects": "Begin marking nearby Mutations every 7 seconds. Gain 20% chance to negate damage while active. Gadget Cost: 20 Sniper Rifle Ammo. REPLACES: Quick Slot, FRAGILE",
-      "image": "MotionSensor.webp",
       "gadget": "Begin marking nearby Mutations every 7 seconds. Gain 20% chance to negate damage while active. Gadget Cost: 20 Sniper Rifle Ammo. REPLACES: Quick Slot, FRAGILE"
     },
     {
       "name": "Durable",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "+15% Trauma Resistance, +10 Health, +20% Fire Resistance",
-      "image": "Durable.webp",
       "stats": [
         {
-          "effect": "trauma resistance",
+          "name": "trauma resistance",
           "amount": "15%",
           "team": false
         },
         {
-          "effect": "health",
+          "name": "health",
           "amount": "10",
           "team": false
         },
         {
-          "effect": "fire resistance",
+          "name": "fire resistance",
           "amount": "20%",
           "team": false
         }
@@ -820,18 +693,15 @@
       "name": "Empowered Assault",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "After you kill a Mutation, the next time you damage a Mutation guranteed to cause them to Stumble. Team Effects: +5% Team Stumble Damage.",
-      "image": "ChainReaction.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "After you kill a Mutation, the next time you damage a Mutation guranteed to cause them to Stumble.",
-          "good": true,
+          "name": "After you kill a Mutation, the next time you damage a Mutation guranteed to cause them to Stumble.",
           "team": false
         }
       ],
       "stats": [
         {
-          "effect": "stumble damage",
+          "name": "stumble damage",
           "amount": "5%",
           "team": true
         }
@@ -841,11 +711,9 @@
       "name": "EMT Bag",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "+50% Healing Efficiency",
-      "image": "EMTBag.webp",
       "stats": [
         {
-          "effect": "healing efficiency",
+          "name": "healing efficiency",
           "amount": "50%",
           "team": false
         }
@@ -855,16 +723,14 @@
       "name": "Energy Bar",
       "type": "Mobility",
       "affinity": "Discipline",
-      "originalEffects": "+30% Stamina Regeneration, +5 Health",
-      "image": "EnergyBar.webp",
       "stats": [
         {
-          "effect": "stamina regen",
+          "name": "stamina regen",
           "amount": "30%",
           "team": false
         },
         {
-          "effect": "health",
+          "name": "health",
           "amount": "5",
           "team": false
         }
@@ -874,26 +740,24 @@
       "name": "Energy Drink",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+15% Stamina, +25% Weapon Swap Speed, +15% Move Speed while firing, +10% Slow Resistance",
-      "image": "EnergyDrink.webp",
       "stats": [
         {
-          "effect": "stamina",
+          "name": "stamina",
           "amount": "15%",
           "team": false
         },
         {
-          "effect": "weapon swap speed",
+          "name": "weapon swap speed",
           "amount": "25%",
           "team": false
         },
         {
-          "effect": "move speed while firing",
+          "name": "move speed while firing",
           "amount": "15%",
           "team": false
         },
         {
-          "effect": "slow resistance",
+          "name": "slow resistance",
           "amount": "10%",
           "team": false
         }
@@ -903,20 +767,15 @@
       "name": "Ether Bomb",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "Emit a gas that attracts Ridden to you for 7 seconds, but also slow your movement speed by 50%. Gadget Cost: 50 Rifle Ammo. REPLACES: Support Slot",
-      "image": "ShockAndAwe.webp",
       "gadget": "Emit a gas that attracts Ridden to you for 7 seconds, but also slow your movement speed by 50%. Gadget Cost: 50 Rifle Ammo. REPLACES: Support Slot."
     },
     {
       "name": "Experienced EMT",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "When you use a Medical Accessory, the target gains +10% Maximum Health, Stamina, and Stamina Regen until the end of the level.",
-      "image": "ExperiencedEMT.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you use a Medical Accessory, the target gains +10% Maximum Health, Stamina, and Stamina Regen until the end of the level.",
-          "good": true,
+          "name": "When you use a Medical Accessory, the target gains +10% Maximum Health, Stamina, and Stamina Regen until the end of the level.",
           "team": false
         }
       ]
@@ -925,36 +784,27 @@
       "name": "Experimental Stimulants",
       "type": "Talent",
       "affinity": "Reflex",
-      "originalEffects": "Create a cloud that grants 20% Damage and 30% Reload Speed. Gadget Cost: 40 Rifle Ammo. REPLACES: Support Slot",
-      "image": "ExperimentalStims.webp",
       "gadget": "Create a cloud that grants 20% Damage and 30% Reload Speed. Gadget Cost: 40 Rifle Ammo. REPLACES: Support Slot."
     },
     {
       "name": "Experimental Stun gun",
       "type": "Utility",
       "affinity": "Discipline",
-      "originalEffects": "Enhances Bash to stun nearby enemies. Refreshes after 10 seconds. Gadget Cost: 30 Sniper Rifle Ammo. REPLACES: Quick Slot, FRAGILE (Effects removed after recieving damage)",
-      "image": "ExperimentalStunGun.webp",
       "gadget": "Enhances Bash to stun nearby enemies. Refreshes after 10 seconds. Gadget Cost: 30 Sniper Rifle Ammo. REPLACES: Quick Slot, FRAGILE (Effects removed after recieving damage)."
     },
     {
       "name": "Expired T5",
       "type": "Ability",
       "affinity": "Discipline",
-      "originalEffects": "Create a powerful blast that deals 20 Fire Damage to Weakspots. After the initial blast, continue to deal 1 damage per second for 7 seconds. Gadget Cost: 75 Rifle Ammo. REPLACES: Support Slot",
-      "image": "ExpiredT5.webp",
       "gadget": "Create a powerful blast that deals 20 Fire Damage to Weakspots. After the initial blast, continue to deal 1 damage per second for 7 seconds. Gadget Cost: 75 Rifle Ammo. REPLACES: Support Slot."
     },
     {
       "name": "Face Your Fears",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "Heal 1 Temporary Health whenever you kill a Ridden within 2.5 meters.",
-      "image": "FaceYourFears.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Heal 1 temporary health whenever you kill a ridden within 2.5 meters.",
-          "good": true,
+          "name": "Heal 1 temporary health whenever you kill a ridden within 2.5 meters.",
           "team": false
         }
       ]
@@ -963,16 +813,14 @@
       "name": "Fanny Pack",
       "type": "Defense",
       "affinity": "Fortune",
-      "originalEffects": "+1 Support Inventory, +15% Trauma Resistance",
-      "image": "FannyPack.webp",
       "stats": [
         {
-          "effect": "support inventory",
+          "name": "support inventory",
           "amount": "1",
           "team": false
         },
         {
-          "effect": "trauma resistance",
+          "name": "trauma resistance",
           "amount": "15%",
           "team": false
         }
@@ -982,12 +830,9 @@
       "name": "Field Surgeon",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "When you use a Medical Accessory, it also heals 3 Trauma to the target.",
-      "image": "FieldSurgeon.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you use a medical accessory, it also heals 3 trauma to the target.",
-          "good": true,
+          "name": "When you use a medical accessory, it also heals 3 trauma to the target.",
           "team": false
         }
       ]
@@ -996,12 +841,9 @@
       "name": "Fill 'em Full of Lead",
       "type": "Talent",
       "affinity": "Reflex",
-      "originalEffects": "While shooting, gain 1% Damage, 1% Fire Rate, and 5% swap speed every 0.25 seconds. Max count of buffs is 20.",
-      "image": "FillemFullOfLead.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "While shooting, gain 1% Damage, 1% Fire Rate, and 5% swap speed every 0.25 seconds. Max count of buffs is 20.",
-          "good": true,
+          "name": "While shooting, gain 1% Damage, 1% Fire Rate, and 5% swap speed every 0.25 seconds. Max count of buffs is 20.",
           "team": false
         }
       ]
@@ -1010,12 +852,9 @@
       "name": "Fire in the Hole!",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "When you throw an Offensive Accessory, Gain 20 Temporary Health and 25% Sprint speed for 5 Seconds.",
-      "image": "FireInTheHole.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you throw an Offensive Accessory, Gain 20 Temporary Health and 25% Sprint speed for 5 Seconds.",
-          "good": true,
+          "name": "When you throw an Offensive Accessory, Gain 20 Temporary Health and 25% Sprint speed for 5 Seconds.",
           "team": false
         }
       ]
@@ -1024,11 +863,9 @@
       "name": "Fleet of Foot",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+8% Move Speed",
-      "image": "FleetOfFoot.webp",
       "stats": [
         {
-          "effect": "move speed",
+          "name": "move speed",
           "amount": "8%",
           "team": false
         }
@@ -1038,12 +875,9 @@
       "name": "Food Scavenger",
       "type": "Talent",
       "affinity": "Fortune",
-      "originalEffects": "You can sense nearby Food Items. Adds a moderate amount of Food Items to the world. Food items restore an additional 3 Health. (+7 Food Items)",
-      "image": "LunchTime.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "You can sense nearby Food Items. Adds a moderate amount of Food Items to the world. Food items restore an additional 3 Health. (+7 Food Items).",
-          "good": true,
+          "name": "You can sense nearby Food Items. Adds a moderate amount of Food Items to the world. Food items restore an additional 3 Health. (+7 Food Items).",
           "team": false
         }
       ]
@@ -1052,12 +886,9 @@
       "name": "Fresh Bandage",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "At the start of each level, recover 15 Trauma Damage, then restore any missing Health.",
-      "image": "FreshBandage.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "At the start of each level, recover 15 Trauma Damage, then restore any missing Health.",
-          "good": true,
+          "name": "At the start of each level, recover 15 Trauma Damage, then restore any missing Health.",
           "team": false
         }
       ]
@@ -1066,26 +897,24 @@
       "name": "Front Sight Focus",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "+20% Accuracy, +10% Weakspot Damage, +15% Aim Speed, +15% Recoil Control",
-      "image": "FrontSightFocus.webp",
       "stats": [
         {
-          "effect": "accuracy",
+          "name": "accuracy",
           "amount": "20%",
           "team": false
         },
         {
-          "effect": "weakspot damage",
+          "name": "weakspot damage",
           "amount": "10%",
           "team": false
         },
         {
-          "effect": "aim speed",
+          "name": "aim speed",
           "amount": "15%",
           "team": false
         },
         {
-          "effect": "recoil control",
+          "name": "recoil control",
           "amount": "15%",
           "team": false
         }
@@ -1095,16 +924,14 @@
       "name": "Glass Cannon",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+25% Damage, -30% Health",
-      "image": "GlassCannon.webp",
       "stats": [
         {
-          "effect": "damage",
+          "name": "damage",
           "amount": "25%",
           "team": false
         },
         {
-          "effect": "health",
+          "name": "health",
           "amount": "-30%",
           "team": false
         }
@@ -1114,21 +941,19 @@
       "name": "Grenade Pouch",
       "type": "Offense",
       "affinity": "Fortune",
-      "originalEffects": "+1 Offensive Inventory, +25% Swap Speed, -5% Offensive Accessory Cost",
-      "image": "GrenadePouch.webp",
       "stats": [
         {
-          "effect": "offensive inventory",
+          "name": "offensive inventory",
           "amount": "1",
           "team": false
         },
         {
-          "effect": "swap speed",
+          "name": "swap speed",
           "amount": "25%",
           "team": false
         },
         {
-          "effect": "offensive accessory cost",
+          "name": "offensive accessory cost",
           "amount": "-5%",
           "team": false
         }
@@ -1138,11 +963,9 @@
       "name": "Grenade Training",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "+25% Accessory Damage",
-      "image": "GrenadeTraining.webp",
       "stats": [
         {
-          "effect": "accessory damage",
+          "name": "accessory damage",
           "amount": "25%",
           "team": false
         }
@@ -1152,12 +975,9 @@
       "name": "Group Therapy",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "When you use a Medical Accessory, all teammates heal for 8 Health.",
-      "image": "GroupTherapy.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you use a Medical Accessory, all teammates heal for 8 Health.",
-          "good": true,
+          "name": "When you use a Medical Accessory, all teammates heal for 8 Health.",
           "team": false
         }
       ]
@@ -1166,16 +986,14 @@
       "name": "Guns Out",
       "type": "Utility",
       "affinity": "Reflex",
-      "originalEffects": "+50% Weapon Swap Speed, -5% Damage Resistance",
-      "image": "GunsOut.webp",
       "stats": [
         {
-          "effect": "weapon swap speed",
+          "name": "weapon swap speed",
           "amount": "50%",
           "team": false
         },
         {
-          "effect": "damage resistance",
+          "name": "damage resistance",
           "amount": "-5%",
           "team": false
         }
@@ -1185,12 +1003,9 @@
       "name": "Hazard Pay",
       "type": "Utility",
       "affinity": "Fortune",
-      "originalEffects": "Gain 250 Bonus Copper at the start of Each level.",
-      "image": "HazardPay.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Gain 250 Bonus Copper at the start of Each level.",
-          "good": true,
+          "name": "Gain 250 Bonus Copper at the start of Each level.",
           "team": false
         }
       ]
@@ -1199,24 +1014,20 @@
       "name": "Hazmat Specialist",
       "type": "Utility",
       "affinity": "Discipline",
-      "originalEffects": "+35% Acid Resistance. Your Bait Jars do direct damage to targets and can hit Weakspots. Team Effects: Killing Mutations that are covered with Bait has a 75% chance to create another Bair Jar.",
-      "image": "HazmatSpecialist.webp",
       "stats": [
         {
-          "effect": "acid resistance",
+          "name": "acid resistance",
           "amount": "35%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Your Bait Jars do direct damage to targets and can hit Weakspots.",
-          "good": true,
+          "name": "Your Bait Jars do direct damage to targets and can hit Weakspots.",
           "team": false
         },
         {
-          "effect": "Killing Mutations that are covered with Bait has a 75% chance to create another Bair Jar.",
-          "good": true,
+          "name": "Killing Mutations that are covered with Bait has a 75% chance to create another Bair Jar.",
           "team": true
         }
       ]
@@ -1225,19 +1036,16 @@
       "name": "Headband Magnifier",
       "type": "Utility",
       "affinity": "Reflex",
-      "originalEffects": "+125% Use Speed. When you take Damage, you have a chance to be Blinded for 1 Second.",
-      "image": "HeadbandMagnifier.webp",
       "stats": [
         {
-          "effect": "use speed",
+          "name": "use speed",
           "amount": "125%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you take Damage, you have a chance to be Blinded for 1 Second.",
-          "good": false,
+          "name": "When you take Damage, you have a chance to be Blinded for 1 Second.",
           "team": false
         }
       ]
@@ -1246,12 +1054,9 @@
       "name": "Heavy Attack",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "Press [RIGHTCLICK/L2/LT] with Melee weapons to perform a Heavy Attack. Heavy Attacks deal 100% increased damage and expend 50% more Stamina.",
-      "image": "HeavyAttack.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Press [RIGHTCLICK/L2/LT] with Melee weapons to perform a Heavy Attack. Heavy Attacks deal 100% increased damage and expend 50% more Stamina.",
-          "good": true,
+          "name": "Press [RIGHTCLICK/L2/LT] with Melee weapons to perform a Heavy Attack. Heavy Attacks deal 100% increased damage and expend 50% more Stamina.",
           "team": false
         }
       ]
@@ -1260,12 +1065,9 @@
       "name": "Heavy Hitter",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "Melee hits always Stumble Ridden the first time they are hit. This effect can only occur once per target.",
-      "image": "HeavyHitter.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Melee hits always Stumble Ridden the first time they are hit. This effect can only occur once per target.",
-          "good": true,
+          "name": "Melee hits always Stumble Ridden the first time they are hit. This effect can only occur once per target.",
           "team": false
         }
       ]
@@ -1274,16 +1076,14 @@
       "name": "Hellfire",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+45% Movement Speed while firing. +3% Move Speed while not firing.",
-      "image": "Hellfire.webp",
       "stats": [
         {
-          "effect": "move speed while firing",
+          "name": "move speed while firing",
           "amount": "45%",
           "team": false
         },
         {
-          "effect": "move speed while not firing",
+          "name": "move speed while not firing",
           "amount": "3%",
           "team": false
         }
@@ -1293,21 +1093,19 @@
       "name": "Hi Vis Sights",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+30% Aim Speed, +15% Move Speed while ADS, +15% Move Speed while firing",
-      "image": "HiVisSights.webp",
       "stats": [
         {
-          "effect": "aim speed",
+          "name": "aim speed",
           "amount": "30%",
           "team": false
         },
         {
-          "effect": "move speed while ads",
+          "name": "move speed while ads",
           "amount": "15%",
           "team": false
         },
         {
-          "effect": "move speed while firing",
+          "name": "move speed while firing",
           "amount": "15%",
           "team": false
         }
@@ -1317,12 +1115,9 @@
       "name": "Highwayman",
       "type": "Utility",
       "affinity": "Fortune",
-      "originalEffects": "Kills with Secondary guns have a 5% chance to spawn ammo, Molotov, or a Bair Jar.",
-      "image": "Highwayman.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Kills with Secondary guns have a 5% chance to spawn ammo, Molotov, or a Bair Jar.",
-          "good": true,
+          "name": "Kills with Secondary guns have a 5% chance to spawn ammo, Molotov, or a Bair Jar.",
           "team": false
         }
       ]
@@ -1331,12 +1126,9 @@
       "name": "Hunker Down",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "While Crouching, gain 10% Damage Resistance and 40% Accuracy",
-      "image": "HunkerDown.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "While Crouching, gain 10% Damage Resistance and 40% Accuracy.",
-          "good": true,
+          "name": "While Crouching, gain 10% Damage Resistance and 40% Accuracy.",
           "team": false
         }
       ]
@@ -1345,16 +1137,14 @@
       "name": "Hydration Pack",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "+35 Health, -15% Ammo Capacity",
-      "image": "HydrationPack.webp",
       "stats": [
         {
-          "effect": "health",
+          "name": "health",
           "amount": "35",
           "team": false
         },
         {
-          "effect": "ammo capacity",
+          "name": "ammo capacity",
           "amount": "-15%",
           "team": false
         }
@@ -1364,16 +1154,14 @@
       "name": "Hyper-Focused",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+50% Weakspot Damage, -40% Move Speed while shooting or melee attacking.",
-      "image": "HyperFocused.webp",
       "stats": [
         {
-          "effect": "weakspot damage",
+          "name": "weakspot damage",
           "amount": "50%",
           "team": false
         },
         {
-          "effect": "move speed while shooting or melee attacking",
+          "name": "move speed while shooting or melee attacking",
           "amount": "-40%",
           "team": false
         }
@@ -1383,19 +1171,16 @@
       "name": "Ignore the Pain",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "+20% Melee Damage against Mutations. When you deal Melee damage to a Mutation heal 2 Health and recover 3 Stamina.",
-      "image": "IgnoreThePain.webp",
       "stats": [
         {
-          "effect": "melee damage against mutations",
+          "name": "melee damage against mutations",
           "amount": "20%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you deal Melee damage to a Mutation heal 2 Health and recover 3 Stamina.",
-          "good": true,
+          "name": "When you deal Melee damage to a Mutation heal 2 Health and recover 3 Stamina.",
           "team": false
         }
       ]
@@ -1404,16 +1189,14 @@
       "name": "Improvised Explosives",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "+75% Accessory Damage, -25% Swap Speed",
-      "image": "ImprovisedExplosives.webp",
       "stats": [
         {
-          "effect": "accessory damage",
+          "name": "accessory damage",
           "amount": "75%",
           "team": false
         },
         {
-          "effect": "swap speed",
+          "name": "swap speed",
           "amount": "-25%",
           "team": false
         }
@@ -1423,12 +1206,9 @@
       "name": "In the Zone",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "Precision Kills grant 5% Reload Speed for 5 Seconds (stacking up to 10 times).",
-      "image": "InTheZone.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Precision Kills grant 5% Reload Speed for 5 Seconds (stacking up to 10 times).",
-          "good": true,
+          "name": "Precision Kills grant 5% Reload Speed for 5 Seconds (stacking up to 10 times).",
           "team": false
         }
       ]
@@ -1437,12 +1217,9 @@
       "name": "Inspiring Sacrifice",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "Team Effects: When you or a teammate becomes incapacitated, All teammates recover 20 Health over 10 Seconds.",
-      "image": "InspiringSacrifice.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you or a teammate becomes incapacitated, All teammates recover 20 Health over 10 Seconds.",
-          "good": true,
+          "name": "When you or a teammate becomes incapacitated, All teammates recover 20 Health over 10 Seconds.",
           "team": true
         }
       ]
@@ -1451,19 +1228,16 @@
       "name": "Killer's Instinct",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+30% Weakspot Damage. DISABLES: Aim Down Sights",
-      "image": "KillersInstinct.webp",
       "stats": [
         {
-          "effect": "weakspot damage",
+          "name": "weakspot damage",
           "amount": "30%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "DISABLES: Aim Down Sights.",
-          "good": false,
+          "name": "DISABLES: Aim Down Sights.",
           "team": false
         }
       ]
@@ -1472,19 +1246,16 @@
       "name": "Knowledge is Power",
       "type": "Utility",
       "affinity": "Discipline",
-      "originalEffects": "+10% Weakspot Damage, Allows Player to see values for damage they deal and enemy health bars.",
-      "image": "KnowledgeIsPower.webp",
       "stats": [
         {
-          "effect": "weakspot damage",
+          "name": "weakspot damage",
           "amount": "10%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Allows Player to see values for damage they deal and enemy health bars.",
-          "good": true,
+          "name": "Allows Player to see values for damage they deal and enemy health bars.",
           "team": false
         }
       ]
@@ -1493,16 +1264,14 @@
       "name": "Large Caliber Rounds",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "+7.5% Bullet Damage, +200% Bullet Penetration",
-      "image": "LargeCaliberAmmo.webp",
       "stats": [
         {
-          "effect": "bullet damage",
+          "name": "bullet damage",
           "amount": "7.5%",
           "team": false
         },
         {
-          "effect": "bullet penetration",
+          "name": "bullet penetration",
           "amount": "200%",
           "team": false
         }
@@ -1512,16 +1281,14 @@
       "name": "Life Insurance",
       "type": "Defense",
       "affinity": "Fortune",
-      "originalEffects": "+2 Extra Life. Team Effects: +10% Reduced Incap Trauma",
-      "image": "LifeInsurance.webp",
       "stats": [
         {
-          "effect": "extra life",
+          "name": "extra life",
           "amount": "2",
           "team": false
         },
         {
-          "effect": "reduced incap trauma",
+          "name": "reduced incap trauma",
           "amount": "10%",
           "team": true
         }
@@ -1531,26 +1298,24 @@
       "name": "Line 'em Up",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "+10% Effective Bullet Range, +15% Recoil Control, +25% Bullet Penetration, +25% Aim Speed",
-      "image": "LineemUp.webp",
       "stats": [
         {
-          "effect": "effective bullet range",
+          "name": "effective bullet range",
           "amount": "10%",
           "team": false
         },
         {
-          "effect": "recoil control",
+          "name": "recoil control",
           "amount": "15%",
           "team": false
         },
         {
-          "effect": "bullet penetration",
+          "name": "bullet penetration",
           "amount": "25%",
           "team": false
         },
         {
-          "effect": "aim speed",
+          "name": "aim speed",
           "amount": "25%",
           "team": false
         }
@@ -1560,12 +1325,9 @@
       "name": "Lucky Pennies",
       "type": "Utility",
       "affinity": "Fortune",
-      "originalEffects": "Whenever your team loots Copper, you have a 35% chance to find 100% additional Copper",
-      "image": "LuckyPennies.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Whenever your team loots Copper, you have a 35% chance to find 100% additional Copper.",
-          "good": true,
+          "name": "Whenever your team loots Copper, you have a 35% chance to find 100% additional Copper.",
           "team": false
         }
       ]
@@ -1574,16 +1336,14 @@
       "name": "Mad Dash",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+20% Sprint Speed, -40% Sprint Stamina Efficiency",
-      "image": "MadDash.webp",
       "stats": [
         {
-          "effect": "sprint speed",
+          "name": "sprint speed",
           "amount": "20%",
           "team": false
         },
         {
-          "effect": "sprint stamina efficiency",
+          "name": "sprint stamina efficiency",
           "amount": "-40%",
           "team": false
         }
@@ -1593,16 +1353,14 @@
       "name": "Mag Carrier",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+30% Pistol/SMG Ammo Capacity, +10% Damage with Pistols and SMGs",
-      "image": "MagCarrier.webp",
       "stats": [
         {
-          "effect": "pistol/smg ammo capacity",
+          "name": "pistol/smg ammo capacity",
           "amount": "30%",
           "team": false
         },
         {
-          "effect": "damage with pistols and smgs",
+          "name": "damage with pistols and smgs",
           "amount": "10%",
           "team": false
         }
@@ -1612,19 +1370,16 @@
       "name": "Mag Coupler",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+50% Reload Speed, DISABLES: Aim Down Sights",
-      "image": "MagCoupler.webp",
       "stats": [
         {
-          "effect": "reload speed",
+          "name": "reload speed",
           "amount": "50%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "DISABLES: Aim Down Sights.",
-          "good": false,
+          "name": "DISABLES: Aim Down Sights.",
           "team": false
         }
       ]
@@ -1633,12 +1388,9 @@
       "name": "Magician's Apprentice",
       "type": "Talent",
       "affinity": "Fortune",
-      "originalEffects": "You have an additional 10% chance to not consume Accessories when used.",
-      "image": "Magician.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "You have an additional 10% chance to not consume Accessories when used.",
-          "good": true,
+          "name": "You have an additional 10% chance to not consume Accessories when used.",
           "team": false
         }
       ]
@@ -1647,16 +1399,14 @@
       "name": "Mandatory PT",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "Team Effects: +10% Team Stamina, +10% Team Stamina Regen",
-      "image": "MandatoryPT.webp",
       "stats": [
         {
-          "effect": "stamina",
+          "name": "stamina",
           "amount": "10%",
           "team": true
         },
         {
-          "effect": "stamina regen",
+          "name": "stamina regen",
           "amount": "10%",
           "team": true
         }
@@ -1666,12 +1416,9 @@
       "name": "Marathon Runner",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "No Movement Penalty for Strafe or Backpedal",
-      "image": "MarathonRunner.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "No movement penalty for strafe or backpedal.",
-          "good": true,
+          "name": "No movement penalty for strafe or backpedal.",
           "team": false
         }
       ]
@@ -1680,12 +1427,9 @@
       "name": "Marked for Death",
       "type": "Utility",
       "affinity": "Discipline",
-      "originalEffects": "Mutations you Ping are highlighted and your team deals 10% increased damage to highlighted enemies.",
-      "image": "MarkedForDeath.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Mutations you ping are highlighted and your team deals 10% increased damage to highlighted enemies.",
-          "good": true,
+          "name": "Mutations you ping are highlighted and your team deals 10% increased damage to highlighted enemies.",
           "team": false
         }
       ]
@@ -1694,19 +1438,16 @@
       "name": "Mean Drunk",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "+40% Melee Damage. Your Melee Attacks cause cleave through enemies dealing damage in a large area.",
-      "image": "MeanDrunk.webp",
       "stats": [
         {
-          "effect": "melee damage",
+          "name": "melee damage",
           "amount": "40%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Your melee attacks case cleave through enemies dealing damage in a large area.",
-          "good": true,
+          "name": "Your melee attacks case cleave through enemies dealing damage in a large area.",
           "team": false
         }
       ]
@@ -1715,12 +1456,9 @@
       "name": "Meatgrinder",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "Gain 30% Move Speed and Accuracy while crouched and using an LMG.",
-      "image": "Meatgrinder.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Gain 30% move speed and accuracy while crouched and using an LMG.",
-          "good": true,
+          "name": "Gain 30% move speed and accuracy while crouched and using an LMG.",
           "team": false
         }
       ]
@@ -1729,24 +1467,21 @@
       "name": "Medical Expert",
       "type": "Defense",
       "affinity": "Reflex",
-      "originalEffects": "+50% Revive Speed. When you use a Medical Accessory, it also heals 1 Trauma to the target. Team Effects: +15% Healing Efficiency.",
-      "image": "MedicalExpert.webp",
       "stats": [
         {
-          "effect": "revive speed",
+          "name": "revive speed",
           "amount": "50%",
           "team": false
         },
         {
-          "effect": "healing efficiency",
+          "name": "healing efficiency",
           "amount": "15%",
           "team": true
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you use a medical accessory, it also heals 1 trauma to the target.",
-          "good": true,
+          "name": "When you use a medical accessory, it also heals 1 trauma to the target.",
           "team": false
         }
       ]
@@ -1755,12 +1490,9 @@
       "name": "Medical Professional",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "Defibrillators and First Aid heal 10 additional Trauma Damage and 1 Extra Life, if able.",
-      "image": "MedicalProfessional.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Defibrillators and first aid heal 10 additional trauma damage and 1 extra life, if able.",
-          "good": true,
+          "name": "Defibrillators and first aid heal 10 additional trauma damage and 1 extra life, if able.",
           "team": false
         }
       ]
@@ -1769,17 +1501,13 @@
       "name": "Meth Head",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "Each Melee swing grants 5% Melee Speed and 5% Melee Stamina Efficiency for 6 Seconds. Stacking up to 10 times. Your Melee Attacks no longer stick in tough enemies. DISABLES: Aim Down Sights",
-      "image": "MethHead.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Each melee swing grants 5% melee speed and 5% melee stamina efficiency for 6 seconds. Stacking up to 10 times. Your melee attacks no longer stick in tough enemies.",
-          "good": true,
+          "name": "Each melee swing grants 5% melee speed and 5% melee stamina efficiency for 6 seconds. Stacking up to 10 times. Your melee attacks no longer stick in tough enemies.",
           "team": false
         },
         {
-          "effect": "DISABLES: Aim Down Sights.",
-          "good": false,
+          "name": "DISABLES: Aim Down Sights.",
           "team": false
         }
       ]
@@ -1788,12 +1516,9 @@
       "name": "Miraculous Recovery",
       "type": "Defense",
       "affinity": "Reflex",
-      "originalEffects": "When you use a Medical Accessory, it has a 25% chance to have 100% increased effect.",
-      "image": "MiraculousRecovery.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you use a medical accessory, it has a 25% chance to have 100% increased effect.",
-          "good": true,
+          "name": "When you use a medical accessory, it has a 25% chance to have 100% increased effect.",
           "team": false
         }
       ]
@@ -1802,12 +1527,9 @@
       "name": "Money Grubbers",
       "type": "Utility",
       "affinity": "Fortune",
-      "originalEffects": "Each time your team loots Copper, you gain 3 additional Copper, up to 25 times.",
-      "image": "MoneyGrubbers.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Each time your team loots copper, you gain 3 additional copper, up to 25 times.",
-          "good": true,
+          "name": "Each time your team loots copper, you gain 3 additional copper, up to 25 times.",
           "team": false
         }
       ]
@@ -1816,24 +1538,21 @@
       "name": "Motorcycle Helmet",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "+15% Damage Resistance, +10 Health, DISABLES: Aim Down Sights",
-      "image": "MotorcycleHelmet.webp",
       "stats": [
         {
-          "effect": "damage resistance",
+          "name": "damage resistance",
           "amount": "15%",
           "team": false
         },
         {
-          "effect": "health",
+          "name": "health",
           "amount": "10",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "DISABLES: Aim Down Sights.",
-          "good": false,
+          "name": "DISABLES: Aim Down Sights.",
           "team": false
         }
       ]
@@ -1842,16 +1561,14 @@
       "name": "Motorcycle Jacket",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "+5% Damage Resistance, +5 Health",
-      "image": "MotorcycleJacket.webp",
       "stats": [
         {
-          "effect": "damage reduction",
+          "name": "damage reduction",
           "amount": "5%",
           "team": false
         },
         {
-          "effect": "health",
+          "name": "health",
           "amount": "5",
           "team": false
         }
@@ -1861,12 +1578,9 @@
       "name": "Mugger",
       "type": "Utility",
       "affinity": "Fortune",
-      "originalEffects": "Kills with Melee weapons have a 5% chance to spawn ammo, Razor Wire or a Bear Trap.",
-      "image": "Mugger.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Kills with melee weapons have a 5% chance to spawn ammo, razor wire, or a bear trap.",
-          "good": true,
+          "name": "Kills with melee weapons have a 5% chance to spawn ammo, razor wire, or a bear trap.",
           "team": false
         }
       ]
@@ -1875,16 +1589,14 @@
       "name": "Multitool",
       "type": "Utility",
       "affinity": "Reflex",
-      "originalEffects": "+75% Use Speed, -5% Damage Resistance",
-      "image": "Multitool.webp",
       "stats": [
         {
-          "effect": "use speed",
+          "name": "use speed",
           "amount": "75%",
           "team": false
         },
         {
-          "effect": "damage resistance",
+          "name": "damage resistance",
           "amount": "-5%",
           "team": false
         }
@@ -1894,16 +1606,14 @@
       "name": "Natural Sprinter",
       "type": "Mobility",
       "affinity": "Discipline",
-      "originalEffects": "+100% Stamina Regeneration, -50% Maximum Stamina",
-      "image": "NaturalSprinter.webp",
       "stats": [
         {
-          "effect": "stamina regen",
+          "name": "stamina regen",
           "amount": "100%",
           "team": false
         },
         {
-          "effect": "max stamina",
+          "name": "max stamina",
           "amount": "-50%",
           "team": false
         }
@@ -1913,16 +1623,14 @@
       "name": "Needs of the Many",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "-10% Health. Team Effects: +1 Team Extra Life",
-      "image": "NeedsOfTheMany.webp",
       "stats": [
         {
-          "effect": "health",
+          "name": "health",
           "amount": "-10%",
           "team": false
         },
         {
-          "effect": "extra life",
+          "name": "extra life",
           "amount": "1",
           "team": true
         }
@@ -1932,12 +1640,9 @@
       "name": "Numb",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "Gain +10% Damage Resistance while you have Temporary Health",
-      "image": "Numb.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Gain 10% damage resistance while you have temporary health",
-          "good": true,
+          "name": "Gain 10% damage resistance while you have temporary health",
           "team": false
         }
       ]
@@ -1946,12 +1651,9 @@
       "name": "Offensive Scavenger",
       "type": "Utility",
       "affinity": "Brawn",
-      "originalEffects": "You can sense nearby Offensive Accessories. More Offensive Accessories spawn. (+5)",
-      "image": "OffensiveScavenger.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "You can sense nearby offensive accessories. 5 more offensive accessories spawn.",
-          "good": true,
+          "name": "You can sense nearby offensive accessories. 5 more offensive accessories spawn.",
           "team": false
         }
       ]
@@ -1960,16 +1662,14 @@
       "name": "Olympic Sprinter",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+30% Sprint Efficiency, -7% Damage Resistance",
-      "image": "OlympicSprinter.webp",
       "stats": [
         {
-          "effect": "sprint efficiency",
+          "name": "sprint efficiency",
           "amount": "30%",
           "team": false
         },
         {
-          "effect": "damage resistance",
+          "name": "damage resistance",
           "amount": "-7%",
           "team": false
         }
@@ -1979,12 +1679,9 @@
       "name": "On your Mark...",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "Team Effects: When a horde is triggered, your team restores 7.5% Ammo and gains 10% Move Speed while firing, 15% Reload Speed, and 25% Swap Speed for 30 seconds.",
-      "image": "OnYourMark.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When a horde is triggered, your team restores 7.5% ammo and gains 10% move speed while firing, 15% reload speed, and 25% swap speed for 30 seconds.",
-          "good": true,
+          "name": "When a horde is triggered, your team restores 7.5% ammo and gains 10% move speed while firing, 15% reload speed, and 25% swap speed for 30 seconds.",
           "team": true
         }
       ]
@@ -1993,11 +1690,9 @@
       "name": "Optics Enthusiast",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "+30% Accuracy",
-      "image": "OpticsEnthusiast.webp",
       "stats": [
         {
-          "effect": "accuracy",
+          "name": "accuracy",
           "amount": "30%",
           "team": false
         }
@@ -2007,12 +1702,9 @@
       "name": "Out with a Bang",
       "type": "Talent",
       "affinity": "Brawn",
-      "originalEffects": "Team Effects: when a teammate is incapacitated or dies, they drop an active Pipe Bomb.",
-      "image": "OutWithABang.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When a teammate is incapacitated or dies, they drop an active pipe bomb.",
-          "good": true,
+          "name": "When a teammate is incapacitated or dies, they drop an active pipe bomb.",
           "team": true
         }
       ]
@@ -2021,12 +1713,9 @@
       "name": "Over-Protective",
       "type": "Talent",
       "affinity": "Discipline",
-      "originalEffects": "When a teammate within 15 meters recieves 5 or more damage, gain 20% increased damage for 5 seconds.",
-      "image": "OverProtective.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When a teammate within 15 meters receives 5 or more damage, gain 20% increased damage for 5 seconds.",
-          "good": true,
+          "name": "When a teammate within 15 meters receives 5 or more damage, gain 20% increased damage for 5 seconds.",
           "team": false
         }
       ]
@@ -2035,12 +1724,9 @@
       "name": "Overwatch",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "Kills from greater than 15 meters grant 5 Temporary Health to teammates within 15 meters of the target.",
-      "image": "Overwatch.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Kills from greater than 15 meters grant 5 temporary health to teammates within 15 meters of the target.",
-          "good": true,
+          "name": "Kills from greater than 15 meters grant 5 temporary health to teammates within 15 meters of the target.",
           "team": false
         }
       ]
@@ -2049,21 +1735,19 @@
       "name": "Padded Suit",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "+10% Damage Resistance, +5 Health, -20% Stamina Efficiency",
-      "image": "PaddedSuit.webp",
       "stats": [
         {
-          "effect": "damage resistance",
+          "name": "damage resistance",
           "amount": "10%",
           "team": false
         },
         {
-          "effect": "health",
+          "name": "health",
           "amount": "5",
           "team": false
         },
         {
-          "effect": "stamina efficiency",
+          "name": "stamina efficiency",
           "amount": "-20%",
           "team": false
         }
@@ -2073,12 +1757,9 @@
       "name": "Patient Hunter",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "Every 0.75 seconds you Aim Down Sights increases your Bullet Damage by 10% (up to 3 stacks).",
-      "image": "PatientHunter.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Every 0.75 seconds you aim down sights increases your bullet damage by 10% (up to 3 stacks).",
-          "good": true,
+          "name": "Every 0.75 seconds you aim down sights increases your bullet damage by 10% (up to 3 stacks).",
           "team": false
         }
       ]
@@ -2087,12 +1768,9 @@
       "name": "Pep in your Step",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "Precision Kills grant you 8% Move Speed for 5 Seconds.",
-      "image": "PepInYourStep.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Precision kills grant you 8% move speed for 5 seconds.",
-          "good": true,
+          "name": "Precision kills grant you 8% move speed for 5 seconds.",
           "team": false
         }
       ]
@@ -2101,12 +1779,9 @@
       "name": "Pep Talk",
       "type": "Utility",
       "affinity": "Reflex",
-      "originalEffects": "While reviving teammates, take 3 less damage from all Ridden. Teammates recover an additional 10 Health when you revive them.",
-      "image": "PepTalk.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "While reviving teammates, take 3 less damage from all ridden. Teammates recover an additional 10 health when you revive them.",
-          "good": true,
+          "name": "While reviving teammates, take 3 less damage from all ridden. Teammates recover an additional 10 health when you revive them.",
           "team": false
         }
       ]
@@ -2115,12 +1790,9 @@
       "name": "Phosphorous Tipped",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "Continuous gunfire gives an escalating chance to set targets on fire.",
-      "image": "Overheat.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Continuous gunfire gives an escalating chance to set targets on fire.",
-          "good": true,
+          "name": "Continuous gunfire gives an escalating chance to set targets on fire.",
           "team": false
         }
       ]
@@ -2129,12 +1801,9 @@
       "name": "Pinata",
       "type": "Talent",
       "affinity": "Fortune",
-      "originalEffects": "Killing Ridden with an Accessory has 10% chance to drop an Accessory.",
-      "image": "Pinata.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Killing ridden with an accessory has 10% chance to drop an accessory.",
-          "good": true,
+          "name": "Killing ridden with an accessory has 10% chance to drop an accessory.",
           "team": false
         }
       ]
@@ -2143,12 +1812,9 @@
       "name": "Poultice",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "When you use a medical accessory, the target recovers an additional 20 Health over 30 Seconds.",
-      "image": "Poultice.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you use a medical accessory, the target recovers an additional 20 health over 30 seconds.",
-          "good": true,
+          "name": "When you use a medical accessory, the target recovers an additional 20 health over 30 seconds.",
           "team": false
         }
       ]
@@ -2157,12 +1823,9 @@
       "name": "Power Reload",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "Reloading a gun within 1 Second of reaching low ammo will increase its magazine size by 30% until the next reload.",
-      "image": "PowerReload.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Reloading a gun within 1 second of reaching low ammo will increase its magazine size by 30% until the next reload.",
-          "good": true,
+          "name": "Reloading a gun within 1 second of reaching low ammo will increase its magazine size by 30% until the next reload.",
           "team": false
         }
       ]
@@ -2171,12 +1834,9 @@
       "name": "Power Strike",
       "type": "Talent",
       "affinity": "Brawn",
-      "originalEffects": "Every 3 Seconds, gain +10 Bash Damage. Stacking up to 10 times. All charges are consumed on use.",
-      "image": "PowerStrike.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Every 3 seconds, gain 10 bash damage. Stacking up to 10 times. All charges are consumed on use.",
-          "good": true,
+          "name": "Every 3 seconds, gain 10 bash damage. Stacking up to 10 times. All charges are consumed on use.",
           "team": false
         }
       ]
@@ -2185,12 +1845,9 @@
       "name": "Power Swap",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "Changing Weapons within 1 Second of reaching low ammo grants +20% Bullet and Melee Damage for 5 Seconds.",
-      "image": "PowerSwap.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Changing weapons within 1 second of reaching low ammo grants 20% bullet and melee damage for 5 seconds.",
-          "good": true,
+          "name": "Changing weapons within 1 second of reaching low ammo grants 20% bullet and melee damage for 5 seconds.",
           "team": false
         }
       ]
@@ -2199,19 +1856,16 @@
       "name": "Pyro",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "+100% Fire Damage, Gain 3 Temporary Health for each kill with fire. You can sense flammable objects nearby.",
-      "image": "Pyro.webp",
       "stats": [
         {
-          "effect": "fire damage",
+          "name": "fire damage",
           "amount": "100%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Gain 3 temporary health for each kill with fire. You can sense flammable objects nearby.",
-          "good": true,
+          "name": "Gain 3 temporary health for each kill with fire. You can sense flammable objects nearby.",
           "team": false
         }
       ]
@@ -2220,19 +1874,16 @@
       "name": "Quick Kill",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "+50% Accuracy, DISABLES: Aim Down Sights",
-      "image": "QuickKill.webp",
       "stats": [
         {
-          "effect": "accuracy",
+          "name": "accuracy",
           "amount": "50%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "DISABLES: Aim Down Sights.",
-          "good": false,
+          "name": "DISABLES: Aim Down Sights.",
           "team": false
         }
       ]
@@ -2241,19 +1892,16 @@
       "name": "Reckless",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+40% Sprint Efficiency, When you take Damage while Sprinting you lose all Stamina.",
-      "image": "Reckless.webp",
       "stats": [
         {
-          "effect": "sprint efficiency",
+          "name": "sprint efficiency",
           "amount": "40%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you take damage while wprinting you lose all stamina.",
-          "good": false,
+          "name": "When you take damage while wprinting you lose all stamina.",
           "team": false
         }
       ]
@@ -2262,16 +1910,14 @@
       "name": "Reckless Strategy",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+30% Weakspot Damage, -5% Damage Resistance",
-      "image": "RecklessStrategy.webp",
       "stats": [
         {
-          "effect": "weakspot damage",
+          "name": "weakspot damage",
           "amount": "30%",
           "team": false
         },
         {
-          "effect": "damage resistance",
+          "name": "damage resistance",
           "amount": "-5%",
           "team": false
         }
@@ -2281,16 +1927,14 @@
       "name": "Reload Drills",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+20% Reload Speed, +25% Weapon Swap Speed",
-      "image": "ReloadDrills.webp",
       "stats": [
         {
-          "effect": "reload speed",
+          "name": "reload speed",
           "amount": "20%",
           "team": false
         },
         {
-          "effect": "weapon swap speed",
+          "name": "weapon swap speed",
           "amount": "25%",
           "team": false
         }
@@ -2300,11 +1944,9 @@
       "name": "Rhythmic Breathing",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+40% Stamina",
-      "image": "RhythmicBreathing.webp",
       "stats": [
         {
-          "effect": "stamina",
+          "name": "stamina",
           "amount": "40%",
           "team": false
         }
@@ -2314,11 +1956,9 @@
       "name": "Ridden Slayer",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+20% Weakspot Damage",
-      "image": "RiddenSlayer.webp",
       "stats": [
         {
-          "effect": "weakspot damage",
+          "name": "weakspot damage",
           "amount": "20%",
           "team": false
         }
@@ -2328,16 +1968,14 @@
       "name": "Rolling Thunder",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+35% Move Speed while firing with Shotguns, +10% Damage with shotguns.",
-      "image": "RollingThunder.webp",
       "stats": [
         {
-          "effect": "move speed while firing with shotguns",
+          "name": "move speed while firing with shotguns",
           "amount": "35%",
           "team": false
         },
         {
-          "effect": "damage with shotguns",
+          "name": "damage with shotguns",
           "amount": "10%",
           "team": false
         }
@@ -2347,23 +1985,20 @@
       "name": "Rousing Speech",
       "type": "Utility",
       "affinity": "Reflex",
-      "originalEffects": "Team Effects: Teammates recover an additional 10 Health when revived. +50% Team Revive Speed, +10% Team Reduced Incap Trauma.",
-      "image": "RousingSpeech.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Teammates recover an additional 10 health when revived.",
-          "good": true,
+          "name": "Teammates recover an additional 10 health when revived.",
           "team": true
         }
       ],
       "stats": [
         {
-          "effect": "revive speed",
+          "name": "revive speed",
           "amount": "50%",
           "team": true
         },
         {
-          "effect": "recuded incap trauma",
+          "name": "recuded incap trauma",
           "amount": "10%",
           "team": true
         }
@@ -2373,12 +2008,9 @@
       "name": "Run and Gun",
       "type": "Mobility",
       "affinity": "Fortune",
-      "originalEffects": "You can sprint while shooting",
-      "image": "RunAndGun.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "You can sprint while shooting.",
-          "good": true,
+          "name": "You can sprint while shooting.",
           "team": false
         }
       ]
@@ -2387,24 +2019,21 @@
       "name": "Run like Hell",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+12% Move Speed, +15% Sprint Speed. When you take Damage, your lose the benefits of Run like Hell for 3 Seconds.",
-      "image": "RunLikeHell.webp",
       "stats": [
         {
-          "effect": "move speed",
+          "name": "move speed",
           "amount": "12%",
           "team": false
         },
         {
-          "effect": "sprint speed",
+          "name": "sprint speed",
           "amount": "15%",
           "team": false
         }
       ],
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you take damage, you lose the benefits of Run Like Hell (12% move speed, 15% sprint speed) for 3 seconds.",
-          "good": false,
+          "name": "When you take damage, you lose the benefits of Run Like Hell (12% move speed, 15% sprint speed) for 3 seconds.",
           "team": false
         }
       ]
@@ -2413,12 +2042,9 @@
       "name": "Sadist",
       "type": "Talent",
       "affinity": "Brawn",
-      "originalEffects": "When a teammate within 15 meters recieves 5 or more damage, gain 20% of the damage as Temporary Health. Can only trigger once per second.",
-      "image": "Sadist.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When a teammate within 15 meters receives 5 or more damage, gain 20% of the damage as temporary health. Can only trigger once per second.",
-          "good": true,
+          "name": "When a teammate within 15 meters receives 5 or more damage, gain 20% of the damage as temporary health. Can only trigger once per second.",
           "team": false
         }
       ]
@@ -2427,12 +2053,9 @@
       "name": "Sadistic",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "Each Precision Kill gives 5% increased Weakspot Damage for 10 Seconds.",
-      "image": "Sadistic.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Each precision kill gives 5% increased weakspot damage for 10 seconds.",
-          "good": true,
+          "name": "Each precision kill gives 5% increased weakspot damage for 10 seconds.",
           "team": false
         }
       ]
@@ -2441,12 +2064,9 @@
       "name": "Saferoom Recovery",
       "type": "Defense",
       "affinity": "Fortune",
-      "originalEffects": "Your team heals 15 Health, 7 Trauma Damage and refills 10% Ammo at the start of each level.",
-      "image": "SaferoomRecovery.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Your team heals 15 health, 7 trauma damage, and refills 10% ammo at the start of each level.",
-          "good": true,
+          "name": "Your team heals 15 health, 7 trauma damage, and refills 10% ammo at the start of each level.",
           "team": true
         }
       ]
@@ -2455,18 +2075,15 @@
       "name": "Scar Tissue",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "Take 1 less damage from all Ridden. +50% Acid Resistance.",
-      "image": "ScarTissue.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Take 1 less damage from all ridden.",
-          "good": true,
+          "name": "Take 1 less damage from all ridden.",
           "team": false
         }
       ],
       "stats": [
         {
-          "effect": "acid resistance",
+          "name": "acid resistance",
           "amount": "50%",
           "team": false
         }
@@ -2476,11 +2093,9 @@
       "name": "Scattergun Skills",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "+40% Reload Speed with Shotguns.",
-      "image": "ScattergunSkills.webp",
       "stats": [
         {
-          "effect": "reload speed with shotguns",
+          "name": "reload speed with shotguns",
           "amount": "40%",
           "team": false
         }
@@ -2490,16 +2105,14 @@
       "name": "Screwdriver",
       "type": "Utility",
       "affinity": "Reflex",
-      "originalEffects": "+50% Use Speed, +10% Stamina",
-      "image": "Screwdriver.webp",
       "stats": [
         {
-          "effect": "use speed",
+          "name": "use speed",
           "amount": "50%",
           "team": false
         },
         {
-          "effect": "stamina",
+          "name": "stamina",
           "amount": "10%",
           "team": false
         }
@@ -2509,21 +2122,19 @@
       "name": "Second Chance",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "+1 Extra Life, +15 Health, +25% Bleed out Resistance",
-      "image": "SecondChance.webp",
       "stats": [
         {
-          "effect": "extra life",
+          "name": "extra life",
           "amount": "1",
           "team": false
         },
         {
-          "effect": "health",
+          "name": "health",
           "amount": "15",
           "team": false
         },
         {
-          "effect": "bleed out resistance",
+          "name": "bleed out resistance",
           "amount": "25%",
           "team": false
         }
@@ -2533,12 +2144,9 @@
       "name": "Share the Wealth",
       "type": "Utility",
       "affinity": "Fortune",
-      "originalEffects": "Team Effects: Each teammate gets 100 Bonus Copper at the start of each level.",
-      "image": "ShareTheWealth.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Each teammate gets 100 bonus copper at the start of each level.",
-          "good": true,
+          "name": "Each teammate gets 100 bonus copper at the start of each level.",
           "team": true
         }
       ]
@@ -2547,16 +2155,14 @@
       "name": "Shell Carrier",
       "type": "Offense",
       "affinity": "Fortune",
-      "originalEffects": "+30% Shotgun Ammo Capacity, +10% Damage with Shotguns.",
-      "image": "ShellCarrier.webp",
       "stats": [
         {
-          "effect": "shotgun ammo capacity",
+          "name": "shotgun ammo capacity",
           "amount": "30%",
           "team": true
         },
         {
-          "effect": "damage with shotguns",
+          "name": "damage with shotguns",
           "amount": "10%",
           "team": false
         }
@@ -2566,21 +2172,19 @@
       "name": "Shooting Gloves",
       "type": "Utility",
       "affinity": "Reflex",
-      "originalEffects": "+25% Weapon Swap Speed, +15% Recoil Control, +15% Accuracy",
-      "image": "ShootingGloves.webp",
       "stats": [
         {
-          "effect": "weapon swap speed",
+          "name": "weapon swap speed",
           "amount": "25%",
           "team": false
         },
         {
-          "effect": "recoil control",
+          "name": "recoil control",
           "amount": "15%",
           "team": false
         },
         {
-          "effect": "accuracy",
+          "name": "accuracy",
           "amount": "15%",
           "team": false
         }
@@ -2590,11 +2194,9 @@
       "name": "Shoulder Bag",
       "type": "Defense",
       "affinity": "Fortune",
-      "originalEffects": "+2 Support Inventory",
-      "image": "ShoulderBag.webp",
       "stats": [
         {
-          "effect": "support inventory",
+          "name": "support inventory",
           "amount": "2",
           "team": false
         }
@@ -2604,12 +2206,9 @@
       "name": "Shredder",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "Each bullet hit causes the target to take 1% increased damage for 3 Seconds (Stacks up to 15%).",
-      "image": "Shredder.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Each bullet hit causes the target to take 1% increased damage for 3 Seconds (Stacks up to 15%).",
-          "good": true,
+          "name": "Each bullet hit causes the target to take 1% increased damage for 3 Seconds (Stacks up to 15%).",
           "team": false
         }
       ]
@@ -2618,16 +2217,14 @@
       "name": "Silver Bullets",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "+10% Bullet Damage, +15% Effective Range",
-      "image": "SilverBullets.webp",
       "stats": [
         {
-          "effect": "bullet damage",
+          "name": "bullet damage",
           "amount": "10%",
           "team": false
         },
         {
-          "effect": "effective range",
+          "name": "effective range",
           "amount": "15%",
           "team": false
         }
@@ -2637,31 +2234,29 @@
       "name": "Slugger",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+5 Health, +10% Melee Stamina Efficiency, +20% Melee Attack Speed, +10% Bow Stamina Efficiency, +20% Bow Attack Speed",
-      "image": "Slugger.webp",
       "stats": [
         {
-          "effect": "health",
+          "name": "health",
           "amount": "5",
           "team": false
         },
         {
-          "effect": "melee stamina efficiency",
+          "name": "melee stamina efficiency",
           "amount": "10%",
           "team": false
         },
         {
-          "effect": "melee attack speed",
+          "name": "melee attack speed",
           "amount": "20%",
           "team": false
         },
         {
-          "effect": "bow stamina efficiency",
+          "name": "bow stamina efficiency",
           "amount": "10%",
           "team": false
         },
         {
-          "effect": "bow attack speed",
+          "name": "bow attack speed",
           "amount": "20%",
           "team": false
         }
@@ -2671,11 +2266,9 @@
       "name": "Smelling Salts",
       "type": "Utility",
       "affinity": "Reflex",
-      "originalEffects": "+200% Revive Speed",
-      "image": "SmellingSalts.webp",
       "stats": [
         {
-          "effect": "revive speed",
+          "name": "revive speed",
           "amount": "200%",
           "team": false
         }
@@ -2685,12 +2278,9 @@
       "name": "Soften Up",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "Melee hits cause the target to deal 3% reduced damage, to a maximum of 15% reduced damage.",
-      "image": "BatterUp.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Melee hits cause the target to deal 3% reduced damage, to a maximum of 15% reduced damage.",
-          "good": true,
+          "name": "Melee hits cause the target to deal 3% reduced damage, to a maximum of 15% reduced damage.",
           "team": false
         }
       ]
@@ -2699,24 +2289,20 @@
       "name": "Sonic Disruptor",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "Emit a Pulse that deals heavy Stumble damage to nearby enemies and has a chance to knock off armor. Gadget Cost: 75 SMG/Pistol Ammo. REPLACES: Offensive Slot",
-      "image": "ConcussiveBlast.webp",
       "gadget": "Emit a Pulse that deals heavy Stumble damage to nearby enemies and has a chance to knock off armor. Gadget Cost: 75 SMG/Pistol Ammo. REPLACES: Offensive Slot."
     },
     {
       "name": "Speed Demon",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+4% Movement Speed while using an SMG, +35% Reload Speed while using an SMG.",
-      "image": "SpeedDemon.webp",
       "stats": [
         {
-          "effect": "move speed while using an smg",
+          "name": "move speed while using an smg",
           "amount": "4%",
           "team": false
         },
         {
-          "effect": "reload speed while using an smg",
+          "name": "reload speed while using an smg",
           "amount": "35%",
           "team": false
         }
@@ -2726,21 +2312,19 @@
       "name": "Spiky Bits",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "+15 Melee Damage, +20% Damage Resistance while using a Melee weapon, -15% Ammo Capacity",
-      "image": "SpikyBits.webp",
       "stats": [
         {
-          "effect": "melee damage",
+          "name": "melee damage",
           "amount": "15",
           "team": false
         },
         {
-          "effect": "damage resistance while using a melee weapon",
+          "name": "damage resistance while using a melee weapon",
           "amount": "20%",
           "team": false
         },
         {
-          "effect": "ammo capacity",
+          "name": "ammo capacity",
           "amount": "-15%",
           "team": false
         }
@@ -2750,23 +2334,20 @@
       "name": "Steady Aim",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "Every 0.75 seconds you Aim Down Sights gives 10% Recoil Control (up to 3 stacks) +80% Aim Speed, -50% ADS Move Speed",
-      "image": "SteadyAim.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Every 0.75 seconds you aim down sights gives 10% recoil control (up to 3 stacks).",
-          "good": true,
+          "name": "Every 0.75 seconds you aim down sights gives 10% recoil control (up to 3 stacks).",
           "team": false
         }
       ],
       "stats": [
         {
-          "effect": "aim speed",
+          "name": "aim speed",
           "amount": "80%",
           "team": false
         },
         {
-          "effect": "ads move speed",
+          "name": "ads move speed",
           "amount": "-50%",
           "team": false
         }
@@ -2776,12 +2357,9 @@
       "name": "Stealthy Passage",
       "type": "Talent",
       "affinity": "Reflex",
-      "originalEffects": "Allows disarming of door alarms, car alarms, and birds. The target will trigger if you are interupted. DISABLES: Quick Slot. Team Effects: Gain 25 Copper per Success",
-      "image": "Infiltrator.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Allows disarming of door alarms, car alarms, and birds. The target will trigger if you are interupted. DISABLES: Quick Slot. Team Effects: Gain 25 Copper per Success.",
-          "good": true,
+          "name": "Allows disarming of door alarms, car alarms, and birds. The target will trigger if you are interupted. DISABLES: Quick Slot. Team Effects: Gain 25 Copper per Success.",
           "team": false
         }
       ]
@@ -2790,12 +2368,9 @@
       "name": "Stimulants",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "Pain Meds you apply also grant +20% Stamina Regen, +15% Reload Speed, and +15% Weapon Swap Speed for 60 Seconds.",
-      "image": "Stimulants.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Pain Meds you apply also grant +20% Stamina Regen, +15% Reload Speed, and +15% Weapon Swap Speed for 60 Seconds.",
-          "good": true,
+          "name": "Pain Meds you apply also grant +20% Stamina Regen, +15% Reload Speed, and +15% Weapon Swap Speed for 60 Seconds.",
           "team": false
         }
       ]
@@ -2804,16 +2379,14 @@
       "name": "Stock Pouch",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+30% Sniper Ammo Capacity, +10% Damage with Sniper Rifles.",
-      "image": "StockPouch.webp",
       "stats": [
         {
-          "effect": "sniper ammo capacity",
+          "name": "sniper ammo capacity",
           "amount": "30%",
           "team": false
         },
         {
-          "effect": "damage with sniper rifles",
+          "name": "damage with sniper rifles",
           "amount": "10%",
           "team": false
         }
@@ -2823,12 +2396,9 @@
       "name": "Sunder",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "Melee hits cause the target to take 3% increased damage, up to a maximum of 15% increased damage. Melee hits that destroy Armor have a chance to create usable Makeshift Armor.",
-      "image": "Sunder.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Melee hits cause the target to take 3% increased damage, up to a maximum of 15% increased damage. Melee hits that destroy Armor have a chance to create usable Makeshift Armor.",
-          "good": true,
+          "name": "Melee hits cause the target to take 3% increased damage, up to a maximum of 15% increased damage. Melee hits that destroy Armor have a chance to create usable Makeshift Armor.",
           "team": false
         }
       ]
@@ -2837,21 +2407,19 @@
       "name": "Superior Cardio",
       "type": "Mobility",
       "affinity": "Reflex",
-      "originalEffects": "+20% Stamina, +20% Sprint Efficiency  +5 Health",
-      "image": "SuperiorCardio.webp",
       "stats": [
         {
-          "effect": "stamina",
+          "name": "stamina",
           "amount": "20%",
           "team": false
         },
         {
-          "effect": "sprint efficiency",
+          "name": "sprint efficiency",
           "amount": "20%",
           "team": false
         },
         {
-          "effect": "health",
+          "name": "health",
           "amount": "5",
           "team": false
         }
@@ -2861,12 +2429,9 @@
       "name": "Support Scavenger",
       "type": "Utility",
       "affinity": "Discipline",
-      "originalEffects": "You can sense nearby Support Accessories. More Support Accessories Spawn",
-      "image": "SupportScavenger.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "You can sense nearby support accessories. More support accessories spawn.",
-          "good": true,
+          "name": "You can sense nearby support accessories. More support accessories spawn.",
           "team": false
         }
       ]
@@ -2875,12 +2440,9 @@
       "name": "Suppressing Fire",
       "type": "Talent",
       "affinity": "Reflex",
-      "originalEffects": "Damaging Ridden with LMG's or Snipers has a 40% chance to slow Ridden near the target by 50% for 5 seconds.",
-      "image": "SuppressiveFire.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Damaging Ridden with LMG's or Snipers has a 40% chance to slow Ridden near the target by 50% for 5 seconds.",
-          "good": true,
+          "name": "Damaging Ridden with LMG's or Snipers has a 40% chance to slow Ridden near the target by 50% for 5 seconds.",
           "team": false
         }
       ]
@@ -2889,16 +2451,14 @@
       "name": "Surplus Pouches",
       "type": "Offense",
       "affinity": "Fortune",
-      "originalEffects": "-5% Health. Team Effects: +1 Team Offensive Accessory",
-      "image": "SurplusPouches.webp",
       "stats": [
         {
-          "effect": "health",
+          "name": "health",
           "amount": "-5%",
           "team": false
         },
         {
-          "effect": "offensive inventory",
+          "name": "offensive inventory",
           "amount": "1",
           "team": true
         }
@@ -2908,16 +2468,14 @@
       "name": "Tactical Vest",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "+30% Rifle Ammo Capacity, +10% Damage with Assault Rifles, and LMGs.",
-      "image": "TacticalVest.webp",
       "stats": [
         {
-          "effect": "rifle ammo capacity",
+          "name": "rifle ammo capacity",
           "amount": "30%",
           "team": false
         },
         {
-          "effect": "damage with assault rifles and lmgs",
+          "name": "damage with assault rifles and lmgs",
           "amount": "10%",
           "team": false
         }
@@ -2927,16 +2485,14 @@
       "name": "Tool Belts",
       "type": "Utility",
       "affinity": "Fortune",
-      "originalEffects": "-10% Health. Team Effects: +1 Team Quick Item Inventory",
-      "image": "ToolBelts.webp",
       "stats": [
         {
-          "effect": "health",
+          "name": "health",
           "amount": "-10%",
           "team": false
         },
         {
-          "effect": "quick item inventory",
+          "name": "quick item inventory",
           "amount": "1",
           "team": true
         }
@@ -2946,12 +2502,9 @@
       "name": "Trigger Control",
       "type": "Offense",
       "affinity": "Discipline",
-      "originalEffects": "Precision Kills with guns grant +0.5% Accuracy until the end of the level.",
-      "image": "TriggerControl.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Precision Kills with guns grant +0.5% Accuracy until the end of the level.",
-          "good": true,
+          "name": "Precision Kills with guns grant +0.5% Accuracy until the end of the level.",
           "team": false
         }
       ]
@@ -2960,12 +2513,9 @@
       "name": "True Grit",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "When you take a single hit for 15 or more damage, recover 10 Health over 5 Seconds.",
-      "image": "TrueGrit.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "When you take a single hit for 15 or more damage, recover 10 Health over 5 Seconds.",
-          "good": true,
+          "name": "When you take a single hit for 15 or more damage, recover 10 Health over 5 Seconds.",
           "team": false
         }
       ]
@@ -2974,23 +2524,20 @@
       "name": "Tunnel Vision",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "Every 0.75 seconds you Aim Down Sights gives 5% Weakspot Damage (up to 3 stacks) +50% Aim Speed, -5% Damage Resistance",
-      "image": "TunnelVision.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Every 0.75 seconds you Aim Down Sights gives 5% Weakspot Damage (up to 3 stacks).",
-          "good": true,
+          "name": "Every 0.75 seconds you Aim Down Sights gives 5% Weakspot Damage (up to 3 stacks).",
           "team": false
         }
       ],
       "stats": [
         {
-          "effect": "aim speed",
+          "name": "aim speed",
           "amount": "50%",
           "team": false
         },
         {
-          "effect": "damage resistance",
+          "name": "damage resistance",
           "amount": "-5%",
           "team": false
         }
@@ -3000,18 +2547,15 @@
       "name": "Two is One and One is None",
       "type": "Offense",
       "affinity": "Brawn",
-      "originalEffects": "You can equip a Primary weapon in your Secondary slot. -25% Swap speed",
-      "image": "TwoIsOneAndOneIsNone.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "You can equip a primary weapon in your secondary slot.",
-          "good": true,
+          "name": "You can equip a primary weapon in your secondary slot.",
           "team": false
         }
       ],
       "stats": [
         {
-          "effect": "swap speed",
+          "name": "swap speed",
           "amount": "-25%",
           "team": false
         }
@@ -3021,12 +2565,9 @@
       "name": "Ugly Chachkies",
       "type": "Scavenger",
       "affinity": "Fortune",
-      "originalEffects": "Team Effects: Increases the number of Mementos in the world that can be collected for extra Supply Points. This Card does not spawn any Mementos in Trial of the Worm",
-      "image": "QuickLearner.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Increases the number of Mementos in the world that can be collected for extra Supply Points (not in Trial of the Worm).",
-          "good": true,
+          "name": "Increases the number of Mementos in the world that can be collected for extra Supply Points (not in Trial of the Worm).",
           "team": true
         }
       ]
@@ -3035,19 +2576,15 @@
       "name": "Ultrasonic Wound Therapy",
       "type": "Ability",
       "affinity": "Brawn",
-      "originalEffects": "Heal 6 Health over 7 seconds to nearby teammates. Gadget Cost: 40 SMG/Pistol Ammo. REPLACES: Offensive Slot",
-      "image": "UltrasonicWoundTherapy.webp",
       "gadget": "Heal 6 Health over 7 seconds to nearby teammates. Gadget Cost: 40 SMG/Pistol Ammo. REPLACES: Offensive Slot."
     },
     {
       "name": "Utility Belt",
       "type": "Utility",
       "affinity": "Fortune",
-      "originalEffects": "+2 Quick slot Inventory",
-      "image": "UtilityBelt.webp",
       "stats": [
         {
-          "effect": "quick slot inventory",
+          "name": "quick slot inventory",
           "amount": "2",
           "team": false
         }
@@ -3057,12 +2594,9 @@
       "name": "Utility Scavenger",
       "type": "Utility",
       "affinity": "Reflex",
-      "originalEffects": "You can sense nearby Quick Accessories. More Quick Accessories spawn.",
-      "image": "UtilityScavenger.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "You can sense nearby Quick Accessories. More Quick Accessories spawn.",
-          "good": true,
+          "name": "You can sense nearby Quick Accessories. More Quick Accessories spawn.",
           "team": false
         }
       ]
@@ -3071,12 +2605,9 @@
       "name": "Vanguard",
       "type": "Defense",
       "affinity": "Discipline",
-      "originalEffects": "Melee kills heal 1 Health to yourself, and teammates within 10 meters.",
-      "image": "Vanguard.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Melee kills heal 1 Health to yourself, and teammates within 10 meters.",
-          "good": true,
+          "name": "Melee kills heal 1 Health to yourself, and teammates within 10 meters.",
           "team": false
         }
       ]
@@ -3085,11 +2616,9 @@
       "name": "Vitamins",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "+25 Health",
-      "image": "Vitamins.webp",
       "stats": [
         {
-          "effect": "health",
+          "name": "health",
           "amount": "25",
           "team": false
         }
@@ -3099,12 +2628,9 @@
       "name": "Wasteland Chef",
       "type": "Utility",
       "affinity": "Discipline",
-      "originalEffects": "Gain the ability to melee food items to create a Gourmet Dinner or a Mediocre Meal. Using the Combat Knife increases your odds of a Gourmet Dinner.",
-      "image": "ChefsKnife.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Gain the ability to melee food items to create a Gourmet Dinner or a Mediocre Meal. Using the Combat Knife increases your odds of a Gourmet Dinner.",
-          "good": true,
+          "name": "Gain the ability to melee food items to create a Gourmet Dinner or a Mediocre Meal. Using the Combat Knife increases your odds of a Gourmet Dinner.",
           "team": false
         }
       ]
@@ -3113,12 +2639,9 @@
       "name": "Weapon Scavenger",
       "type": "Utility",
       "affinity": "Discipline",
-      "originalEffects": "You can sense nearby Weapons. More weapons spawn",
-      "image": "WeaponScavenger.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "You can sense nearby weapons. More weapons spawn.",
-          "good": true,
+          "name": "You can sense nearby weapons. More weapons spawn.",
           "team": false
         }
       ]
@@ -3127,12 +2650,9 @@
       "name": "Weaponsmith",
       "type": "Ability",
       "affinity": "Discipline",
-      "originalEffects": "Allows the ability to unbolt attachments from weapons outside of Saferooms. Unbolting attachments costs 400 Copper. Team Effects: Addtional copies of Weaponsmith played reduce its cost by 100 Copper.",
-      "image": "Weaponsmith.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Allows the ability to unbolt attachments from weapons outside of Saferooms. Unbolting attachments costs 400 Copper. Team Effects: Addtional copies of Weaponsmith played reduce its cost by 100 Copper.",
-          "good": true,
+          "name": "Allows the ability to unbolt attachments from weapons outside of Saferooms. Unbolting attachments costs 400 Copper. Team Effects: Addtional copies of Weaponsmith played reduce its cost by 100 Copper.",
           "team": false
         }
       ]
@@ -3141,11 +2661,9 @@
       "name": "Well Fed",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "Team Effects: +10 Team Health",
-      "image": "WellFed.webp",
       "stats": [
         {
-          "effect": "health",
+          "name": "health",
           "amount": "10",
           "team": true
         }
@@ -3155,16 +2673,14 @@
       "name": "Well Rested",
       "type": "Talent",
       "affinity": "Brawn",
-      "originalEffects": "Team Effects: +20% Team Overheal, +5% Team Healing Efficiency",
-      "image": "WellRested.webp",
       "stats": [
         {
-          "effect": "overheal",
+          "name": "overheal",
           "amount": "20%",
           "team": true
         },
         {
-          "effect": "healing efficiency",
+          "name": "healing efficiency",
           "amount": "5%",
           "team": true
         }
@@ -3174,16 +2690,14 @@
       "name": "Widemouth Magwell",
       "type": "Offense",
       "affinity": "Reflex",
-      "originalEffects": "+30% Reload Speed, -5% Damage Resistance",
-      "image": "WidemouthMagwell.webp",
       "stats": [
         {
-          "effect": "reload speed",
+          "name": "reload speed",
           "amount": "30%",
           "team": false
         },
         {
-          "effect": "damage resistance",
+          "name": "damage resistance",
           "amount": "-5%",
           "team": false
         }
@@ -3193,16 +2707,14 @@
       "name": "Wooden Armor",
       "type": "Defense",
       "affinity": "Brawn",
-      "originalEffects": "+30% Trauma Resistance, -100% Fire Resistance",
-      "image": "WoodenArmor.webp",
       "stats": [
         {
-          "effect": "trauma resistance",
+          "name": "trauma resistance",
           "amount": "30%",
           "team": false
         },
         {
-          "effect": "fire resistance",
+          "name": "fire resistance",
           "amount": "-100%",
           "team": false
         }
@@ -3212,12 +2724,9 @@
       "name": "Wounded Animal",
       "type": "Defense",
       "affinity": "Fortune",
-      "originalEffects": "Kills while at Critical Health recover 1 Health",
-      "image": "WoundedAnimal.webp",
-      "secondaryEffects": [
+      "effects": [
         {
-          "effect": "Kills while at critical health recover 1 health.",
-          "good": true,
+          "name": "Kills while at critical health recover 1 health.",
           "team": false
         }
       ]
