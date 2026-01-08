@@ -24,7 +24,7 @@ services:
       tags:
         - "astraliskye/dekt:latest"
     ports:
-      - "3000:3000"
+      - "8888:3000"
     depends_on:
       - db
 volumes:
