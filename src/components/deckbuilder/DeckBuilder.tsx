@@ -1,5 +1,4 @@
 import { useState } from "react";
-import type { CardWithEffects, DeckWithCreatorAndCards } from "../../types";
 import { api } from "../../utils/api";
 import SortableCardList from "../cardlist/SortableCardList";
 import StatList from "../cardlist/StatList";
@@ -21,6 +20,8 @@ import Head from "next/head";
 import Card from "./Card";
 import { sortedCards } from "../../utils/front-end";
 import Loading from "../elements/Loading";
+import { CardWithStatsAndEffects } from "../../server/api/routers/card";
+import { DeckWithCreatorAndCards } from "../../server/api/routers/deck";
 
 type Props = {
   deck?: DeckWithCreatorAndCards;
@@ -28,7 +29,10 @@ type Props = {
 
 const DeckBuilder = ({ deck }: Props) => {
   const router = useRouter();
-  const { data: allCards, isLoading } = api.card.getAll.useQuery();
+  const { data: allCards, isLoading } = api.card.getAll.useQuery() as {
+    data: CardWithStatsAndEffects[],
+    isLoading: boolean
+  };
 
   const touchSensor = useSensor(TouchSensor, {
     activationConstraint: {
@@ -60,26 +64,26 @@ const DeckBuilder = ({ deck }: Props) => {
     },
   });
 
-  const [cardList, setCardList] = useState(deck ? deck.cards : []);
+  const [cardList, setCardList] = useState(deck ? deck.cards.map(c => c.card) : []);
   const [errorMessage, setErrorMessage] = useState("");
   const [showSaveForm, setShowSaveForm] = useState(false);
-  
+
   // Filter states
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedType, setSelectedType] = useState<string>("All");
   const [selectedAffinity, setSelectedAffinity] = useState<string>("All");
 
   const removeCardFromList = (cardId: string) =>
-    setCardList(cardList.filter((c: CardWithEffects) => c.id !== cardId));
+    setCardList(cardList.filter((c) => c.id !== cardId));
 
-  const toggleCardInCollection = (card: CardWithEffects) => {
-    const filteredList = cardList.filter((c: CardWithEffects) => c.id !== card.id);
+  const toggleCardInCollection = (card: CardWithStatsAndEffects) => {
+    const filteredList = cardList.filter((c: CardWithStatsAndEffects) => c.id !== card.id);
 
     if (filteredList.length === cardList.length) {
       if (cardList.length >= 15) {
         return;
       }
-      setCardList((prev: CardWithEffects[]) => [...prev, card]);
+      setCardList((prev: CardWithStatsAndEffects[]) => [...prev, card]);
     } else {
       setCardList(() => filteredList);
     }
@@ -91,13 +95,13 @@ const DeckBuilder = ({ deck }: Props) => {
         id: deck.id,
         name,
         description: description === "" ? undefined : description,
-        cards: cardList.map((card: CardWithEffects, i: number) => ({ ...card, position: i })),
+        cards: cardList.map((card: CardWithStatsAndEffects, i: number) => ({ ...card, position: i })),
       });
     } else {
       saveDeck.mutate({
         name,
         description: description === "" ? undefined : description,
-        cards: cardList.map((card: CardWithEffects, i: number) => ({ ...card, position: i })),
+        cards: cardList.map((card: CardWithStatsAndEffects, i: number) => ({ ...card, position: i })),
       });
     }
   };
@@ -107,15 +111,15 @@ const DeckBuilder = ({ deck }: Props) => {
 
     if (over && active.id !== over.id) {
       const [i1, i2] = [
-        cardList.findIndex((card: CardWithEffects) => card.id === active.id),
-        cardList.findIndex((card: CardWithEffects) => card.id === over.id),
+        cardList.findIndex((card: CardWithStatsAndEffects) => card.id === active.id),
+        cardList.findIndex((card: CardWithStatsAndEffects) => card.id === over.id),
       ];
 
-      setCardList((cards: CardWithEffects[]) => {
+      setCardList((cards: CardWithStatsAndEffects[]) => {
         const temp = cards.at(i1);
 
         if (temp !== undefined) {
-          const result = cards.filter((card: CardWithEffects) => card.id !== temp.id);
+          const result = cards.filter((card: CardWithStatsAndEffects) => card.id !== temp.id);
           result.splice(i2, 0, temp);
           return [...result];
         }
@@ -128,12 +132,12 @@ const DeckBuilder = ({ deck }: Props) => {
   // Filter cards based on search term, type, and affinity
   const getFilteredCards = () => {
     if (!allCards) return [];
-    
+
     return sortedCards(allCards).filter((card) => {
       const matchesSearch = cardContainsTerm(searchTerm, card);
       const matchesType = selectedType === "All" || card.type === selectedType;
       const matchesAffinity = selectedAffinity === "All" || card.affinity === selectedAffinity;
-      
+
       return matchesSearch && matchesType && matchesAffinity;
     });
   };
@@ -141,10 +145,10 @@ const DeckBuilder = ({ deck }: Props) => {
   // Get unique types and affinities for filter options
   const getFilterOptions = () => {
     if (!allCards) return { types: [], affinities: [] };
-    
+
     const types = [...new Set(allCards.map(card => card.type))].sort();
     const affinities = [...new Set(allCards.map(card => card.affinity))].sort();
-    
+
     return { types, affinities };
   };
 
@@ -182,7 +186,7 @@ const DeckBuilder = ({ deck }: Props) => {
                   )}
                 </div>
               </div>
-              
+
               {/* Deck Composition Meter */}
               {cardList.length > 0 && (
                 <div className="mt-3">
@@ -209,13 +213,13 @@ const DeckBuilder = ({ deck }: Props) => {
                     </svg>
                   </button>
                 </div>
-                
+
                 {errorMessage && (
                   <div className="mb-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
                     <p className="text-red-700 dark:text-red-400">{errorMessage}</p>
                   </div>
                 )}
-                
+
                 {deck ? (
                   <DeckForm
                     submitForm={handleSubmit}
@@ -282,7 +286,7 @@ const DeckBuilder = ({ deck }: Props) => {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Find Cards
                 </h3>
-                
+
                 <div className="space-y-4">
                   {/* Search */}
                   <div>
@@ -294,7 +298,7 @@ const DeckBuilder = ({ deck }: Props) => {
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
                     />
                   </div>
-                  
+
                   {/* Type and Affinity Filters */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <select
@@ -309,7 +313,7 @@ const DeckBuilder = ({ deck }: Props) => {
                         </option>
                       ))}
                     </select>
-                    
+
                     <select
                       value={selectedAffinity}
                       onChange={(e) => setSelectedAffinity(e.target.value)}
@@ -323,7 +327,7 @@ const DeckBuilder = ({ deck }: Props) => {
                       ))}
                     </select>
                   </div>
-                  
+
                   {/* Clear Filters */}
                   <div className="flex items-center justify-between">
                     <button
@@ -348,7 +352,7 @@ const DeckBuilder = ({ deck }: Props) => {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Available Cards
                 </h3>
-                
+
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                   {getFilteredCards().map((card) => (
                     <Card
@@ -359,7 +363,7 @@ const DeckBuilder = ({ deck }: Props) => {
                     />
                   ))}
                 </div>
-                
+
                 {getFilteredCards().length === 0 && (
                   <div className="text-center py-12">
                     <svg className="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -383,22 +387,21 @@ const DeckBuilder = ({ deck }: Props) => {
 };
 
 // Helper function for card filtering
-function cardContainsTerm(searchTerm: string, card: CardWithEffects) {
+function cardContainsTerm(searchTerm: string, card: CardWithStatsAndEffects) {
   if (!searchTerm) return true;
-  
+
   const term = searchTerm.toLowerCase();
-  
+
   if (
     card.name.toLowerCase().includes(term) ||
     card.type.toLowerCase().includes(term) ||
-    card.affinity.toLowerCase().includes(term) ||
-    card.originalEffects.toLowerCase().includes(term)
+    card.affinity.toLowerCase().includes(term)
   ) {
     return true;
   }
 
   for (const stat of card.stats) {
-    if (stat.effect.toLowerCase().includes(term)) {
+    if (stat.name.toLowerCase().includes(term)) {
       return true;
     }
   }

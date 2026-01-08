@@ -1,9 +1,9 @@
 import React from "react";
-import type { CardWithEffects } from "../../types";
+import { CardWithStatsAndEffects } from "../../server/api/routers/card";
 import { cardBorderColor } from "../../utils/front-end";
 
 type Props = {
-  card: CardWithEffects;
+  card: CardWithStatsAndEffects;
   isSelected: boolean;
   onClick: () => void;
 };
@@ -15,14 +15,8 @@ const Card = ({ card, isSelected, onClick }: Props) => {
         card,
         "border-primary",
         isSelected
-      )} relative flex h-32 w-24 sm:h-48 sm:w-36 md:h-56 md:w-40 cursor-pointer flex-col justify-between overflow-hidden rounded-xl border-3 bg-primary bg-cover text-center font-semibold text-white transition-all duration-200 hover:scale-105 hover:shadow-xl ${
-        isSelected ? "ring-4 ring-primary ring-opacity-50 scale-105" : ""
-      }`}
-      style={{
-        backgroundImage: `url(https://dekt-card-images.s3.us-west-1.amazonaws.com/${card.image})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      )} relative flex h-32 w-24 sm:h-48 sm:w-36 md:h-56 md:w-40 cursor-pointer flex-col justify-between overflow-hidden rounded-xl border-3 bg-primary bg-cover text-center font-semibold text-white transition-all duration-200 hover:scale-105 hover:shadow-xl ${isSelected ? "ring-4 ring-primary ring-opacity-50 scale-105" : ""
+        }`}
       onClick={() => onClick()}
     >
       {/* Card name overlay */}
@@ -31,14 +25,7 @@ const Card = ({ card, isSelected, onClick }: Props) => {
           {card.name}
         </p>
       </div>
-      
-      {/* Card effects overlay - visible on hover for mobile, always visible on desktop */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent p-2 opacity-0 hover:opacity-100 md:opacity-100 transition-opacity duration-200">
-        <p className="text-xs sm:text-sm text-white leading-tight line-clamp-4">
-          {card.originalEffects}
-        </p>
-      </div>
-      
+
       {/* Selection indicator */}
       {isSelected && (
         <div className="absolute top-2 right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">

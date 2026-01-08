@@ -1,6 +1,6 @@
-import type { CardWithEffects } from "../types";
+import { CardWithStatsAndEffects } from "../server/api/routers/card";
 
-export function sortedCards(cards: CardWithEffects[]) {
+export function sortedCards(cards: CardWithStatsAndEffects[]) {
   return [...cards].sort((a, b) => {
     if (a.affinity > b.affinity) return 1;
     else if (a.affinity < b.affinity) return -1;
@@ -11,7 +11,7 @@ export function sortedCards(cards: CardWithEffects[]) {
 }
 
 export function cardBorderColor(
-  card: CardWithEffects,
+  card: CardWithStatsAndEffects,
   defaultColor = "transparent",
   useDefault = false
 ) {

@@ -1,14 +1,14 @@
 import React from "react";
-import type { CardWithEffects } from "../../types";
+import { CardWithStatsAndEffects } from "../../server/api/routers/card";
 
 type Props = {
-  cards: CardWithEffects[];
+  cards: CardWithStatsAndEffects[];
 };
 
 const SecondaryEffectList = ({ cards }: Props) => {
-  const secondaryEffects = cards.map((card) => card.secondaryEffects).flat();
+  const effects = cards.map((card) => card.effects).flat();
 
-  if (secondaryEffects.length === 0) return null;
+  if (effects.length === 0) return null;
 
   return (
     <div className="w-11/12">
@@ -16,12 +16,12 @@ const SecondaryEffectList = ({ cards }: Props) => {
         Secondary Effects
       </h2>
       <ul>
-        {secondaryEffects.map((se) => (
+        {effects.map((e) => (
           <li
             className="border-b-2 border-primary border-opacity-25 py-2"
-            key={se.id}
+            key={e.id}
           >
-            {se.effect}
+            {e.name}
           </li>
         ))}
       </ul>

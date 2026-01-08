@@ -1,7 +1,34 @@
+import { Prisma, PrismaPromise } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
-import type { DeckWithCreatorAndCards } from "../../../types";
+
+const deckIncludeCreatorCards = Prisma.validator<Prisma.DeckInclude>()({
+  creator: true,
+  cards: {
+    orderBy: { position: "asc" },
+    include: {
+      card: {
+        include: {
+          stats: true,
+          effects: true,
+        },
+      },
+    },
+  },
+})
+
+const deckIncludeCreator = Prisma.validator<Prisma.DeckInclude>()({
+  creator: true,
+})
+
+export type DeckWithCreatorAndCards = Prisma.DeckGetPayload<{
+  include: typeof deckIncludeCreatorCards
+}>
+
+export type DeckWithCreator = Prisma.DeckGetPayload<{
+  include: typeof deckIncludeCreator
+}>
 
 export const deckRouter = createTRPCRouter({
   create: protectedProcedure
@@ -84,79 +111,31 @@ export const deckRouter = createTRPCRouter({
     const result = await ctx.prisma.deck.findMany({
       take: 100,
       orderBy: { updatedAt: "desc" },
-      include: {
-        creator: true,
-        cards: {
-          orderBy: { position: "asc" },
-          include: {
-            card: {
-              include: {
-                stats: true,
-                secondaryEffects: true,
-              },
-            },
-          },
-        },
-      },
+      include: deckIncludeCreatorCards
     });
 
-    return result.map((deck) => ({
-      ...deck,
-      cards: deck.cards.map((card) => card.card),
-    }));
+    return result
   }),
   getAll: publicProcedure.query(async ({ ctx }) => {
     const result = await ctx.prisma.deck.findMany({
       take: 100,
       orderBy: { updatedAt: "desc" },
-      include: {
-        creator: true,
-        cards: {
-          orderBy: { position: "asc" },
-          include: {
-            card: {
-              include: {
-                stats: true,
-                secondaryEffects: true,
-              },
-            },
-          },
-        },
-      },
+      include: deckIncludeCreatorCards
     });
 
-    return result.map((deck) => ({
-      ...deck,
-      cards: deck.cards.map((card) => card.card),
-    }));
+    return result;
   }),
   getById: publicProcedure
     .input(z.string())
-    .query(async ({ input: deckId, ctx }): Promise<DeckWithCreatorAndCards> => {
+    .query(async ({ input: deckId, ctx }) => {
       const result = await ctx.prisma.deck.findUnique({
         where: { id: deckId },
-        include: {
-          creator: true,
-          cards: {
-            orderBy: { position: "asc" },
-            include: {
-              card: {
-                include: {
-                  stats: true,
-                  secondaryEffects: true,
-                },
-              },
-            },
-          },
-        },
+        include: deckIncludeCreatorCards
       });
 
       if (result === null) return Promise.reject();
 
-      return Promise.resolve({
-        ...result,
-        cards: result.cards.map((card) => card.card),
-      });
+      return result;
     }),
   deleteById: protectedProcedure
     .input(z.string())

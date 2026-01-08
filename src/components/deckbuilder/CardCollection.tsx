@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import type { ChangeEvent } from "react";
-import type { CardWithEffects } from "../../types";
 import Card from "./Card";
 import TextInput from "../elements/TextInput";
 import { sortedCards } from "../../utils/front-end";
 import { api } from "../../utils/api";
 import Loading from "../elements/Loading";
+import { CardWithStatsAndEffects } from "../../server/api/routers/card";
 
 type Props = {
-  handleCardClick: (card: CardWithEffects) => void;
-  cardList: CardWithEffects[];
+  handleCardClick: (card: CardWithStatsAndEffects) => void;
+  cardList: CardWithStatsAndEffects[];
 };
 
 const CardCollection: React.FC<Props> = ({ handleCardClick, cardList }) => {
@@ -38,7 +38,7 @@ const CardCollection: React.FC<Props> = ({ handleCardClick, cardList }) => {
       />
       <div className="mx-auto flex w-fit select-none flex-wrap justify-center gap-4 md:max-w-[1100px]">
         {cards &&
-          sortedCards(cards)
+          sortedCards(cards as CardWithStatsAndEffects[])
             .filter(cardContainsTerm.bind(this, searchTerm))
             .map((card) => (
               <Card
@@ -53,17 +53,16 @@ const CardCollection: React.FC<Props> = ({ handleCardClick, cardList }) => {
   );
 };
 
-function cardContainsTerm(searchTerm: string, card: CardWithEffects) {
+function cardContainsTerm(searchTerm: string, card: CardWithStatsAndEffects) {
   if (
     card.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     card.type.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    card.affinity.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    card.originalEffects.toLowerCase().includes(searchTerm.toLowerCase())
+    card.affinity.toLowerCase().includes(searchTerm.toLowerCase())
   ) {
     return true;
   } else {
     for (const stat of card.stats) {
-      if (stat.effect.toLowerCase().includes(searchTerm.toLowerCase()))
+      if (stat.name.toLowerCase().includes(searchTerm.toLowerCase()))
         return true;
     }
   }

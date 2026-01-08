@@ -2,24 +2,30 @@ name: dekt
 services:
   db:
     image: "postgres:latest"
+    restart: unless-stopped
     container_name: "dekt-postgres"
     environment:
-      POSTGRES_PASSWORD: postgres
-    expose:
+      POSTGRES_DB: dekt
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: hike
+    ports:
       - "5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "app", "-d", "dekt"]
+      interval: 5s
+      timeout: 2s
+      retries: 20
+
   app:
     container_name: "dekt-app"
-    env_file: ./.env
+    env_file: .env
     build:
       context: .
-      network: dekt
       tags:
         - "astraliskye/dekt:latest"
     ports:
-      - "8888:3000"
+      - "3000:3000"
     depends_on:
       - db
-    post_start:
-      - command: npx prisma db push
 volumes:
   dbdata:

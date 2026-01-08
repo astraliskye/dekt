@@ -14,4 +14,4 @@ ENV SKIP_ENV_VALIDATION=true
 
 RUN npm run build
 
-CMD ["npm", "start"]
+CMD ["sh", "-c", "npx prisma db push && npx prisma db seed && npm start"]

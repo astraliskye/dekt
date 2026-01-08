@@ -1,28 +1,18 @@
 import Link from "next/link";
 import React from "react";
-import type { DeckWithCreatorAndCards } from "../../types";
-import Image from "next/image";
+import { DeckWithCreatorAndCards } from "../../server/api/routers/deck";
 
 type Props = {
   deck: DeckWithCreatorAndCards;
 };
 
 const DeckListItem = ({ deck }: Props) => {
-  // Function to get a random card image from the deck or a default
-  const getCardImage = () => {
-    if (deck.cards && deck.cards.length > 0) {
-      const randomCard = deck.cards[Math.floor(Math.random() * deck.cards.length)];
-      return randomCard?.image || "default-card.webp";
-    }
-    return "default-card.webp";
-  };
-
   // Format the date in a more readable way
   const formatDate = (date: Date) => {
     const now = new Date();
     const diffTime = Math.abs(now.getTime() - date.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
+
     if (diffDays === 0) {
       return "Today";
     } else if (diffDays === 1) {
@@ -32,10 +22,10 @@ const DeckListItem = ({ deck }: Props) => {
     } else if (diffDays < 30) {
       return `${Math.floor(diffDays / 7)} weeks ago`;
     } else {
-      return date.toLocaleDateString(undefined, { 
-        year: 'numeric', 
-        month: 'short', 
-        day: 'numeric' 
+      return date.toLocaleDateString(undefined, {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
       });
     }
   };
@@ -48,13 +38,7 @@ const DeckListItem = ({ deck }: Props) => {
           {deck.cards && deck.cards.length > 0 && (
             <div className="absolute inset-0 flex justify-center items-center opacity-20">
               <div className="transform -rotate-12">
-                <Image
-                  src={`https://dekt-card-images.s3.us-west-1.amazonaws.com/${getCardImage()}`}
-                  alt="Deck preview"
-                  width={120}
-                  height={160}
-                  className="rounded-lg shadow-lg"
-                />
+                <p>{deck.name}</p>
               </div>
             </div>
           )}
@@ -62,13 +46,13 @@ const DeckListItem = ({ deck }: Props) => {
             <h2 className="text-xl font-bold text-white line-clamp-2">{deck.name}</h2>
           </div>
         </div>
-        
+
         {/* Deck content */}
         <div className="flex-1 p-4">
           <p className="text-gray-700 dark:text-gray-300 text-sm line-clamp-4 mb-4">
             {deck.description || "No description provided."}
           </p>
-          
+
           {/* Card count badge */}
           {deck.cards && (
             <div className="inline-flex items-center px-2 py-1 rounded-full bg-primary/10 dark:bg-primary/20 text-primary text-xs font-medium mb-4">
@@ -79,7 +63,7 @@ const DeckListItem = ({ deck }: Props) => {
             </div>
           )}
         </div>
-        
+
         {/* Footer with creator and date */}
         <div className="border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-800/30 flex items-center justify-between">
           <div className="flex items-center">

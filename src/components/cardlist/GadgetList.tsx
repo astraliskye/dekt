@@ -1,8 +1,8 @@
 import React from "react";
-import type { CardWithEffects } from "../../types";
+import { CardWithStatsAndEffects } from "../../server/api/routers/card";
 
 type Props = {
-  cards: CardWithEffects[];
+  cards: CardWithStatsAndEffects[];
 };
 
 const GadgetList = ({ cards }: Props) => {

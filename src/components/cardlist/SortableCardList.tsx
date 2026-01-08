@@ -1,12 +1,12 @@
 import React from "react";
-import type { CardWithEffects } from "../../types";
 import { useDroppable } from "@dnd-kit/core";
 import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { CardWithStatsAndEffects } from "../../server/api/routers/card";
 
 type Props = {
-  cards: CardWithEffects[];
+  cards: CardWithStatsAndEffects[];
   handleCardClick?: (cardId: string) => void;
 };
 
@@ -16,7 +16,7 @@ const SortableCardItem = ({
   onClick,
   position
 }: {
-  card: CardWithEffects;
+  card: CardWithStatsAndEffects;
   onClick?: (id: string) => void;
   position: number;
 }) => {
@@ -82,9 +82,6 @@ const SortableCardItem = ({
         {/* Card Image */}
         <div
           className="w-12 h-16 rounded-lg bg-cover bg-center shadow-md border border-gray-300 dark:border-gray-600 flex-shrink-0"
-          style={{
-            backgroundImage: `url(https://dekt-card-images.s3.us-west-1.amazonaws.com/${card.image})`,
-          }}
         />
 
         {/* Card Info */}
@@ -97,9 +94,6 @@ const SortableCardItem = ({
               {card.type}
             </span>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
-            {card.originalEffects}
-          </p>
         </div>
 
         {/* Remove Button */}
@@ -145,7 +139,7 @@ const SortableCardList = ({ cards, handleCardClick }: Props) => {
             Start building your deck by selecting cards from the collection below. You can add up to 15 cards.
           </p>
         </div>
-        
+
         {/* Deck completion indicator for empty state */}
         <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
           <div className="flex items-center justify-between text-sm">

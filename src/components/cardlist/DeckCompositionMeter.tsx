@@ -1,9 +1,9 @@
 import React from "react";
-import type { CardWithEffects } from "../../types";
+import { CardWithStatsAndEffects } from "../../server/api/routers/card";
 import { cardBorderColor, sortedCards } from "../../utils/front-end";
 
 type Props = {
-  cards: CardWithEffects[];
+  cards: CardWithStatsAndEffects[];
 };
 
 const DeckCompositionMeter = ({ cards }: Props) => {
@@ -49,7 +49,7 @@ const DeckCompositionMeter = ({ cards }: Props) => {
           })}
           {/* Empty slots */}
           {cards.length < 15 && (
-            <div 
+            <div
               className="bg-gray-100 dark:bg-gray-800 opacity-50"
               style={{ width: `${((15 - cards.length) / 15) * 100}%` }}
             />

@@ -1,10 +1,10 @@
 import React from "react";
-import type { CardWithEffects } from "../../types";
+import { CardWithStatsAndEffects } from "../../server/api/routers/card";
 import CardListItem from "./CardListItem";
 import DeckCompositionMeter from "./DeckCompositionMeter";
 
 type Props = {
-  cards: CardWithEffects[];
+  cards: CardWithStatsAndEffects[];
 };
 
 const CardList = ({ cards }: Props) => {

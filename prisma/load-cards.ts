@@ -4,14 +4,13 @@ import { readFile } from "fs/promises";
 const prisma = new PrismaClient();
 
 type Stat = {
-  effect: string;
+  name: string;
   amount: string;
   team: boolean;
 };
 
-type SecondaryEffect = {
-  effect: string;
-  good: boolean;
+type Effect = {
+  name: string;
   team: boolean;
 };
 
@@ -19,11 +18,9 @@ type Card = {
   name: string;
   type: string;
   affinity: string;
-  originalEffects: string;
-  image: string;
   gadget?: string;
   stats: Stat[];
-  secondaryEffects: SecondaryEffect[];
+  effects: Effect[];
 };
 
 async function main() {
@@ -48,22 +45,20 @@ async function main() {
             name: card.name,
             type: card.type,
             affinity: card.affinity,
-            originalEffects: card.originalEffects,
-            image: card.image,
             gadget: card.gadget,
             stats: card.stats
               ? {
-                  createMany: {
-                    data: card.stats,
-                  },
-                }
+                createMany: {
+                  data: card.stats,
+                },
+              }
               : undefined,
-            secondaryEffects: card.secondaryEffects
+            effects: card.effects
               ? {
-                  createMany: {
-                    data: card.secondaryEffects,
-                  },
-                }
+                createMany: {
+                  data: card.effects,
+                },
+              }
               : undefined,
           },
         });

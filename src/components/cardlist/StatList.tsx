@@ -1,9 +1,9 @@
 import React from "react";
-import type { CardWithEffects } from "../../types";
+import { CardWithStatsAndEffects } from "../../server/api/routers/card";
 import { sortedCards } from "../../utils/front-end";
 
 type Props = {
-  cards: CardWithEffects[];
+  cards: CardWithStatsAndEffects[];
 };
 
 const StatList: React.FC<Props> = ({ cards }) => {
@@ -19,9 +19,8 @@ const StatList: React.FC<Props> = ({ cards }) => {
       <ul>
         {statList.map((statPair) => (
           <li className="py-1" key={statPair[0]}>
-            {`${
-              statPair[0].charAt(0).toUpperCase() + statPair[0].substring(1)
-            }:`}{" "}
+            {`${statPair[0].charAt(0).toUpperCase() + statPair[0].substring(1)
+              }:`}{" "}
             <span className="font-bold text-red-600">{`${statPair[1]}`}</span>
           </li>
         ))}
@@ -30,12 +29,12 @@ const StatList: React.FC<Props> = ({ cards }) => {
   );
 };
 
-function statListFromCardList(cards: CardWithEffects[]): [string, string][] {
+function statListFromCardList(cards: CardWithStatsAndEffects[]): [string, string][] {
   const statMap = new Map<string, string>();
 
   for (const card of sortedCards(cards)) {
     for (const stat of card.stats) {
-      const key: string = stat.effect + (stat.amount.includes("%") ? "%" : "");
+      const key: string = stat.name + (stat.amount.includes("%") ? "%" : "");
       const amount =
         parseFloat(statMap.get(key) || "0") + parseFloat(stat.amount);
       statMap.set(key, amount.toString());

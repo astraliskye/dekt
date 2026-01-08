@@ -1,10 +1,10 @@
 import { useSortable } from "@dnd-kit/sortable";
 import React from "react";
-import type { CardWithEffects } from "../../types";
+import { CardWithStatsAndEffects } from "../../server/api/routers/card";
 import { cardBorderColor } from "../../utils/front-end";
 
 type Props = {
-  card: CardWithEffects;
+  card: CardWithStatsAndEffects;
   onClick?: (id: string) => void;
 };
 
@@ -24,7 +24,6 @@ const CardListItem = ({ card, onClick }: Props) => {
         transform: transform
           ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
           : undefined,
-        // backgroundImage: `linear-gradient(to right bottom, rgba(#000), rgba(#fff))), url('/images/cards/${card.image}')`,
       }}
       {...listeners}
       {...attributes}

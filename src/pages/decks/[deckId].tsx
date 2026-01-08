@@ -124,7 +124,7 @@ const ViewDeck = () => {
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
               Deck Composition
             </h2>
-            <DeckCompositionMeter cards={deck.cards} />
+            <DeckCompositionMeter cards={deck.cards.map(c => c.card)} />
           </div>
 
           {/* Tabs navigation */}
@@ -171,7 +171,7 @@ const ViewDeck = () => {
           <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700">
             {activeTab === 'cards' && (
               <div className="h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent pr-2">
-                <CardList cards={deck.cards} />
+                <CardList cards={deck.cards.map(c => c.card)} />
               </div>
             )}
 
@@ -180,7 +180,7 @@ const ViewDeck = () => {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Deck Statistics
                 </h3>
-                <StatList cards={deck.cards} />
+                <StatList cards={deck.cards.map(c => c.card)} />
               </div>
             )}
 
@@ -189,7 +189,7 @@ const ViewDeck = () => {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Secondary Effects
                 </h3>
-                <SecondaryEffectList cards={deck.cards} />
+                <SecondaryEffectList cards={deck.cards.map(c => c.card)} />
               </div>
             )}
 
@@ -198,7 +198,7 @@ const ViewDeck = () => {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                   Gadgets & Equipment
                 </h3>
-                <GadgetList cards={deck.cards} />
+                <GadgetList cards={deck.cards.map(c => c.card)} />
               </div>
             )}
           </div>
