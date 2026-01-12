@@ -1,17 +1,18 @@
 name: dekt
 services:
-  db:
-    image: "postgres:latest"
+  postgres:
+    image: postgres
     restart: unless-stopped
-    container_name: "dekt-postgres"
+    container_name: dekt-postgres
     environment:
       POSTGRES_DB: dekt
-      POSTGRES_USER: ${DEKT_POSTGRES_USER}
+      POSTGRES_USER: app
       POSTGRES_PASSWORD: ${DEKT_POSTGRES_PASSWORD}
+
     ports:
       - "5432"
     volumes:
-      - dbdata:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "app", "-d", "dekt"]
       interval: 5s
@@ -19,9 +20,15 @@ services:
       retries: 20
 
   app:
-    container_name: "dekt-app"
+    container_name: dekt-app
     restart: unless-stopped
     env_file: .env
+    environment:
+      DATABASE_URL: postgresql://app:${DEKT_POSTGRES_PASSWORD}@dekt-postgres/dekt
+      DISCORD_CLIENT_ID: ${DEKT_DISCORD_CLIENT_ID}
+      DISCORD_CLIENT_SECRET: ${DEKT_DISCORD_CLIENT_SECRET}
+      NEXTAUTH_URL: ${DEKT_NEXTAUTH_URL}
+      NEXTAUTH_SECRET: ${DEKT_NEXTAUTH_SECRET}
     build:
       context: .
       tags:
@@ -29,6 +36,6 @@ services:
     ports:
       - "8888:3000"
     depends_on:
-      - db
+      - postgres
 volumes:
-  dbdata:
+  pgdata:
