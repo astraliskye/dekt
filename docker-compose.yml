@@ -12,7 +12,7 @@ services:
     ports:
       - "5432"
     volumes:
-      - pgdata:/var/lib/postgresql
+      - dekt-pgdata:/var/lib/postgresql
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "app", "-d", "dekt"]
       interval: 5s
@@ -38,4 +38,4 @@ services:
     depends_on:
       - postgres
 volumes:
-  pgdata:
+  dekt-pgdata:
