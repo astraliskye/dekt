@@ -3,39 +3,41 @@ services:
   postgres:
     image: postgres
     restart: unless-stopped
+    platform: linux/amd64
     container_name: dekt-postgres
     environment:
-      POSTGRES_DB: dekt
-      POSTGRES_USER: app
-      POSTGRES_PASSWORD: ${DEKT_POSTGRES_PASSWORD}
+      - POSTGRES_DB=dekt
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD
 
     ports:
       - "5432"
     volumes:
-      - dekt-pgdata:/var/lib/postgresql
+      - pgdata:/var/lib/postgresql
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "app", "-d", "dekt"]
       interval: 5s
       timeout: 2s
       retries: 20
-
   app:
     container_name: dekt-app
     restart: unless-stopped
-    env_file: .env
-    environment:
-      DATABASE_URL: postgresql://app:${DEKT_POSTGRES_PASSWORD}@dekt-postgres/dekt
-      DISCORD_CLIENT_ID: ${DEKT_DISCORD_CLIENT_ID}
-      DISCORD_CLIENT_SECRET: ${DEKT_DISCORD_CLIENT_SECRET}
-      NEXTAUTH_URL: ${DEKT_NEXTAUTH_URL}
-      NEXTAUTH_SECRET: ${DEKT_NEXTAUTH_SECRET}
+    platform: linux/amd64
     build:
       context: .
+      dockerfile: Dockerfile
       tags:
-        - "astraliskye/dekt:latest"
+        - astraliskye/dekt:latest
+    env_file: .env
+    environment:
+      - DATABASE_URL
+      - NEXTAUTH_SECRET
+      - NEXTAUTH_URL
+      - DISCORD_CLIENT_ID
+      - DISCORD_CLIENT_SECRET
     ports:
-      - "8888:3000"
+      - 8888:3000
     depends_on:
       - postgres
 volumes:
-  dekt-pgdata:
+  pgdata:
