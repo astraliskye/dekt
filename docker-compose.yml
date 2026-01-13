@@ -6,8 +6,8 @@ services:
     platform: linux/amd64
     container_name: dekt-postgres
     environment:
-      - POSTGRES_DB=dekt
-      - POSTGRES_USER=app
+      - POSTGRES_DB
+      - POSTGRES_USER
       - POSTGRES_PASSWORD
 
     ports:
