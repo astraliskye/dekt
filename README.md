@@ -1,28 +1,41 @@
-# Create T3 App
+# DEKT
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Theory crafting tool for constructing the perfect Back 4 Blood decks. Find the live tool [on my website](https://dekt.skyegibney.com)
 
-## What's next? How do I make an app with this?
+[TODO: add video demo]
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Setting up DEKT
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+DEKT can be setup locally with two methods: Docker Compose, which will require docker and docker compose tools to be installed, or by using NextJS dev mode
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+### Docker Compose
 
-## Learn More
+1. Clone the repository: `git clone https://github.com/astraliskye/dekt`
+2. Create .env file using the .env.example: `cp .env.example .env`
+3. Configure each environment variable 
+    - [TODO: list each environment variable]
+4. Run `docker compose up -d` to create the necessary containers
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+#### First time setup
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+After performing the first four steps from the Docker Compose section, do this:
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+1. Hop into the app docker container: `docker exec -it dev-app bash`
+2. Setup tables in the database: `npx prisma db push`
+3. Seed database with card data from cards.json: `npx prisma db seed`
 
-## How do I deploy this?
+### NextJS Dev Server
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Note: this requires you setting up your own PostgreSQL database, so go do that first. You will need the name of the database you are using as well as the credentials for an account that has permissions to run DDL operations on that database.
+
+1. Clone the repository: `git clone https://github.com/astraliskye/dekt`
+2. Create .env file using the .env.example: `cp .env.example .env`
+3. Configure each environment variable
+    - [TODO: list each environment variable, note to change .env to not use string interpolation]
+4. Initialize database: `npx prisma db push`
+5. Seed databse with card data from cards.json: `npx prisma db seed`
+
+## Roadmap
+
+- [ ] Robust automated testing framework
+- [ ] CI/CD via GitHub actions
