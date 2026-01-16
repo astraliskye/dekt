@@ -12,8 +12,7 @@ DEKT can be setup locally with two methods: Docker Compose, which will require d
 
 1. Clone the repository: `git clone https://github.com/astraliskye/dekt`
 2. Create .env file using the .env.example: `cp .env.example .env`
-3. Configure each environment variable 
-    - [TODO: list each environment variable]
+3. Configure each environment variable
 4. Run `docker compose up -d` to create the necessary containers
 
 #### First time setup
@@ -31,7 +30,6 @@ Note: this requires you setting up your own PostgreSQL database, so go do that f
 1. Clone the repository: `git clone https://github.com/astraliskye/dekt`
 2. Create .env file using the .env.example: `cp .env.example .env`
 3. Configure each environment variable
-    - [TODO: list each environment variable, note to change .env to not use string interpolation]
 4. Initialize database: `npx prisma db push`
 5. Seed databse with card data from cards.json: `npx prisma db seed`
 
