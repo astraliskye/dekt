@@ -36,7 +36,7 @@ services:
       - DISCORD_CLIENT_ID
       - DISCORD_CLIENT_SECRET
     ports:
-      - 8888:3000
+      - 3000:3000
     depends_on:
       - postgres
 volumes:
