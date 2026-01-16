@@ -139,24 +139,6 @@ const SortableCardList = ({ cards, handleCardClick }: Props) => {
             Start building your deck by selecting cards from the collection below. You can add up to 15 cards.
           </p>
         </div>
-
-        {/* Deck completion indicator for empty state */}
-        <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
-          <div className="flex items-center justify-between text-sm">
-            <span className="text-gray-600 dark:text-gray-400">
-              Deck Progress
-            </span>
-            <span className="font-medium text-gray-900 dark:text-white">
-              0/15 cards
-            </span>
-          </div>
-          <div className="mt-2 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-            <div className="bg-primary h-2 rounded-full transition-all duration-300" style={{ width: '0%' }} />
-          </div>
-          <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-            Add 15 cards to complete your deck
-          </p>
-        </div>
       </div>
     );
   }
@@ -177,29 +159,6 @@ const SortableCardList = ({ cards, handleCardClick }: Props) => {
             ))}
           </div>
         </SortableContext>
-      </div>
-
-      {/* Deck completion indicator */}
-      <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
-        <div className="flex items-center justify-between text-sm">
-          <span className="text-gray-600 dark:text-gray-400">
-            Deck Progress
-          </span>
-          <span className="font-medium text-gray-900 dark:text-white">
-            {cards.length}/15 cards
-          </span>
-        </div>
-        <div className="mt-2 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-          <div
-            className="bg-primary h-2 rounded-full transition-all duration-300"
-            style={{ width: `${(cards.length / 15) * 100}%` }}
-          />
-        </div>
-        {cards.length < 15 && (
-          <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-            Add {15 - cards.length} more card{15 - cards.length !== 1 ? 's' : ''} to complete your deck
-          </p>
-        )}
       </div>
     </div>
   );

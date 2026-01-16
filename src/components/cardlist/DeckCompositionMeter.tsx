@@ -41,7 +41,7 @@ const DeckCompositionMeter = ({ cards }: Props) => {
             return (
               <div
                 key={card.id}
-                className={`${cardBorderColor(card, 'bg-primary')} transition-all duration-200`}
+                className={`${getAffinityColor(card.affinity, 'bg-primary')} transition-all duration-200`}
                 style={{ width }}
                 title={`${card.name} (${card.affinity})`}
               />
