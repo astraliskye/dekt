@@ -1,45 +1,24 @@
 # DEKT
 
-Theory-crafting tool for building Back 4 Blood decks. Live demo: <https://dekt.skyegibney.com>
-
-## Table of contents
-
-- Overview
-- Features
-- Tech stack
-- Project structure
-- Getting started
-  - Prerequisites
-  - Environment variables
-  - Local development (Next.js)
-  - Docker Compose
-  - First-time database setup
-- Scripts
-- Data and seeding
-- Roadmap (portfolio ready)
-- License
+Theory-crafting tool for building Back 4 Blood decks. Live demo: <https://dekt.astraliskye.com>
 
 ## Overview
 
-DEKT helps players assemble, reorder, and save card decks for Back 4 Blood. It includes authentication, deck persistence, and a curated card dataset to power search and composition.
+DEKT helps players theory craft decks for Back 4 Blood by including accumulated stats and effects for easy visual parsing, an easier UI for quick prototyping, and a library for organizing your collection of decks. 
 
 ## Features
 
-- Deck builder UI with drag-and-drop ordering
-- Card data modeled in Postgres via Prisma
-- User authentication via NextAuth (Discord)
-- TRPC API layer for type-safe client/server calls
-- React Query caching for responsive data fetching
-- Tailwind-based styling pipeline
+- Deck builder UI with drag-and-drop ordering.
+- Cumulative data about decks.
+- Deck organization.
 
 ## Tech stack
 
-- Next.js 13, React 18, TypeScript
-- Prisma + PostgreSQL
-- NextAuth (Discord provider)
-- tRPC + React Query
-- Tailwind CSS + PostCSS
-- Docker for containerized runs
+- React
+- TypesScript
+- PostgreSQL
+- Node.js
+- TRpc
 
 ## Project structure
 
@@ -56,8 +35,8 @@ DEKT helps players assemble, reorder, and save card decks for Back 4 Blood. It i
 
 ### Prerequisites
 
-- Node.js (LTS recommended) and npm
-- PostgreSQL database (local or Docker)
+- Node.js and npm
+- Docker and Docker Compose
 
 ### Environment variables
 
@@ -70,9 +49,7 @@ Required:
 - `NEXTAUTH_SECRET` - Any strong secret
 - `DISCORD_CLIENT_ID` / `DISCORD_CLIENT_SECRET` - Discord OAuth app credentials
 
-Note: If you use Docker Compose, `POSTGRES_*` variables are also read by the database container.
-
-### Local development (Next.js)
+### Local development
 
 1. Install dependencies: `npm install`
 2. Create `.env` from `.env.example`
@@ -94,31 +71,13 @@ After the containers are up:
 2. Push the schema: `npx prisma db push`
 3. Seed the database: `npx prisma db seed`
 
-## Scripts
-
-- `npm run dev` - Start the Next.js dev server
-- `npm run build` - Build for production
-- `npm run start` - Run the production build
-- `npm run lint` - Lint the codebase
-
 ## Data and seeding
 
 Card data lives in `cards.json`. The seed script (`prisma/load-cards.ts`) loads this into Postgres. Re-run `npx prisma db seed` any time `cards.json` changes.
 
 ## Roadmap
 
-- [ ] Visual polish pass (typography, spacing, consistent UI states)
-- [ ] Add a responsive, mobile-first deck builder layout
-- [ ] Accessibility audit (keyboard DnD, focus states, contrast)
-- [ ] Performance pass (image optimization, route-level code splitting)
-- [ ] Improve empty/loading/error states with UX copy
-- [ ] Add unit/integration tests for deck creation flows
-- [ ] Add E2E tests for core user journeys
-- [ ] CI pipeline (lint/test/build on pull requests)
-- [ ] Deployment guide and environment config checklist
-- [ ] Public demo data and a sample deck gallery
-- [ ] SEO basics (metadata, OpenGraph, sitemap)
-- [ ] Monitoring/analytics (error tracking + usage analytics)
+- [ ] Add tags to decks for easy searching
 - [ ] Add a short video walkthrough or GIF demo
 
 ## License
