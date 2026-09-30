@@ -1,5 +1,5 @@
 import React from "react";
-import { DeckWithCreatorAndCards } from "../../server/api/routers/deck";
+import type { DeckWithCreatorAndCards } from "../../server/api/routers/deck";
 import DeckListItem from "./DeckListItem";
 
 type Props = {

@@ -1,6 +1,6 @@
 import React from "react";
-import { CardWithStatsAndEffects } from "../../server/api/routers/card";
-import { cardBorderColor, sortedCards } from "../../utils/front-end";
+import type { CardWithStatsAndEffects } from "../../server/api/routers/card";
+import { sortedCards } from "../../utils/front-end";
 
 type Props = {
   cards: CardWithStatsAndEffects[];

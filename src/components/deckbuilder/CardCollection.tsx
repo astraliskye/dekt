@@ -5,7 +5,7 @@ import TextInput from "../elements/TextInput";
 import { sortedCards } from "../../utils/front-end";
 import { api } from "../../utils/api";
 import Loading from "../elements/Loading";
-import { CardWithStatsAndEffects } from "../../server/api/routers/card";
+import type { CardWithStatsAndEffects } from "../../server/api/routers/card";
 
 type Props = {
   handleCardClick: (card: CardWithStatsAndEffects) => void;

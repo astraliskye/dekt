@@ -1,5 +1,5 @@
 import React from "react";
-import { CardWithStatsAndEffects } from "../../server/api/routers/card";
+import type { CardWithStatsAndEffects } from "../../server/api/routers/card";
 import { sortedCards } from "../../utils/front-end";
 
 type Props = {

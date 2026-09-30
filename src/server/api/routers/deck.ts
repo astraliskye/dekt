@@ -1,7 +1,7 @@
-import { Prisma, PrismaPromise } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
+import { Prisma } from "@prisma/client";
 
 const deckIncludeCreatorCards = Prisma.validator<Prisma.DeckInclude>()({
   creator: true,

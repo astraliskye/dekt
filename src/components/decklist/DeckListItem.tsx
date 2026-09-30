@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { DeckWithCreatorAndCards } from "../../server/api/routers/deck";
+import type { DeckWithCreatorAndCards } from "../../server/api/routers/deck";
 
 type Props = {
   deck: DeckWithCreatorAndCards;

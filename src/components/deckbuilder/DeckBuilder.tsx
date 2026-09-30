@@ -20,8 +20,8 @@ import Head from "next/head";
 import Card from "./Card";
 import { sortedCards } from "../../utils/front-end";
 import Loading from "../elements/Loading";
-import { CardWithStatsAndEffects } from "../../server/api/routers/card";
-import { DeckWithCreatorAndCards } from "../../server/api/routers/deck";
+import type { CardWithStatsAndEffects } from "../../server/api/routers/card";
+import type { DeckWithCreatorAndCards } from "../../server/api/routers/deck";
 
 type Props = {
   deck?: DeckWithCreatorAndCards;
