@@ -18,6 +18,8 @@ const deckIncludeCreatorCards = Prisma.validator<Prisma.DeckInclude>()({
   },
 })
 
+// Used through the exported payload type below.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const deckIncludeCreator = Prisma.validator<Prisma.DeckInclude>()({
   creator: true,
 })

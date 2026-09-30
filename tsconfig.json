@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "checkJs": true,
     "skipLibCheck": true,
@@ -10,10 +14,10 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitAny": false
@@ -26,7 +30,10 @@
     "**/*.mjs",
     "prisma/load-cards.mts"
   ],
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules",
+    "eslint.config.mjs"
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "commonjs"
