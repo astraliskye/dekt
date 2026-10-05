@@ -18,8 +18,6 @@ jobs:
         with:
           node-version: 24
           package-manager-cache: false
-      - run: npm ci
-      - run: npm run build
       - uses: appleboy/ssh-action@v1
         with:
           host: astraliskye.com
