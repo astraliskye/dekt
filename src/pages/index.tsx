@@ -122,9 +122,6 @@ const Home: NextPage = () => {
             <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Ready to Dominate the Apocalypse?
             </h3>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Join thousands of players crafting the perfect zombie-slaying strategies.
-            </p>
             <Link href="/builder">
               <PrimaryButton>
                 <span className="flex items-center gap-2 px-6 py-3 text-lg">
