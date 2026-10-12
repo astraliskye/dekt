@@ -112,6 +112,7 @@ export const deckRouter = createTRPCRouter({
   getCurrentUserCollection: protectedProcedure.query(async ({ ctx }) => {
     const result = await ctx.prisma.deck.findMany({
       take: 100,
+      where: { creatorId: ctx.session.user.id },
       orderBy: { updatedAt: "desc" },
       include: deckIncludeCreatorCards
     });
