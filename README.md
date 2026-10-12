@@ -9,7 +9,7 @@ DEKT helps players theory craft decks for Back 4 Blood by including accumulated 
 ## Features
 
 - Deck builder UI with drag-and-drop ordering.
-- Cumulative data about decks.
+- Cumulative card stats at a glance.
 - Deck organization.
 
 ## Tech stack
@@ -33,11 +33,6 @@ DEKT helps players theory craft decks for Back 4 Blood by including accumulated 
 
 ## Getting started
 
-### Prerequisites
-
-- Node.js and npm
-- Docker and Docker Compose
-
 ### Environment variables
 
 Copy `.env.example` to `.env` and fill in the values.
@@ -51,8 +46,15 @@ Required:
 
 ### Local development
 
+#### Prerequisites
+
+- Node.js and npm
+- Your own configured PostgreSQL database
+
+#### Setup
+
 1. Install dependencies: `npm install`
-2. Create `.env` from `.env.example`
+2. Create `.env` from `.env.example` and fill out all necessary values
 3. Push schema to the database: `npx prisma db push`
 4. Seed the database: `npx prisma db seed`
 5. Start the dev server: `npm run dev`
@@ -62,8 +64,6 @@ Required:
 1. Create `.env` from `.env.example`
 2. Configure the `POSTGRES_*` and `DATABASE_URL` values
 3. Run: `docker compose up -d`
-
-### First-time database setup (Docker)
 
 After the containers are up:
 
