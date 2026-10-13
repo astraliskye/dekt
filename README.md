@@ -91,11 +91,6 @@ After the containers are up:
 
 Card data lives in `cards.json`. The seed script (`prisma/load-cards.ts`) loads this into Postgres. Re-run `npx prisma db seed` any time `cards.json` changes.
 
-## Roadmap
-
-- [ ] Add tags to decks for easy searching
-- [ ] Add a short video walkthrough or GIF demo
-
 ## License
 
 Licensed under the MIT License. See `LICENSE` for details.
