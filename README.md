@@ -18,13 +18,14 @@ DEKT helps players theory craft decks for Back 4 Blood by including accumulated 
 - TypesScript
 - PostgreSQL
 - Node.js
-- TRpc
+- tRPC
 
 ## Project structure
 
 - `src/pages` - Next.js pages and API routes
 - `src/components` - UI components
 - `src/server` - tRPC routers and server utilities
+- `src/shared` - shared logic between front and backend
 - `src/contexts` - React context providers
 - `src/styles` - global styles
 - `prisma/` - Prisma schema and seed scripts
@@ -40,9 +41,10 @@ Copy `.env.example` to `.env` and fill in the values.
 Required:
 
 - `DATABASE_URL` - Postgres connection string
-- `NEXTAUTH_URL` - App URL (local is `http://localhost:3000`)
+- `NEXTAUTH_URL` - App URL (local i-s `http://localhost:3000`)
 - `NEXTAUTH_SECRET` - Any strong secret
-- `DISCORD_CLIENT_ID` / `DISCORD_CLIENT_SECRET` - Discord OAuth app credentials
+- `DISCORD_CLIENT_ID` - Discord OAuth client ID
+- `DISCORD_CLIENT_SECRET` - Discord OAuth secret
 
 ### Local development
 
@@ -50,6 +52,8 @@ Required:
 
 - Node.js and npm
 - Your own configured PostgreSQL database
+
+Ensure your database user has `CREATEDB` privileges, and that they have `USAGE` and `CREATE` are granted to the user on the relevant schema.
 
 #### Setup
 
