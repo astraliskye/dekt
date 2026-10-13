@@ -1,5 +1,5 @@
 import React from "react";
-import type { CardWithStatsAndEffects } from "../../server/api/routers/card";
+import type { CardWithStatsAndEffects } from "../../shared/types";
 
 type Props = {
   cards: CardWithStatsAndEffects[];

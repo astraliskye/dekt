@@ -1,7 +1,7 @@
 import { createTRPCRouter, publicProcedure } from "../trpc";
 import { cardIncludeStatsAndEffects } from "../../../shared/db";
-import { CardWithStatsAndEffects } from "../../../shared/types";
-import { PrismaPromise } from "@prisma/client";
+import type { CardWithStatsAndEffects } from "../../../shared/types";
+import type { PrismaPromise } from "@prisma/client";
 
 export const cardRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }): PrismaPromise<CardWithStatsAndEffects[]> => {

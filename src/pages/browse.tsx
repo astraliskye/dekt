@@ -9,7 +9,7 @@ import Head from "next/head";
 const Browse: NextPage = () => {
   const { data: decks, isLoading } = api.deck.getAll.useQuery();
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState<"recent" | "popular" | "name">("recent");
+  const [sortBy, setSortBy] = useState<"recent" | "name">("recent");
 
   if (isLoading) return <Loading />;
   if (!decks) return <Error message="No decks found" />;
@@ -27,17 +27,15 @@ const Browse: NextPage = () => {
       return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
     } else if (sortBy === "name") {
       return a.name.localeCompare(b.name);
-    } else {
-      // For "popular" - this is a placeholder, you might want to implement actual popularity metrics
-      return 0;
     }
+    return 0;
   });
 
   return (
     <>
       <Head>
         <title>Browse Decks - DEKT</title>
-        <meta name="description" content="Browse and discover Back 4 Blood decks created by the community" />
+        <meta name="description" content="Browse saved Back 4 Blood decks" />
       </Head>
       <main className="min-h-screen bg-light-secondary dark:bg-dark pb-12">
         {/* Hero section */}
@@ -47,7 +45,7 @@ const Browse: NextPage = () => {
               Browse Decks
             </h1>
             <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl">
-              Discover and explore decks created by the community. Find inspiration for your next zombie-slaying adventure.
+              Explore saved Back 4 Blood decks and find ideas for your next build.
             </p>
           </div>
         </div>
@@ -83,12 +81,11 @@ const Browse: NextPage = () => {
                 <select
                   id="sort"
                   value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as "recent" | "popular" | "name")}
+                  onChange={(e) => setSortBy(e.target.value as "recent" | "name")}
                   className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-dark text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   <option value="recent">Most Recent</option>
                   <option value="name">Name (A-Z)</option>
-                  <option value="popular">Most Popular</option>
                 </select>
               </div>
             </div>

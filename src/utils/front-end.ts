@@ -1,4 +1,4 @@
-import type { CardWithStatsAndEffects } from "../server/api/routers/card";
+import type { CardWithStatsAndEffects } from "../shared/types";
 
 export function sortedCards(cards: CardWithStatsAndEffects[]) {
   return [...cards].sort((a, b) => {

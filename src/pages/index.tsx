@@ -9,8 +9,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>DEKT - Ultimate Back 4 Blood Deck Builder</title>
-        <meta name="description" content="Create, share, and discover the best Back 4 Blood deck builds. Theory craft your perfect zombie-slaying setup." />
+        <title>DEKT - Back 4 Blood Deck Builder</title>
+        <meta name="description" content="Build Back 4 Blood decks, review card stat totals, and browse saved builds." />
       </Head>
       <main className="min-h-full bg-gradient-to-br from-white via-gray-50 to-primary/5 dark:from-dark-secondary dark:via-dark dark:to-primary/10 transition-colors">
         {/* Hero Section */}
@@ -34,8 +34,8 @@ const Home: NextPage = () => {
               </h2>
               
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up">
-                The ultimate platform for theory crafting your perfect Back 4 Blood builds. 
-                Create devastating card combinations, share your strategies, and dominate the apocalypse.
+                Build Back 4 Blood decks, arrange your cards, and see their combined stats and effects.
+                Save a build to revisit it later.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-slide-up">
@@ -78,10 +78,10 @@ const Home: NextPage = () => {
                   </svg>
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Lightning Fast
+                  Drag-and-Drop Building
                 </h4>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Build and test your decks in seconds with our intuitive drag-and-drop interface.
+                  Arrange cards with a drag-and-drop deck builder.
                 </p>
               </div>
               
@@ -92,10 +92,10 @@ const Home: NextPage = () => {
                   </svg>
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Community Driven
+                  Browse Saved Decks
                 </h4>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Share your builds and discover strategies from the best players worldwide.
+                  Explore saved builds by name, description, or creator.
                 </p>
               </div>
               
@@ -106,10 +106,10 @@ const Home: NextPage = () => {
                   </svg>
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Advanced Analytics
+                  Card Stat Totals
                 </h4>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Get detailed insights into your deck&apos;s performance and optimization opportunities.
+                  See combined card stats, effects, and deck composition while you build.
                 </p>
               </div>
             </div>

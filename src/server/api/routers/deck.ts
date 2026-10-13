@@ -2,7 +2,7 @@ import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import { deckIncludeCreatorAndCards } from "../../../shared/db";
-import { DeckWithCreatorAndCards } from "../../../shared/types";
+import type { DeckWithCreatorAndCards } from "../../../shared/types";
 
 
 export const deckRouter = createTRPCRouter({
@@ -116,6 +116,12 @@ export const deckRouter = createTRPCRouter({
   deleteById: protectedProcedure
     .input(z.string())
     .mutation(async ({ input: deckId, ctx }) => {
-      return ctx.prisma.deck.delete({ where: { id: deckId } });
+      const result = await ctx.prisma.deck.deleteMany({
+        where: { id: deckId, creatorId: ctx.session.user.id },
+      });
+      if (result.count === 0) {
+        throw new TRPCError({ code: "NOT_FOUND" });
+      }
+      return result;
     }),
 });

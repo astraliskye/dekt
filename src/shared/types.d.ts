@@ -1,5 +1,5 @@
-import { Prisma } from "@prisma/client"
-import { cardIncludeStatsAndEffects, deckIncludeCreator, deckIncludeCreatorAndCards } from "./db"
+import type { Prisma } from "@prisma/client"
+import type { cardIncludeStatsAndEffects, deckIncludeCreator, deckIncludeCreatorAndCards } from "./db"
 
 export type CardWithStatsAndEffects = Prisma.CardGetPayload<{
   include: typeof cardIncludeStatsAndEffects
