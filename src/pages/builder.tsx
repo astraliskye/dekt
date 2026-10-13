@@ -8,6 +8,7 @@ import ErrorPage from "next/error";
 
 const Builder: NextPage = () => {
   const deckId = useRouter().query.deckId as string | undefined;
+  const { data: deck, isLoading } = api.deck.getById.useQuery(deckId || "");
 
   if (!deckId)
     return (
@@ -19,8 +20,6 @@ const Builder: NextPage = () => {
         <DeckBuilder />
       </>
     );
-
-  const { data: deck, isLoading } = api.deck.getById.useQuery(deckId);
 
   if (isLoading) return <Loading />;
   if (!deck) return <ErrorPage statusCode={404} />;
