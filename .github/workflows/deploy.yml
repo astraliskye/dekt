@@ -19,11 +19,12 @@ jobs:
           package-manager-cache: false
       - uses: appleboy/ssh-action@v1
         env:
-          DEPLOY_SHA: ${{ github.event.workflow_fun.head_sha }}
+          DEPLOY_SHA: ${{ github.event.workflow_run.head_sha }}
         with:
           host: astraliskye.com
           username: skye
           key: ${{ secrets.SSH_HOSTINGER_KEY }}
+          envs: DEPLOY_SHA
           script: |
             set -eu
             cd ~/dekt
