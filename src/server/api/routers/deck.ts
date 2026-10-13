@@ -1,36 +1,9 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
-import { Prisma } from "@prisma/client";
+import { deckIncludeCreatorAndCards } from "../../../shared/db";
+import { DeckWithCreatorAndCards } from "../../../shared/types";
 
-const deckIncludeCreatorCards = Prisma.validator<Prisma.DeckInclude>()({
-  creator: true,
-  cards: {
-    orderBy: { position: "asc" },
-    include: {
-      card: {
-        include: {
-          stats: true,
-          effects: true,
-        },
-      },
-    },
-  },
-})
-
-// Used through the exported payload type below.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const deckIncludeCreator = Prisma.validator<Prisma.DeckInclude>()({
-  creator: true,
-})
-
-export type DeckWithCreatorAndCards = Prisma.DeckGetPayload<{
-  include: typeof deckIncludeCreatorCards
-}>
-
-export type DeckWithCreator = Prisma.DeckGetPayload<{
-  include: typeof deckIncludeCreator
-}>
 
 export const deckRouter = createTRPCRouter({
   create: protectedProcedure
@@ -109,31 +82,31 @@ export const deckRouter = createTRPCRouter({
 
       return result[1];
     }),
-  getCurrentUserCollection: protectedProcedure.query(async ({ ctx }) => {
+  getCurrentUserCollection: protectedProcedure.query(async ({ ctx }): Promise<DeckWithCreatorAndCards[]> => {
     const result = await ctx.prisma.deck.findMany({
       take: 100,
       where: { creatorId: ctx.session.user.id },
       orderBy: { updatedAt: "desc" },
-      include: deckIncludeCreatorCards
+      include: deckIncludeCreatorAndCards
     });
 
     return result
   }),
-  getAll: publicProcedure.query(async ({ ctx }) => {
+  getAll: publicProcedure.query(async ({ ctx }): Promise<DeckWithCreatorAndCards[]> => {
     const result = await ctx.prisma.deck.findMany({
       take: 100,
       orderBy: { updatedAt: "desc" },
-      include: deckIncludeCreatorCards
+      include: deckIncludeCreatorAndCards
     });
 
     return result;
   }),
   getById: publicProcedure
     .input(z.string())
-    .query(async ({ input: deckId, ctx }) => {
+    .query(async ({ input: deckId, ctx }): Promise<DeckWithCreatorAndCards> => {
       const result = await ctx.prisma.deck.findUnique({
         where: { id: deckId },
-        include: deckIncludeCreatorCards
+        include: deckIncludeCreatorAndCards
       });
 
       if (result === null) return Promise.reject();

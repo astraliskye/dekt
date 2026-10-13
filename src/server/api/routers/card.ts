@@ -1,31 +1,13 @@
-import { Prisma } from "@prisma/client";
 import { createTRPCRouter, publicProcedure } from "../trpc";
-
-const include = Prisma.validator<Prisma.CardInclude>()({
-  stats: true,
-  effects: true
-})
+import { cardIncludeStatsAndEffects } from "../../../shared/db";
+import { CardWithStatsAndEffects } from "../../../shared/types";
+import { PrismaPromise } from "@prisma/client";
 
 export const cardRouter = createTRPCRouter({
-  getAll: publicProcedure.query(({ ctx }) => {
+  getAll: publicProcedure.query(({ ctx }): PrismaPromise<CardWithStatsAndEffects[]> => {
     return ctx.prisma.card.findMany({
-      include: include,
+      include: cardIncludeStatsAndEffects,
       orderBy: [{ type: "asc" }, { name: "asc" }],
     });
   }),
 });
-
-export type CardWithStatsAndEffects = Prisma.CardGetPayload<{
-  include: typeof include
-}>
-
-export type DeckCardWithStatsAndEffects = Prisma.DeckCardGetPayload<{
-  include: {
-    card: {
-      include: {
-        stats: true
-        effects: true
-      }
-    }
-  }
-}>
