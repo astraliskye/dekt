@@ -9,9 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     if: >-
       github.event.workflow_run.conclusion == 'success' &&
-      (github.event.workflow_run.event == 'push' || github.event.workflow_run.event == 'pull_request') &&
+      github.event.workflow_run.event == 'push' &&
       github.event.workflow_run.head_branch == 'main'
-
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -19,11 +18,22 @@ jobs:
           node-version: 24
           package-manager-cache: false
       - uses: appleboy/ssh-action@v1
+        env:
+          DEPLOY_SHA: ${{ github.event.workflow_fun.head_sha }}
         with:
           host: astraliskye.com
           username: skye
           key: ${{ secrets.SSH_HOSTINGER_KEY }}
           script: |
+            set -eu
             cd ~/dekt
-            git pull origin main
+            git fetch origin main
+
+            if [ "$(git rev-parse FETCH_HEAD)" != "$DEPLOY_SHA" ]; then
+              echo "Skipping older CI run"
+              exit 0
+            fi
+
+            git checkout --detach "$DEPLOY_SHA"
             docker compose up -d --build
+            git rev-parse HEAD
