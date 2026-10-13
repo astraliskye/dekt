@@ -6,6 +6,18 @@ Theory-crafting tool for building Back 4 Blood decks. Live demo: <https://dekt.a
 
 DEKT helps players theory craft decks for Back 4 Blood by including accumulated stats and effects for easy visual parsing, an easier UI for quick prototyping, and a library for organizing your collection of decks. 
 
+## Showcase
+
+![Screenshot of the homepage](assets/showcase1.jpg)
+
+![Screenshot of the card builder](assets/showcase2.jpg)
+
+![Screenshot of browse decks page in light mode. No decks are displayed](assets/showcase3.jpg)
+
+![Screenshot of browse decks page in dark mode. Two decks are displayed](assets/showcase4.jpg)
+
+![Screenshot of deck view page](assets/showcase5.jpg)
+
 ## Features
 
 - Deck builder UI with drag-and-drop ordering.
